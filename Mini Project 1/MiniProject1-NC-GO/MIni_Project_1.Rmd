@@ -1,0 +1,40 @@
+---
+title: "The Greatest Mini Project 1"
+author: "Nick Connolly and Gidon Orelowitz"
+date: "5/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE, cache=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Total Donations per 5 Years
+
+We imported the AidDataCoreThin_ResearchRelease_Level1_v3.1.csv into R as our data set. This data includes information about donors, receivers, and amount dontated by year. For each five year block, we are interested in viewing the total amount donated by each donor.
+
+The R code is included here for the benefit of future researches.
+
+
+```{r libraries, echo=FALSE, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+```
+
+```{r data, cache=TRUE}
+CountryData <- read.csv(file="AidDataCoreThin_ResearchRelease_Level1_v3.1.csv")
+```
+
+```{r country, cache=TRUE}
+CountryData %>%
+  group_by(donor,year) %>%
+  filter(year<2020) %>%
+  summarise( total_given = sum(commitment_amount_usd_constant)) %>%
+  mutate(era = year - (year%%5) ) %>%
+  ggplot( mapping = aes(x = as.factor(era), y = total_given) ) + geom_boxplot(alpha = 0.5) + xlab("5 year interval") + ylab("Total USD Given (adjusted 2013)") + ggtitle("EPIC BOX PLOT")
+```
+
+## Interpretation
+
+This graphic displays the desired information with a box plot. Most donors are small, but in recent decades we observe the emergence of a number super-donors. These super-donors are characterized by extremely large donations over a 5-year period, both in terms of raw numbers (adjusted for inflation), and relative to the median in that time period.
