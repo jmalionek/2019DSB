@@ -1,0 +1,42 @@
+---
+title: "Aid Data"
+author: "Nicole Yamzon and Joseph Malionek"
+date: "5/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(stringr)
+recip_res <- read.csv(file="/cloud/project/Day2/Mini-Project-Visualize/1_Data/AidDataCoreDonorRecipientYear_ResearchRelease_Level1_v3.1.csv")
+```
+
+## R Markdown
+
+When we first looked at the data, (after hours and hours of technical difficulties), we did a plot of all of the donations just to test things and see what the data looked like.
+After seeing that mess (even the truncated we were using was a quarter of a gigabyte and we had a point in the graph for each row in the set...not pretty), we noticed that as time increased, the total amount of donations seemed constant, but there were a great deal more smaller donations.
+We also noticed that there was a large chunk of donations from United Nations organizations, and so we wanted to see if those trends matched with the rest of the world.
+So, we first checked and saw that the total number of donations was increasing:
+
+```{r}
+recip_res %>% filter( year < 2020) %>% 
+  mutate(un = str_detect(donor, "(United Nations)|UN")) %>% 
+  group_by(un, year) %>% 
+  summarize(number = n(), 
+            average = mean(commitment_amount_usd_constant_sum), 
+            donation_range = max(commitment_amount_usd_constant_sum)-min(commitment_amount_usd_constant_sum)) -> modified_aid
+modified_aid$agency = ifelse(modified_aid$un,"UN donor", "Other donor")
+ggplot(modified_aid) + 
+  geom_line(aes(x = year , y = number, color = agency))
+```
+
+Then we checked the average donation size
+
+```{r echo = FALSE}
+ggplot(modified_aid) + 
+  geom_line(aes(x = year , y = average, color = agency))
+```
+
+So, for most of the agencies, the average donation size is trending downwards, but not for UN agencies, but in both cases, the number of donations is steadily increasing.
+
