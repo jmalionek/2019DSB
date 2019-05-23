@@ -1,0 +1,12 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(ggplot)
+```
+
+This is Adriana and Elisa's mini project 2.
+
+HEALTHCARE
