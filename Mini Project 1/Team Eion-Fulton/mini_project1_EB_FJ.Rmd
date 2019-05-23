@@ -1,0 +1,56 @@
+---
+title: "Mini-Project 1"
+author: "Eion Blanchard & Fulton Jackson"
+date: "5/22/2019"
+output: html_document
+---
+
+```{r setup}
+library(ggplot2)
+library(tidyverse)
+library(skimr)
+library(gapminder)
+```
+
+Step 1: Read in donation data and compute the total USD donated and received (with other countries) over all years, for each country.
+```{r}
+data <- read.csv("../1_Data/AidDataCoreDonorRecipientYear_ResearchRelease_Level1_v3.1.csv")
+donor <- data %>%
+  group_by(donor) %>%
+  summarize(given = sum(commitment_amount_usd_constant_sum))
+recipient <- data %>%
+  group_by(recipient) %>%
+  summarize(received = sum(commitment_amount_usd_constant_sum))
+```
+
+Step 2: Compute net donation figure for each country.
+```{r}
+full <- donor %>%
+  inner_join(recipient, by = c("donor" = "recipient")) %>%
+  mutate(net = given - received) %>%
+  arrange(desc(net))
+```
+
+Step 3: Read in 2007 GDP data and join to donation data.
+```{r}
+gdp <- gapminder %>%
+  filter(year == "2007") %>%
+  mutate(gdp = pop * gdpPercap) %>%
+  select(-(3:6))
+full_gdp <- full %>%
+  inner_join(gdp, by = c("donor" = "country")) %>%
+  mutate(part = 100 * given / gdp)
+```
+
+Step 4: Plot data.
+```{r}
+ggplot(full_gdp, mapping = aes(x = net, y = part)) +
+  geom_point(mapping = aes(color = continent)) +
+  geom_smooth(color = "yellow") +
+  labs(x = "Net donations (USD)", y = "Participation score (% of GDP)")
+ggplot(full_gdp, mapping = aes(x = net, y = part)) +
+  geom_point(mapping = aes(color = donor)) +
+  geom_smooth(color = "yellow") +
+  labs(x = "Net donations (USD)", y = "Participation score (% of GDP)")
+```
+
