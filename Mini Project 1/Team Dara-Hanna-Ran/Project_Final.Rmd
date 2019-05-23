@@ -1,0 +1,107 @@
+---
+title: "Project_Final"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Group Members: Dara Zirlin, Ran Ji, Hanna Kim
+
+We looked at the purpose codes. We found those under which the most aid was given. We then looked at the percent of aid given under these codes by year.
+
+
+
+Below we load packages.
+```{r, cache=TRUE}
+#Load all necessary packages
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+Below we load the data.
+```{r, cache=TRUE}
+aiddata_purpose <- read_csv("1_Data/aiddata_purpose.csv", col_names=c("donor","recipient","year","purp_code","purp_name","usd"),skip=1)
+
+```
+
+
+
+Below is how much aid is given per year.
+```{r}
+aiddata_purpose%>%filter(year<=2019)%>%group_by(year)%>%summarise(total=sum(usd))%>%arrange(year)%>%ggplot()+geom_point(aes(x=year,y=total))+labs(y="Commitment Amount (USD 2011)")
+```
+
+
+Below we get the top 10 purpose codes and plot the amount given under each code by year, in a line graph.
+```{r}
+code=aiddata_purpose%>%group_by(purp_code)%>%summarise(total=sum(usd))%>%mutate(rank=min_rank(desc(total)))%>%filter(rank<=10)%>%select(purp_code)
+
+
+data=aiddata_purpose%>%right_join(code,by="purp_code")%>%group_by(year,purp_code)%>%summarise(total=sum(usd))%>%filter(year<=2019)
+
+
+data["purp_code"]=lapply(data["purp_code"],as.character)
+
+data%>%ggplot+geom_line(aes(x=year,y=total,color=purp_code))+labs(y="Commitment Amount (USD 2011)", color="Purpose Code")+scale_color_brewer(palette="Paired")
+```
+
+Below we get the top 10 purpose codes and plot the amount given under each code by year, in a bar plot.
+```{r}
+code=aiddata_purpose%>%group_by(purp_code)%>%summarise(total=sum(usd))%>%mutate(rank=min_rank(desc(total)))%>%filter(rank<=10)%>%select(purp_code)
+
+
+data=aiddata_purpose%>%right_join(code,by="purp_code")%>%group_by(year,purp_code)%>%summarise(total=sum(usd))%>%filter(year<=2019)
+
+
+data["purp_code"]=lapply(data["purp_code"],as.character)
+
+data%>%ggplot(aes(x=year,y=total,fill=purp_code))+geom_bar(stat="identity")+labs(y="Commitment Amount (USD 2011)", fill="Purpose Code")+scale_fill_brewer(palette="Spectral")
+
+
+```
+
+
+
+Below we get the top 10 purpose codes and plot the percent given of aid given under that code, by year, in a line graph.
+```{r}
+code=aiddata_purpose%>%group_by(purp_code)%>%summarise(total=sum(usd))%>%mutate(rank=min_rank(desc(total)))%>%filter(rank<=10)%>%select(purp_code)
+
+year_total=aiddata_purpose%>%group_by(year)%>%summarize(year_tot=sum(usd))%>%select(year,year_tot)
+
+
+data=aiddata_purpose%>%right_join(code,by="purp_code")%>%group_by(year,purp_code)%>%summarise(total=sum(usd))%>%filter(year<=2019)
+
+data2=data%>%left_join(year_total, by="year")
+
+
+data2["purp_code"]=lapply(data2["purp_code"],as.character)
+
+
+data2%>%mutate(percent=total/year_tot)%>%ggplot+geom_line(aes(x=year,y=percent,color=purp_code))+labs(y="Percent of Aid", color="Purpose Code")+scale_color_brewer(palette="Paired")
+```
+
+
+
+
+Below we get the top 10 purpose codes and plot the percent given of aid given under that code, by year, in a stacked bar graph.
+
+
+```{r}
+code=aiddata_purpose%>%group_by(purp_code)%>%summarise(total=sum(usd))%>%mutate(rank=min_rank(desc(total)))%>%filter(rank<=10)%>%select(purp_code)
+
+year_total=aiddata_purpose%>%group_by(year)%>%summarize(year_tot=sum(usd))%>%select(year,year_tot)
+
+
+data=aiddata_purpose%>%right_join(code,by="purp_code")%>%group_by(year,purp_code)%>%summarise(total=sum(usd))%>%filter(year<=2019)
+
+data2=data%>%left_join(year_total, by="year")
+
+
+data2["purp_code"]=lapply(data2["purp_code"],as.character)
+
+data3=data2%>%mutate(percent=total/year_tot)%>%select(purp_code,year,percent)
+
+
+data3%>%ggplot(aes(x=year,y=percent,fill=purp_code))+geom_bar(stat="identity")+labs(y="Percent of Aid", fill="Purpose Code")+scale_fill_brewer(palette="Spectral")
+```
