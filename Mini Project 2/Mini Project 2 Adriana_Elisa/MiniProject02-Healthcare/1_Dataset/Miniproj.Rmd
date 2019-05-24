@@ -1,0 +1,127 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+library(readr)
+setwd("/cloud/project/Day3/MiniProject02-Healthcare/1_Dataset")
+coverage <- read_csv("hcare_cov.csv")
+spending <- read_csv("hcare_spend.csv")
+```
+
+```{r}
+coverage %>%
+  drop_na()
+
+spending %>%
+  drop_na()
+```
+
+```{r}
+cleancov<- coverage %>%
+  #filter( `2014__Other Public` != "N/A")%>%
+  filter( Location != "United States")%>%
+  mutate(Location = fct_recode(Location, "South dakota"= "South Dakota", "South carolina"= "South Carolina", "Rhode island"= "Rhode Island", "District of columbia"= "District of Columbia", "New hampshire"= "New Hampshire", "New mexico"= "New Mexico", "New jersey"= "New Jersey", "New york"= "New York", "North carolina"= "North Carolina", "West virginia"= "West Virginia", "North dakota"= "North Dakota"))%>%
+  select(region= Location, `2014__Total`)%>%
+  mutate(rspend = rank(`2014__Total`))%>%
+  mutate(Percentiles = cut(`2014__Total`, quantile(`2014__Total`, seq(0, 1, len = 6)), include.lowest = TRUE))
+  
+  
+```
+
+
+```{r}
+cov_total <- left_join(gusa, cleancov, "region")
+head(cov_total)
+```
+
+```{r}
+ggplot(cov_total) +
+    geom_polygon(aes(long, lat, group = group, fill = rspend),
+                 color = "grey") +
+    coord_map("bonne", parameters=45) #+
+    #ggthemes::theme_map() +
+    #scale_fill_brewer(palette = "Purples")
+```
+
+
+```{r}
+install.packages("maps")
+library(maps)
+gusa <- map_data("state")
+
+View(gusa)
+```
+
+```{r}
+data<- spending%>%
+  filter( Location != "United States")%>%
+  mutate(Location = fct_recode(Location, "South dakota"= "South Dakota", "South carolina"= "South Carolina", "Rhode island"= "Rhode Island", "District of columbia"= "District of Columbia", "New hampshire"= "New Hampshire", "New mexico"= "New Mexico", "New jersey"= "New Jersey", "New york"= "New York", "North carolina"= "North Carolina", "West virginia"= "West Virginia", "North dakota"= "North Dakota"))%>%
+  select(region= Location, `2014__Total Health Spending`)%>%
+  mutate(rspending = rank(`2014__Total Health Spending`))%>%
+  mutate(pcls = cut(`2014__Total Health Spending`, quantile(`2014__Total Health Spending`, seq(0, 1, len = 6)), include.lowest = TRUE))
+```
+
+```{r}
+View(data)
+```
+
+
+```{r}
+capFirst <- function(s) {
+    paste(toupper(substring(s, 1, 1)), substring(s, 2), sep = "")
+}
+```
+
+```{r}
+gusa$region <- capFirst(gusa$region)
+View(gusa)
+```
+
+
+```{r}
+gusa_pop <- left_join(gusa, data, "region")
+head(gusa_pop)
+```
+
+```{r}
+#install.packages("maptools")
+#install.packages("ggmap")
+#install.packages("doBy")
+library(maptools)
+library(ggplot2)
+library(ggmap)
+library(doBy)
+txtVal <- summaryBy(long + lat + rspending ~ region, data=gusa_pop, FUN=mean, keep.names=T)
+#install.packages("mapproj")
+library(mapproj)
+ggplot(gusa_pop) +
+    geom_polygon(aes(long, lat, group = group, fill = rspending)) +
+coord_map("bonne", parameters=45) + geom_text(aes(x=long, y=lat, label=rspending), data=txtVal, col="red", cex=2.5)
+```
+```{r}
+#install.packages("ggthemes")
+library(ggthemes)
+ggplot(gusa_pop) +
+    geom_polygon(aes(long, lat, group = group, fill = rspending),
+                 color = "grey") +
+    coord_map("bonne", parameters=45) + geom_text(aes(x=long, y=lat, label=rspending), data=txtVal, col="red", cex=2.5)
+    #ggthemes::theme_map() +
+    #scale_fill_brewer(palette = "Purples")
+```
+

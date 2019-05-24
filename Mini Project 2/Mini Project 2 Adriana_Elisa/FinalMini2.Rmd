@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Healthcare"
 output: html_notebook
 ---
@@ -195,3 +196,16 @@ ggplot(spd_total) +
 
 
     
+=======
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(ggplot)
+```
+
+This is Adriana and Elisa's mini project 2.
+
+HEALTHCARE
+>>>>>>> 1ca8b857dfb8e33495701bd240d52f0f74663a6f
