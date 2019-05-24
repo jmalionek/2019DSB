@@ -1,0 +1,61 @@
+---
+title: "Mini Project 2"
+author: "Nick Connolly and Jinhua Xu"
+date: "5/23/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r libraries, echo=FALSE, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(reshape2)
+```
+
+In this project, we compare the amount of money each US state spends on health care coverage and consider the average amount spent on each person. The R code is included to help future researchers reproduce our analysis.
+
+```{r data}
+CoverageData <- read.csv(file="./1_Dataset/hcare_cov.csv")
+SpendingData <- read.csv(file="./1_Dataset/hcare_spend.csv")
+
+CombinedTable <- left_join(select(CoverageData,Location,X2013__Total,X2014__Total),select(SpendingData,Location,X2013__Total.Health.Spending,X2014__Total.Health.Spending), by = "Location" )
+
+CombinedTableFiltered <- filter(CombinedTable, X2013__Total.Health.Spending < 100000000, X2013__Total < 100000000 )
+
+XDataSpending <- melt( data.frame(select(CombinedTableFiltered,Location,X2013__Total,X2014__Total)), id.vars = "Location")
+```
+
+## Comparing Health Care Data by State, 2013-2014
+
+The bar chart below shows the total amount of money spent on health care by each state in 2013 and 2014. In general, spending increased slightly in 2014.
+
+```{r plots}
+
+XDataSpending %>%
+  ggplot( mapping = aes( x=Location, y=value, fill=variable )) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.5)) + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + xlab("State") + ylab("Total Health Care Spending (USD)") + ggtitle("Health Care Spending by State, 2013-2014")
+
+```
+
+The average amount spent on health care per person is computed for each state. This average increases from 2013 to 2014.
+
+```{r data coverage}
+
+CombinedTableCoverage <- CombinedTable %>%
+  mutate( Avg_Cov_2013 = X2013__Total/X2013__Total.Health.Spending ) %>%
+  mutate( Avg_Cov_2014 = X2014__Total/X2014__Total.Health.Spending )
+
+XDataCoverage <- melt( data.frame(select(CombinedTableCoverage,Location,Avg_Cov_2013,Avg_Cov_2014)), id.vars = "Location")
+
+
+XDataCoverage %>%
+  ggplot( mapping = aes( x=Location, y=value, fill=variable, color=variable )) +
+  geom_point() + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + xlab("State") + ylab("Average Coverage (USD)") + ggtitle("Comparing Health Care Coverage, 2013-2014")
+
+```
