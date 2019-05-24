@@ -34,4 +34,6 @@ In this graph, we added a trend line graphic to better understand the trend of t
 Further, the last graph depicts the specific increase of medicaid heathcare coverage between 2013 and 2014. 
 We chose these years in particular, because we wanted to verify the claim that during the year of 2014, medicaid increased their healthccare coverage. 
 This graph and data set support this claim.
+
+https://www.hccmis.com/blog/insurance/changes-in-healthcare-in-2013/?fbclid=IwAR3_sLfSY4FRcdLbV3SMbZlxoOeA7CDrGdpqOM-kxYxE0iJE3frSY2ztqkM
 ---
