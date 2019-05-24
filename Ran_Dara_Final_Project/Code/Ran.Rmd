@@ -7,22 +7,28 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Step 0: Load necessary libraries and datasets
+Load libraries that we use and the two healthcare datasets specified for the project.
+We spent some time on the website reading about what's included in the datasets.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(modelr)
+library(broom)
+library(readxl)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+teen_birth <- read.csv("../Data/teen_birth.csv")
 
-```{r cars}
-summary(cars)
+unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 ```
+# Step 1: Tidy data into more accessible form
+Using the tidyverse functions that we've learned, clean the two datasets so that data analysis wolud be more efficient.
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+teen_birth <- teen_birth %>%
+  rename(state = Location) %>%
+  select(state, year, category, amount)
 ```
-
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
