@@ -1,0 +1,40 @@
+---
+title: "Mini Project 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+setwd("/cloud/project/Day3/MiniProject02-Healthcare/1_Dataset")
+coverage <- read_csv("hcare_cov.csv")
+spending <- read_csv("hcare_spend.csv")
+setwd("/cloud/project/Day3/MiniProject02-Healthcare/2_Code")
+```
+
+Our purpose in this project is to answer the three questions asked. Therefore, we only considered data that both csv files had, which are the 203 and 2014 data. We then created a multifaceted graph (x axis is the total spending, y axis is the total number of people) so that the user may compare the total spending amongst the different types of coverage. We plotted the 2013 and 2014 data together so that the user may compare the two years. Each point represents a state in the U.S.
+
+```{r, echo=FALSE, message = FALSE, warning = FALSE}
+coverage %>%
+  left_join(spending, by = "Location")%>%select(-c(30:51)) %>%
+ select(-c(16:29)) %>%drop_na()%>%
+  gather(key = "Year_Type", value = "People", c(2:15))%>%
+  mutate(Year = (substr(Year_Type, 1,4)), Type = substr(Year_Type,7,100), int_people = as.integer(People))%>%
+  select(-c("Year_Type", People))%>%
+  rename(Total_Health_Spending2013 = c("2013__Total_Health_Spending"="2013__Total Health Spending"))%>%
+  rename(Total_Health_Spending2014 = c("2014__Total_Health_Spending"="2014__Total Health Spending"))%>% 
+  mutate(Health_Spending = ifelse(Year == 2013, Total_Health_Spending2013, Total_Health_Spending2014))%>%
+  select(-c(2:3))%>% filter(Type != "Total")%>%
+  drop_na()%>%
+  filter(Location != "United States") %>%
+  ggplot(mapping = aes(x = (Health_Spending), y= (int_people), color = Year)) + geom_point(alpha = 0.3)+ geom_smooth() + facet_wrap(~Type)
+```
+
+
