@@ -2,8 +2,20 @@
 title: "miniproject2"
 author: "Shinhae Park"
 date: "5/22/2019"
-output: pdf_document
+output: html_document
 ---
+
+# Data
+In this project, two data sets are used: 'Health Insurance Coverage of the Total Population - Includes years 2013-2016' and 'Health Care Expenditures by State of Residence (in millions) Includes years 1991-2014'.
+Both contain US total except for Puerto Rico.
+
+# Questions 
+1. Is there a relationship between healthcare coverage and healthcare spending in the United States?
+
+2. How does the spending distribution change across geographic regions in the United States?
+
+3. Does the relationship between healthcare coverage and healthcare spending in the United States change from 2013 to 2014?
+
 
 ```{r setup}
 library(dplyr)
@@ -19,12 +31,7 @@ coverage<-read_csv("hcare_cov.csv")
 spend<-read_csv("hcare_spend.csv")
 ```
 
-Let us check the data and the definitions of each variable.
-
-```{r}
-head(coverage) #US total excludes Puerto Rico
-```
-
+In the file of health care coverage, they contain some terms.
 
 # Medicaid: 
 Includes those covered by Medicaid, Medical Assistance, Children's Health Insurance Plan (CHIP) or any kind of government-assistance plan for those with low incomes or a disability, as well as those who have both Medicaid and another type of coverage, such as dual eligibles who are also covered by Medicare.
@@ -48,9 +55,9 @@ Includes those without health insurance and those who have coverage under the In
 Estimates with relative standard errors greater than 30% are not provided.
 
 
+
 ```{r}
 #remove N/A
-
 coverage2=coverage[-which(coverage=="N/A",arr.ind=TRUE)[,1],]
 ```
 
@@ -69,18 +76,18 @@ coverage2 %>%
 
 
 
-```{r}
-coverage2 %>% 
-  select(1:7) %>% 
-  filter(Location!="United States") %>%
-  gather("type_2013","amount", -Location) %>% 
-  group_by(type_2013) %>% 
-  ggplot(aes(x=Location,y=amount))+
-  geom_col(aes(fill=type_2013))+
-  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))+
-  theme(axis.text.y=element_blank(),axis.ticks.y=element_blank())+
-  ylab("proportion")
-```
+<!-- ```{r} -->
+<!-- coverage2 %>%  -->
+<!--   select(1:7) %>%  -->
+<!--   filter(Location!="United States") %>% -->
+<!--   gather("type_2013","amount", -Location) %>%  -->
+<!--   group_by(type_2013) %>%  -->
+<!--   ggplot(aes(x=Location,y=amount))+ -->
+<!--   geom_col(aes(fill=type_2013))+ -->
+<!--   theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))+ -->
+<!--   theme(axis.text.y=element_blank(),axis.ticks.y=element_blank())+ -->
+<!--   ylab("proportion") -->
+<!-- ``` -->
 
 Now, I want to see how the coverage changed from 2013 to 2016 in Illinois.
 
@@ -120,28 +127,22 @@ cov_illinois %>%
   ylab("proportion")+ggtitle("Illinois Coverage from 2013 to 2016")
 ```
 
+Throughout the years from 2013 to 2016, the group of Uninsured increased.
 
-# Question 1: Is there a relationship between healthcare coverage and healthcare spending in the United States?
-
-
-
-# Question 2: How does the spending distribution change across geographic regions in the United States?
-
-
-
-# Question 3: Does the relationship between healthcare coverage and healthcare spending in the United States change from 2013 to 2014?
+Now, I want to see the relationship between healthcare coverage and healthcare spending in the United States from 2013 to 2014.
 
 ```{r}
 spend2013_14<-spend %>% 
   select(Location,`2013__Total Health Spending`, `2014__Total Health Spending`) %>% filter(Location=="United States")
-  
 ```
+
 
 ```{r}
 data2013_14<-coverage %>% 
   select(Location,`2013__Total`, `2014__Total`) %>% 
   filter(Location=="United States") %>% 
   full_join(spend2013_14, by="Location") %>% 
-  ggplot(aes=("Location") )+geom_bar(stat="identity",fill="pink")
-  
+  select(-c("Location")) %>% 
+  gather("coverage_and_spend","amount") %>% 
+  ggplot(aes(x="coverage_and_spend", y="amount", fill="coverage_and_spend") )+geom_bar(stat="identity")
 ```
