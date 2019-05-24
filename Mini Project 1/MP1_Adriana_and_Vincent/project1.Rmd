@@ -1,0 +1,59 @@
+---
+title: "Time graph of top 10 donors"
+authors: "Adriana Morales and Vincent Villalobos"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+
+Goal: We want to graph the top ten donors and see how much they donated over the years. The steps to take are: clean the data, chose the data we want to graph and then plot the substed of the inital data.  
+
+
+Necessary setup: 
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+```
+
+Getting the data:
+
+```{r}
+setwd("/cloud/project/Mini Project 1/MP1_Adriana_and_Vincent")
+mydata <- read.csv() #Insert data
+```
+
+The first step was to clean our data. The main cleanup came from the year column, because we had a year called 9999, this was going to create some problems. Because of the fact that we have a lot of donors, we must choose a subset of our data. Next we clean the data and select the first 318 rows which equal the first 10 donors
+
+```{r}
+gooddata<- mydata %>%
+  filter(year!= 9999)%>%
+  group_by(donor, year) %>%
+  summarise(total = sum(commitment_amount_usd_constant))%>%
+  head(318)
+```
+
+
+Now we make a graph of our data. We use ggplot to make a time graph for each country.
+```{r fig.height = 10, fig.width = 10}
+ggplot(data = gooddata, aes(x=year, y=total)) + geom_line(aes(colour=donor)) + labs(x = "Year", y = "Amount donated", title = "Time graph of the top 10 donors")
+```
+
+Note that the graph above is not easy to visualize because there is a lot going on. That's why we create smaller graphs for each donor. 
+
+
+```{r fig.height = 10, fig.width = 15}
+gooddata %>%
+  ggplot() + geom_line(mapping= aes(x= year, y= total, color= donor))+ facet_wrap(~donor)
+```
+
+We note that the graph for AsDB Special Funds is empty and notice that the Asian Development Bank only donated in the year 2013. Therefore we change it to geom_point() in order to see the graph for the Asian Development Bank. 
+
+
+```{r fig.height = 10, fig.width = 15}
+gooddata %>%
+  ggplot() + geom_point(mapping= aes(x= year, y= total, color= donor))+ facet_wrap(~donor)
+```
+
