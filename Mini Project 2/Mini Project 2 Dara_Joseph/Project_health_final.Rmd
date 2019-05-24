@@ -1,0 +1,50 @@
+---
+title: "Project_health"
+output: html_document
+---
+
+
+We looked at the health care spending (in millions) per person by state. We split the states into different divisions of the US (Mountain, Pacific, New England, etc) and specifically looked at the spending in these divisions. We color coded the divisions by region of the US (Midwest, Northeast, South, West). Our graphic contains data for two years, 2013 and 2014. Our data comes from the Henry J Kaiser Family Foundation (KFF). The mean for each division is shown as a black diamond. States in the Northeast (especially in New England) tended to spend more on healthcare per citizen. The South Atlantic had a very large spread. The Pacific has two very large outlier, which are both Alaska in different years. States in Mountain division tend to do the least spending per person.
+
+
+```{r,cache=TRUE}
+#load libraries
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+```
+
+
+```{r,cache=TRUE}
+#load data
+hcare_cov <- read_csv("1_Dataset/hcare_cov.csv")
+hcare_spend <- read_csv("1_Dataset/hcare_spend.csv")
+state_regions <- read_csv("state_regions.csv")
+
+```
+
+
+
+
+```{r, cache=TRUE}
+#create graphic
+data1=hcare_spend%>%select(Location,`2013__Total Health Spending`,`2014__Total Health Spending`)
+
+data2=hcare_cov%>%select(Location,`2013__Total`,`2014__Total`)
+data3=data1%>%left_join(data2,by="Location")
+
+data4=data3%>%mutate(spend_by_pop_2013=`2013__Total Health Spending`/`2013__Total`,spend_by_pop_2014=`2014__Total Health Spending`/`2014__Total`)
+data5=data4%>%right_join(state_regions,by=c("Location"="State"))
+
+
+
+data6=data5%>%mutate(len=nchar(Region))%>%gather(key="year",value="spending",6:7)
+mean=data6%>%group_by(Division)%>%summarise(avg_spend=mean(spending))
+data7=data6%>%left_join(mean,by="Division")%>%mutate(name=ifelse(spending>.0105,Location,NA))
+data7%>%ggplot()+geom_point(aes(y=spending,x=fct_reorder(Division,len),color=Region),alpha=.5)+labs(y="Spending (in Millions) by Person",x="Division")+geom_text(aes(y=spending,x=fct_reorder(Division,len),label=name),hjust=1,vjust=0,alpha=.5)+theme(axis.text.x=element_text(angle=45,hjust=1))+geom_point(aes(y=avg_spend,x=fct_reorder(Division,len)),alpha=1, size=2,shape=23,color="black")
+
+
+```
+
+
