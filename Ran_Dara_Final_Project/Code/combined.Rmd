@@ -1,15 +1,23 @@
 ---
-title: "Contributors to Teen Birth"
-output: html_document
+title: "Contributors to Teen Birth Rate"
+author: "Dara Zirlin, Ran Ji"
+date: "Last updated on 'r Sys.Date()'"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-### Step 0: Load necessary libraries and datasets
-Load libraries that we use
 ```{r}
+# Step 0: Load necessary libraries and datasets
+# Load libraries that we use
+
 #data analysis
 library(tidyverse)
 library(broom)
@@ -24,23 +32,42 @@ library(maps)
 library(dplyr)
 ```
 
-### Step 1: Load datasets
-We consider three datasets:
-*Teen birth data by county
-*Education by county
-*Unemployment rate by county
+### Question
+How is teen birth rate related to adult unemployment and adult education levels? We look at the relationship at the county level. Further, how do teen birth rates differ by region?
+
+### Datasets
+*Teen birth rates
++ Link: https://catalog.data.gov/dataset/teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county
++ Estimated teen birth rates for age group 15-19 (expressed per 1000 females aged 15-19) by county and year
++ Used data for 2015
+
+*Education
++ Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
++ Percentage of adults in each of four categories
+++ Did not receive high school diploma
+++ Only received high school diploma
+++ Some college or associate's degree
+++ Received college degree or higher
++ Used average value across 2013-2017
+
+*Unemployment
++ Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
++ Percent of labor force (people with a job or actively looking for one) without a job
++ Used data for 2015
 
 ```{r}
+# Step 1: Load datasets
+#We consider three datasets: Teen birth data by county, Education by county, Unemployment rate by county
+
 teen_birth <- read_csv("../Data/teen_birth.csv")
 Education <- read_csv("../Data/Education.csv")
 Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 state_regions <- read_csv("../Data/state_regions.csv")
 ```
 
-### Step 2: Clean datasets for ease of use
-Looking at the years that the three datasets have in common, we chose to use 2015 data for teen_birth and Unemployment datases. For Education, we use the 2013-2017 average.
-
 ```{r}
+# Step 2: Clean datasets for ease of use
+
 Education <- Education %>%
   select(1, 44, 45, 46, 47) %>%
   mutate(`FIPS Code` = as.integer(`FIPS Code`))
@@ -59,48 +86,61 @@ unemployment2015 <- Unemployment %>%
   mutate(FIPS = as.integer(FIPS))
 ```
 
-### Step 3: Join datasets into a master dataset
-Join the datasets by FIPS, which is a standardized code identifying various regions within the US
-
 ```{r}
+# Step 3: Join datasets into a master dataset
+# Join the datasets by FIPS, which is a standardized code identifying various regions within the US
+
 data <- teen_birth %>%
   inner_join(Education,by = c("Combined FIPS Code"="FIPS Code")) %>%
   inner_join(unemployment2015, by = c("Combined FIPS Code"="FIPS")) %>%
   rename(Less_than_high_school=`Percent of adults with less than a high school diploma, 2013-17`,
          high_school=`Percent of adults with a high school diploma only, 2013-17`,
          some_college=`Percent of adults completing some college or associate's degree, 2013-17`,
-         college=`Percent of adults with a bachelor's degree or higher, 2013-17`)
-
-data=data%>%inner_join(state_regions, by=c("State"="State Code"))
+         college=`Percent of adults with a bachelor's degree or higher, 2013-17`) %>%
+  inner_join(state_regions, by=c("State"="State Code"))
 ```
 
-### Step 4: Plotting birth rates against various education rates and unemployment rates
+### Graphics
+Below, we plot our independent variables against teen birth rates.
 
 ```{r}
+# Step 4: Plotting birth rates against various education rates and unemployment rates
+
 data %>%
   ggplot(aes(y = `Birth Rate`, x = Less_than_high_school)) +
   geom_point(alpha=.3) + 
   labs(y = "Teen Birth Rate", x="Percent of adults with less than a high school diploma, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
+```
+There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
 
+```{r}
 data %>%
   ggplot(aes(y = `Birth Rate`, x = high_school)) +
   geom_point(alpha=.3) + 
-  labs(y = "Teen Birth Rate", x="Percent of adults with a high school diploma only, 2013-17") + 
+  labs(y = "Teen Birth Rate", x ="Percent of adults with a high school diploma only, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
+```
+While teen birth rates and the percent of adults with only a high school diploma do appear to be positively correlated, the relationship appears less strong.
 
+```{r}
 data %>%
   ggplot(aes(y = `Birth Rate`, x = some_college)) +
   geom_point(alpha=.3) + 
   labs(y = "Teen Birth Rate", x="Percent of adults completing some college or associate's degree, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
+```
+There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
 
+```{r}
 data %>%
   ggplot(aes(y=`Birth Rate`, x=`college`),) +
   geom_point(alpha=.3) + 
   labs(y = "Teen Birth Rate", x = "Percent of adults with a bachelor's degree or higher, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
+```
 
+```{r}
 data %>%
   ggplot(aes(y=`Birth Rate`, x=`UnemploymentRate`)) +
   geom_point(alpha=.3) + 
@@ -163,29 +203,24 @@ summary(model)
 plot(model)
 ```
 
-```{r}
-data(county.fips)
-
-## merge population data with county.fips to make sure color column is
-## ordered correctly.
-data <- data %>%
-  mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
-```
+### Graphics
+Below is a map of the US colored by teen birth rates at the county level.
 
 ```{r}
-# Load the county data from the maps package
+# Load county and state data from the maps package
 cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
 state <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
 
-
+# Append FIPS code to the counties
 cnty2 <- cnty %>%
          left_join(county.fips, by=c("ID" = "polyname"))
 
+# Joined county map data with our master dataset
 cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
 
-tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE)+tm_shape(state)+tm_borders()
+#Print map
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE) + tm_shape(state) + tm_borders()
 ```
-
 
 ```{r}
 data <- data %>%
