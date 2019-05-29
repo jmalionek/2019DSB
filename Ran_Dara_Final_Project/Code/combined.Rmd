@@ -4,10 +4,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-# Step 0: Load necessary libraries and datasets
+### Step 0: Load necessary libraries and datasets
 Load libraries that we use
 ```{r}
 #data analysis
@@ -24,7 +24,7 @@ library(maps)
 library(dplyr)
 ```
 
-# Step 1: Load datasets
+### Step 1: Load datasets
 We consider three datasets:
 *Teen birth data by county
 *Education by county
@@ -37,7 +37,7 @@ Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 state_regions <- read_csv("../Data/state_regions.csv")
 ```
 
-# Step 2: Clean datasets for ease of use
+### Step 2: Clean datasets for ease of use
 Looking at the years that the three datasets have in common, we chose to use 2015 data for teen_birth and Unemployment datases. For Education, we use the 2013-2017 average.
 
 ```{r}
@@ -59,8 +59,8 @@ unemployment2015 <- Unemployment %>%
   mutate(FIPS = as.integer(FIPS))
 ```
 
-# Step 3: Join datasets into a master dataset
-We
+### Step 3: Join datasets into a master dataset
+Join the datasets by FIPS, which is a standardized code identifying various regions within the US
 
 ```{r}
 data <- teen_birth %>%
@@ -74,57 +74,61 @@ data <- teen_birth %>%
 data=data%>%inner_join(state_regions, by=c("State"="State Code"))
 ```
 
-# Step 4: Plotting birth rates against various education rates and unemployment rates
+### Step 4: Plotting birth rates against various education rates and unemployment rates
 
 ```{r}
 data %>%
-  ggplot(aes(y=`Birth Rate`, x=`Less_than_high_school`)) +
+  ggplot(aes(y = `Birth Rate`, x = Less_than_high_school)) +
   geom_point(alpha=.3) + 
-  labs(x="Percent of adults with less than a high school diploma, 2013-17")+geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x="Percent of adults with less than a high school diploma, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
 
 data %>%
-  ggplot(aes(y=`Birth Rate`, x=`high_school`)) +
+  ggplot(aes(y = `Birth Rate`, x = high_school)) +
   geom_point(alpha=.3) + 
-  labs(x="Percent of adults with a high school diploma only, 2013-17")+geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x="Percent of adults with a high school diploma only, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
 
 data %>%
-  ggplot(aes(y=`Birth Rate`, x=`some_college`)) +
+  ggplot(aes(y = `Birth Rate`, x = some_college)) +
   geom_point(alpha=.3) + 
-  labs(x="Percent of adults completing some college or associate's degree, 2013-17")+geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x="Percent of adults completing some college or associate's degree, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
 
 data %>%
   ggplot(aes(y=`Birth Rate`, x=`college`),) +
   geom_point(alpha=.3) + 
-  labs(x="Percent of adults with a bachelor's degree or higher, 2013-17")+geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x = "Percent of adults with a bachelor's degree or higher, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
 
 data %>%
   ggplot(aes(y=`Birth Rate`, x=`UnemploymentRate`)) +
   geom_point(alpha=.3) + 
-  labs(x="Unemployment Rate")+geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x = "Unemployment Rate") + 
+  geom_smooth(method="lm",se=FALSE)
 ```
 
-# Linear model of birth rate as a function of unemployment rate and education
+### Linear model of birth rate as a function of unemployment rate and education
 The education data divides the population into four groups: less than high school, high school, college, beyond college. Since the four categories add up to 100%, it is sufficient to only include three of the four rates in the linear model.
 
 ```{r}
 model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
 
 summary(model)
-plot(model)
+# plot(model)
 ```
 
+```{r, echo = FALSE, eval = FALSE}
 # Linear model of log(birth rate) as a function of unemployment rate and education
 
-```{r, echo=FALSE, eval=FALSE}
 model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
 
 summary(model)
 plot(model)
 ```
 
-# Adding in quadratic terms to the model
-
 ```{r, echo=FALSE, eval=FALSE}
+# Adding in quadratic terms to the model
 
 model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2), data=data)
 
@@ -132,9 +136,8 @@ summary(model)
 plot(model)
 ```
 
+```{r, echo = FALSE, eval = FALSE}
 # Adding in squareroot terms to the model
-
-```{r, echo=FALSE, eval=FALSE}
 
 model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^(1/2)) + I(Less_than_high_school^(1/2)) + I(high_school^(1/2)) + I(college^(1/2)), data=data)
 
@@ -142,9 +145,8 @@ summary(model)
 plot(model)
 ```
 
-# Using log of the independent variables
-
 ```{r,echo=FALSE,eval=FALSE}
+# Using log of the independent variables
 
 model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(log(UnemploymentRate)) + I(log(Less_than_high_school)) + I(log(high_school)) + I(log(college)), data=data)
 
@@ -152,9 +154,9 @@ summary(model)
 plot(model)
 ```
 
+```{r,echo=FALSE,eval=FALSE}
 # Using education and employment to predict square root of birth rate
 
-```{r,echo=FALSE,eval=FALSE}
 model=lm(`Birth Rate`^(1/2) ~ UnemploymentRate + Less_than_high_school + high_school + college, data=data)
 
 summary(model)
@@ -168,8 +170,6 @@ data(county.fips)
 ## ordered correctly.
 data <- data %>%
   mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
-
-
 ```
 
 ```{r}
@@ -194,14 +194,13 @@ data <- data %>%
 data %>%
   ggplot() + 
   geom_boxplot(aes(y=`Birth Rate`,x=fct_reorder(Division,len),color=Region),alpha=.5) + 
-  labs(y="Birth Rate",x="Division") + 
+  labs(y = "Teen Birth Rate",x="Division") + 
   theme(axis.text.x=element_text(angle=45,hjust=1))
 ```
 
 ```{r}
-model=lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + Region, data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + Region, data=data)
 
 summary(model)
-plot(model)
-
+# plot(model)
 ```
