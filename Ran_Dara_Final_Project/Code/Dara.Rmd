@@ -8,23 +8,34 @@ output: html_document
 library(tidyverse)
 library(broom)
 library(ggplot2)
-
+library(readxl)
 ```
 
 
 ```{r}
 teen_birth <- read_csv("../Data/teen_birth.csv")
 Education <- read_csv("../Data/Education.csv")
+Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 ```
 
 
 ```{r}
 Education
-Education%>%filter(!grepl("County", `Area name`))
 
-unique(teen_birth$County)
+
+unique(teen_birth$Year)
+
+Unemployment
+
 
 
 ```
+```{r}
+names(Unemployment)
+names(Education)
+```
+```{r}
 
-
+Education%>%select(1,44,45,46,47)
+teen_birth%>%filter(Year=="2015")%>%select("Combined FIPS Code", "Birth Rate", "Year")
+```
