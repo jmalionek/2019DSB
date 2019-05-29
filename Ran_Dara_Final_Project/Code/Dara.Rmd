@@ -157,3 +157,24 @@ cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
 
 tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend(outside = TRUE)
 ```
+
+
+```{r}
+data
+state_regions <- read_csv("../Data/state_regions.csv")
+state_regions
+data=data%>%inner_join(state_regions, by=c("State"="State Code"))
+
+
+data=data%>%mutate(len=nchar(Region))
+data%>%ggplot()+geom_boxplot(aes(y=`Birth Rate`,x=fct_reorder(Division,len),color=Region),alpha=.5)+labs(y="Birth Rate",x="Division")+theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+
+
+```{r}
+model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+Region,data=data)
+
+summary(model)
+plot(model)
+
+```
