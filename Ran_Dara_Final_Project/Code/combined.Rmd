@@ -79,23 +79,23 @@ data=data%>%inner_join(state_regions, by=c("State"="State Code"))
 ```{r}
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`,color=Region,alpha=.1))
+  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`,color=Region),alpha=.4)+labs(x="Percent of adults with less than a high school diploma, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`high_school`,color=Region,alpha=.1))
+  geom_point(aes(y=`Birth Rate`, x=`high_school`,color=Region),alpha=.4)+labs(x="Percent of adults with a high school diploma only, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`some_college`,color=Region,alpha=.1))
+  geom_point(aes(y=`Birth Rate`, x=`some_college`,color=Region),alpha=.4)+labs(x="Percent of adults completing some college or associate's degree, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`college`,color=Region,alpha=.1))
+  geom_point(aes(y=`Birth Rate`, x=`college`,color=Region),alpha=.4)+labs(x="Percent of adults with a bachelor's degree or higher, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`,color=Region,alpha=.1))
+  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`,color=Region),alpha=.4)+labs(x="Unemployment Rate")
 ```
 
 # Linear model of birth rate as a function of unemployment rate and education
