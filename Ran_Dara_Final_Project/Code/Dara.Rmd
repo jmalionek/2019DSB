@@ -20,6 +20,14 @@ Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 
 
 ```{r}
+teen_birth%>%filter(State=="California",Year==2015)
+```
+
+```{r}
+Education%>%filter(State=="MI")
+```
+
+```{r}
 Education
 
 
