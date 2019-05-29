@@ -49,7 +49,7 @@ data=teen_birth%>%inner_join(Education,by=c("Combined FIPS Code"="FIPS Code"))
 data=data%>%inner_join(unemployment2015, by=c("Combined FIPS Code"="FIPS"))
 
 data=data%>%rename(Less_than_high_school=`Percent of adults with less than a high school diploma, 2013-17`,high_school=`Percent of adults with a high school diploma only, 2013-17`,some_college=`Percent of adults completing some college or associate's degree, 2013-17`,college=`Percent of adults with a bachelor's degree or higher, 2013-17`)
-
+data
 ```
 
 
@@ -64,10 +64,13 @@ data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`some_college`))
 
 data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`college`))
 
+
+data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`))
 ```
 
 ```{r}
-model=lm(,data=data)
+model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
 
+summary(model)
 
 ```
