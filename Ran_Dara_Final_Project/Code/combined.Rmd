@@ -79,23 +79,28 @@ data=data%>%inner_join(state_regions, by=c("State"="State Code"))
 ```{r}
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`,color=Region),alpha=.4)+labs(x="Percent of adults with less than a high school diploma, 2013-17")
+  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`,color=Region),alpha=.4) + 
+  labs(x="Percent of adults with less than a high school diploma, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`high_school`,color=Region),alpha=.4)+labs(x="Percent of adults with a high school diploma only, 2013-17")
+  geom_point(aes(y=`Birth Rate`, x=`high_school`,color=Region),alpha=.4) + 
+  labs(x="Percent of adults with a high school diploma only, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`some_college`,color=Region),alpha=.4)+labs(x="Percent of adults completing some college or associate's degree, 2013-17")
+  geom_point(aes(y=`Birth Rate`, x=`some_college`,color=Region),alpha=.4) + 
+  labs(x="Percent of adults completing some college or associate's degree, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`college`,color=Region),alpha=.4)+labs(x="Percent of adults with a bachelor's degree or higher, 2013-17")
+  geom_point(aes(y=`Birth Rate`, x=`college`,color=Region),alpha=.4) + 
+  labs(x="Percent of adults with a bachelor's degree or higher, 2013-17")
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`,color=Region),alpha=.4)+labs(x="Unemployment Rate")
+  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`,color=Region),alpha=.4) + 
+  labs(x="Unemployment Rate")
 ```
 
 # Linear model of birth rate as a function of unemployment rate and education
@@ -108,47 +113,49 @@ summary(model)
 plot(model)
 ```
 
-#
+# Linear model of log(birth rate) as a function of unemployment rate and education
 
-```{r,echo=FALSE,eval=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
 
 summary(model)
 plot(model)
 ```
 
-# 
+# Adding in quadratic terms to the model
 
-```{r,echo=FALSE,eval=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
-model = lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^2)+I(Less_than_high_school^2)+I(high_school^2)+I(college^2),data=data)
-
-summary(model)
-plot(model)
-```
-
-
-```{r,echo=FALSE,eval=FALSE}
-
-model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^(1/2))+I(Less_than_high_school^(1/2))+I(high_school^(1/2))+I(college^(1/2)),data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2), data=data)
 
 summary(model)
 plot(model)
 ```
 
+# Adding in squareroot terms to the model
 
+```{r, echo=FALSE, eval=FALSE}
 
-```{r,echo=FALSE,eval=FALSE}
-
-model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(log(UnemploymentRate))+I(log(Less_than_high_school))+I(log(high_school))+I(log(college)),data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^(1/2)) + I(Less_than_high_school^(1/2)) + I(high_school^(1/2)) + I(college^(1/2)), data=data)
 
 summary(model)
 plot(model)
 ```
 
+# Using log of the independent variables
 
 ```{r,echo=FALSE,eval=FALSE}
-model=lm(`Birth Rate`^(1/2)~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(log(UnemploymentRate)) + I(log(Less_than_high_school)) + I(log(high_school)) + I(log(college)), data=data)
+
+summary(model)
+plot(model)
+```
+
+# Using education and employment to predict square root of birth rate
+
+```{r,echo=FALSE,eval=FALSE}
+model=lm(`Birth Rate`^(1/2) ~ UnemploymentRate + Less_than_high_school + high_school + college, data=data)
 
 summary(model)
 plot(model)
@@ -159,7 +166,8 @@ data(county.fips)
 
 ## merge population data with county.fips to make sure color column is
 ## ordered correctly.
-data=data%>%mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
+data <- data %>%
+  mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
 
 
 ```
@@ -167,7 +175,7 @@ data=data%>%mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
 ```{r}
 # Load the county data from the maps package
 cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
-state<-st_as_sf(map("state", plot = FALSE, fill = TRUE))
+state <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
 
 
 cnty2 <- cnty %>%
@@ -175,21 +183,23 @@ cnty2 <- cnty %>%
 
 cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
 
-tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend(outside = TRUE)+tm_shape(state)+tm_borders()
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE)+tm_shape(state)+tm_borders()
 ```
 
 
-
 ```{r}
+data <- data %>%
+  mutate(len=nchar(Region))
 
-
-
-data=data%>%mutate(len=nchar(Region))
-data%>%ggplot()+geom_boxplot(aes(y=`Birth Rate`,x=fct_reorder(Division,len),color=Region),alpha=.5)+labs(y="Birth Rate",x="Division")+theme(axis.text.x=element_text(angle=45,hjust=1))
+data %>%
+  ggplot() + 
+  geom_boxplot(aes(y=`Birth Rate`,x=fct_reorder(Division,len),color=Region),alpha=.5) + 
+  labs(y="Birth Rate",x="Division") + 
+  theme(axis.text.x=element_text(angle=45,hjust=1))
 ```
 
 ```{r}
-model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+Region,data=data)
+model=lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + Region, data=data)
 
 summary(model)
 plot(model)
