@@ -156,14 +156,15 @@ data=data%>%mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
 # Load the county data from the maps package
 cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
 
-
+state<-st_as_sf(map("state", plot = FALSE, fill = TRUE))
 
 cnty2 <- cnty %>%
          left_join(county.fips, by=c("ID" = "polyname"))
 
 cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
 
-tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend(outside = TRUE)
+
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend(outside = TRUE)+tm_borders(alpha=.1)+tm_shape(state)+tm_borders()
 ```
 
 
