@@ -78,7 +78,7 @@ teen_birth <- teen_birth %>%
 
 unemployment2015 <- Unemployment %>%
   rename(FIPS = FIPStxt) %>%
-  select(FIPS, State, Area_name, 39:42) %>%
+  select(FIPS, State, Area_name, 39:42,51) %>%
   rename(LaborForce = Civilian_labor_force_2015, 
          Employed = Employed_2015, 
          Unemployed = Unemployed_2015, 
@@ -148,11 +148,18 @@ data %>%
   geom_smooth(method="lm",se=FALSE)
 ```
 
+```{r}
+data %>%
+  ggplot(aes(y = `Birth Rate`, x = Median_Household_Income_2017)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x="Median Household Income in 2017") +   geom_smooth(method="lm",se=FALSE)
+```
+
 ### Linear model of birth rate as a function of unemployment rate and education
 The education data divides the population into four groups: less than high school, high school, college, beyond college. Since the four categories add up to 100%, it is sufficient to only include three of the four rates in the linear model.
 
 ```{r}
-model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
+model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data = data)
 
 summary(model)
 # plot(model)
@@ -161,7 +168,7 @@ summary(model)
 ```{r, echo = FALSE, eval = FALSE}
 # Linear model of log(birth rate) as a function of unemployment rate and education
 
-model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
+model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data = data)
 
 summary(model)
 plot(model)
@@ -170,7 +177,7 @@ plot(model)
 ```{r, echo=FALSE, eval=FALSE}
 # Adding in quadratic terms to the model
 
-model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2), data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2)+Median_Household_Income_2017+I(Median_Household_Income_2017^2), data=data)
 
 summary(model)
 plot(model)
@@ -179,7 +186,7 @@ plot(model)
 ```{r, echo = FALSE, eval = FALSE}
 # Adding in squareroot terms to the model
 
-model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^(1/2)) + I(Less_than_high_school^(1/2)) + I(high_school^(1/2)) + I(college^(1/2)), data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^(1/2)) + I(Less_than_high_school^(1/2)) + I(high_school^(1/2)) + I(college^(1/2))+I(Median_Household_Income_2017^(1/2))+Median_Household_Income_2017, data=data)
 
 summary(model)
 plot(model)
@@ -188,16 +195,25 @@ plot(model)
 ```{r,echo=FALSE,eval=FALSE}
 # Using log of the independent variables
 
-model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(log(UnemploymentRate)) + I(log(Less_than_high_school)) + I(log(high_school)) + I(log(college)), data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(log(UnemploymentRate)) + I(log(Less_than_high_school)) + I(log(high_school)) + I(log(college))+Median_Household_Income_2017+I(log(Median_Household_Income_2017)), data=data)
+
+summary(model)
+plot(model)
+```
+```{r,echo=FALSE,eval=FALSE}
+#Using 1 divided by  the independent variables
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(1/(UnemploymentRate)) + I(1/(Less_than_high_school)) + I(1/(high_school)) + I(1/(college))+Median_Household_Income_2017+I(1/(Median_Household_Income_2017)), data=data)
 
 summary(model)
 plot(model)
 ```
 
+
 ```{r,echo=FALSE,eval=FALSE}
 # Using education and employment to predict square root of birth rate
 
-model=lm(`Birth Rate`^(1/2) ~ UnemploymentRate + Less_than_high_school + high_school + college, data=data)
+model=lm(`Birth Rate`^(1/2) ~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data=data)
 
 summary(model)
 plot(model)
@@ -234,7 +250,7 @@ data %>%
 ```
 
 ```{r}
-model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + Region, data=data)
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college +Median_Household_Income_2017+ Region, data=data)
 
 summary(model)
 # plot(model)
