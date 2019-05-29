@@ -38,12 +38,15 @@ names(Education)
 
 Education=Education%>%select(1,44,45,46,47)
 teen_birth=teen_birth%>%filter(Year=="2015")%>%select("Combined FIPS Code", "Birth Rate", "Year")
-
-
+unemployment2015 <- Unemployment %>%
+  rename(FIPS = FIPStxt) %>%
+  select(FIPS, State, Area_name, 39:42) %>%
+  rename(LaborForce = Civilian_labor_force_2015, Employed = Employed_2015, Unemployed = Unemployed_2015, UnemploymentRate = Unemployment_rate_2015)
 ```
 ```{r}
 teen_birth=teen_birth%>%mutate(`Combined FIPS Code`=as.character(`Combined FIPS Code`))
 data=teen_birth%>%inner_join(Education,by=c("Combined FIPS Code"="FIPS Code"))
+data=data%>%inner_join(unemployment2015, by=c("Combined FIPS Code"="FIPS"))
 
 data
 
@@ -62,3 +65,4 @@ data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults completing s
 data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults with a bachelor's degree or higher, 2013-17`))
 
 ```
+
