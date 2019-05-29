@@ -18,10 +18,13 @@ library(ggplot2)
 library(modelr)
 library(broom)
 library(readxl)
+library(readr)
 
 teen_birth <- read.csv("../Data/teen_birth.csv")
 
 unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
+
+education <- read_csv("../Data/Education.csv")
 ```
 # Step 1: Tidy data into more accessible form
 Using the tidyverse functions that we've learned, clean the two datasets so that data analysis wolud be more efficient.
@@ -30,12 +33,31 @@ Using the tidyverse functions that we've learned, clean the two datasets so that
 teen_birth2015 <- teen_birth %>%
   filter(Year == 2015) %>%
   rename(FIPS = Combined.FIPS.Code, BirthRate = Birth.Rate) %>%
-  select(State, County, FIPS, BirthRate)
+  select(State, County, FIPS, BirthRate)%>%
+  mutate(FIPS = as.character(FIPS))
 
 unemployment2015 <- unemployment %>%
   rename(FIPS = FIPStxt) %>%
   select(FIPS, State, Area_name, 39:42) %>%
-  rename(LaborForce = Civilian_labor_force_2015, Employed = Employed_2015, Unemployed = Unemployed_2015, UnemploymentRate = Unemployment_rate_2015)
-  
+  rename(LaborForce = Civilian_labor_force_2015, 
+         Employed = Employed_2015, 
+         Unemployed = Unemployed_2015, 
+         UnemploymentRate = Unemployment_rate_2015)
+
+education20132017 <- education %>%
+  select(1, 44, 45, 46, 47) %>%
+  rename(Less_than_high_school = `Percent of adults with less than a high school diploma, 2013-17`,
+         high_school=`Percent of adults with a high school diploma only, 2013-17`,
+         some_college=`Percent of adults completing some college or associate's degree, 2013-17`,
+         college=`Percent of adults with a bachelor's degree or higher, 2013-17`)
+```
+
+# Step 2: Join three datasets together
+```{r}
+data = teen_birth2015%>%
+   inner_join(education20132017, by = c("FIPS" = "FIPS Code"))
+
+data = data%>%
+  inner_join(unemployment2015, by = "FIPS")
 ```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
