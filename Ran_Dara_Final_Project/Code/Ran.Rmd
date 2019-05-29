@@ -27,8 +27,15 @@ unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
 Using the tidyverse functions that we've learned, clean the two datasets so that data analysis wolud be more efficient.
 
 ```{r}
-teen_birth <- teen_birth %>%
-  rename(state = Location) %>%
-  select(state, year, category, amount)
+teen_birth2015 <- teen_birth %>%
+  filter(Year == 2015) %>%
+  rename(FIPS = Combined.FIPS.Code, BirthRate = Birth.Rate) %>%
+  select(State, County, FIPS, BirthRate)
+
+unemployment2015 <- unemployment %>%
+  rename(FIPS = FIPStxt) %>%
+  select(FIPS, State, Area_name, 39:42) %>%
+  rename(LaborForce = Civilian_labor_force_2015, Employed = Employed_2015, Unemployed = Unemployed_2015, UnemploymentRate = Unemployment_rate_2015)
+  
 ```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
