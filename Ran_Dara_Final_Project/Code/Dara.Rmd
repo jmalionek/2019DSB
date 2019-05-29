@@ -36,6 +36,29 @@ names(Education)
 ```
 ```{r}
 
-Education%>%select(1,44,45,46,47)
-teen_birth%>%filter(Year=="2015")%>%select("Combined FIPS Code", "Birth Rate", "Year")
+Education=Education%>%select(1,44,45,46,47)
+teen_birth=teen_birth%>%filter(Year=="2015")%>%select("Combined FIPS Code", "Birth Rate", "Year")
+
+
+```
+```{r}
+teen_birth=teen_birth%>%mutate(`Combined FIPS Code`=as.character(`Combined FIPS Code`))
+data=teen_birth%>%inner_join(Education,by=c("Combined FIPS Code"="FIPS Code"))
+
+data
+
+```
+
+
+```{r}
+data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults with less than a high school diploma, 2013-17`))
+
+data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults with a high school diploma only, 2013-17`))
+
+
+data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults completing some college or associate's degree, 2013-17`))
+
+
+data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`Percent of adults with a bachelor's degree or higher, 2013-17`))
+
 ```
