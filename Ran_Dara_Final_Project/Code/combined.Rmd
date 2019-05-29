@@ -1,7 +1,7 @@
 ---
-title: "Contributors to Teen Birth Rate"
+title: "More Info - Contributors to Teen Birth Rate"
 author: "Dara Zirlin, Ran Ji"
-date: "Last updated on 'r Sys.Date()'"
+date: "Last updated on `r Sys.Date()`"
 output: 
   html_document:
     toc: true
@@ -33,7 +33,7 @@ library(dplyr)
 ```
 
 ### Question
-How is teen birth rate related to adult unemployment and adult education levels? We look at the relationship at the county level. Further, how do teen birth rates differ by region?
+How is teen birth rate related to adult unemployment, adult education level, and median household income? We look at the relationship at the county level. Further, how do teen birth rates differ by region?
 
 ### Datasets
 *Teen birth rates
@@ -112,6 +112,7 @@ data %>%
   labs(y = "Teen Birth Rate", x="Percent of adults with less than a high school diploma, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
 ```
+
 There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
 
 ```{r}
@@ -121,6 +122,7 @@ data %>%
   labs(y = "Teen Birth Rate", x ="Percent of adults with a high school diploma only, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
 ```
+
 While teen birth rates and the percent of adults with only a high school diploma do appear to be positively correlated, the relationship appears less strong.
 
 ```{r}
@@ -130,6 +132,7 @@ data %>%
   labs(y = "Teen Birth Rate", x="Percent of adults completing some college or associate's degree, 2013-17") + 
   geom_smooth(method="lm",se=FALSE)
 ```
+
 There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
 
 ```{r}
