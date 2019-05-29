@@ -72,5 +72,88 @@ data%>%ggplot()+geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`))
 model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
 
 summary(model)
+plot(model)
+```
 
+
+```{r}
+
+model=lm(log(`Birth Rate`)~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
+
+summary(model)
+plot(model)
+```
+
+
+
+```{r}
+
+model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^2)+I(Less_than_high_school^2)+I(high_school^2)+I(college^2),data=data)
+
+summary(model)
+plot(model)
+```
+
+
+```{r}
+
+model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^(1/2))+I(Less_than_high_school^(1/2))+I(high_school^(1/2))+I(college^(1/2)),data=data)
+
+summary(model)
+plot(model)
+```
+
+
+
+```{r}
+
+model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(log(UnemploymentRate))+I(log(Less_than_high_school))+I(log(high_school))+I(log(college)),data=data)
+
+summary(model)
+plot(model)
+```
+
+
+```{r}
+model=lm(`Birth Rate`^(1/2)~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
+
+summary(model)
+plot(model)
+```
+
+
+```{r}
+library(maptools)
+library(tmap) 
+library(sf)
+library(maps)
+
+
+library(maps)
+library(dplyr)
+
+data(county.fips)
+
+
+
+## merge population data with county.fips to make sure color column is
+## ordered correctly.
+data=data%>%mutate(`Combined FIPS Code`=as.integer(`Combined FIPS Code`))
+
+
+```
+
+
+```{r}
+# Load the county data from the maps package
+cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
+
+
+
+cnty2 <- cnty %>%
+         left_join(county.fips, by=c("ID" = "polyname"))
+
+cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
+
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend(outside = TRUE)
 ```
