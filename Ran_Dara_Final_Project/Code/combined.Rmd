@@ -34,6 +34,7 @@ We consider three datasets:
 teen_birth <- read_csv("../Data/teen_birth.csv")
 Education <- read_csv("../Data/Education.csv")
 Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
+state_regions <- read_csv("../Data/state_regions.csv")
 ```
 
 # Step 2: Clean datasets for ease of use
@@ -69,6 +70,8 @@ data <- teen_birth %>%
          high_school=`Percent of adults with a high school diploma only, 2013-17`,
          some_college=`Percent of adults completing some college or associate's degree, 2013-17`,
          college=`Percent of adults with a bachelor's degree or higher, 2013-17`)
+
+data=data%>%inner_join(state_regions, by=c("State"="State Code"))
 ```
 
 # Step 4: Plotting birth rates against various education rates and unemployment rates
@@ -76,23 +79,23 @@ data <- teen_birth %>%
 ```{r}
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`))
+  geom_point(aes(y=`Birth Rate`, x=`Less_than_high_school`,color=Region,alpha=.1))
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`high_school`))
+  geom_point(aes(y=`Birth Rate`, x=`high_school`,color=Region,alpha=.1))
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`some_college`))
+  geom_point(aes(y=`Birth Rate`, x=`some_college`,color=Region,alpha=.1))
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`college`))
+  geom_point(aes(y=`Birth Rate`, x=`college`,color=Region,alpha=.1))
 
 data %>%
   ggplot() +
-  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`))
+  geom_point(aes(y=`Birth Rate`, x=`UnemploymentRate`,color=Region,alpha=.1))
 ```
 
 # Linear model of birth rate as a function of unemployment rate and education
@@ -107,7 +110,7 @@ plot(model)
 
 #
 
-```{r}
+```{r,echo=FALSE,eval=FALSE}
 model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college, data = data)
 
 summary(model)
@@ -116,7 +119,7 @@ plot(model)
 
 # 
 
-```{r}
+```{r,echo=FALSE,eval=FALSE}
 
 model = lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^2)+I(Less_than_high_school^2)+I(high_school^2)+I(college^2),data=data)
 
@@ -125,7 +128,7 @@ plot(model)
 ```
 
 
-```{r}
+```{r,echo=FALSE,eval=FALSE}
 
 model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(UnemploymentRate^(1/2))+I(Less_than_high_school^(1/2))+I(high_school^(1/2))+I(college^(1/2)),data=data)
 
@@ -135,7 +138,7 @@ plot(model)
 
 
 
-```{r}
+```{r,echo=FALSE,eval=FALSE}
 
 model=lm(`Birth Rate`~UnemploymentRate+Less_than_high_school+high_school+college+I(log(UnemploymentRate))+I(log(Less_than_high_school))+I(log(high_school))+I(log(college)),data=data)
 
@@ -144,7 +147,7 @@ plot(model)
 ```
 
 
-```{r}
+```{r,echo=FALSE,eval=FALSE}
 model=lm(`Birth Rate`^(1/2)~UnemploymentRate+Less_than_high_school+high_school+college,data=data)
 
 summary(model)
@@ -178,10 +181,7 @@ tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") +tm_legend
 
 
 ```{r}
-data
-state_regions <- read_csv("../Data/state_regions.csv")
-state_regions
-data=data%>%inner_join(state_regions, by=c("State"="State Code"))
+
 
 
 data=data%>%mutate(len=nchar(Region))
