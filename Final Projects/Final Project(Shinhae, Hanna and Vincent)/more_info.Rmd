@@ -1,0 +1,245 @@
+---
+title: "More information"
+author: "Hanna Kim, Shinhae Park, and Vincent Villalobos"
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+    #code_folding: hide
+    keep_md: true
+---
+
+```{r}
+library(tidyr)
+library(dplyr)
+library(DescTools) 
+library(purrr)
+library(grid)
+library(knitr)
+library(ggplot2)
+source("http://peterhaschke.com/Code/multiplot.R") #load multiplot function
+```
+
+
+```{r echo = FALSE}
+setwd("/cloud/project/Day5/ProjectRelated/final_project/index_files/figure-html")
+knitr::include_graphics("unnamed-chunk-11-1.png")
+```
+
+
+```{r, warning=FALSE}
+setwd("/cloud/project/Day5/ProjectRelated/final_project/data")
+cancer<-read.csv("data.csv", header=FALSE)
+```
+
+
+```{r  }
+cancer2<-cancer %>% 
+  select(2:13) %>% 
+  drop_na() 
+```
+
+
+```{r  }
+colnames(cancer2)<-c("id", "diagnosis", "radius", "texture",
+                     "perimeter", "area", "smoothness", "compactness",
+                     "concavity", "concave points",
+                     "symmetry","fractal_dimension")
+#names(cancer2)
+```
+
+
+```{r echo = TRUE,  }
+table(cancer2$diagnosis)
+```
+
+
+# Regression Analysis
+
+```{r echo = TRUE }
+# data cleaning
+cancer2<-cancer2 %>%
+  mutate(
+    diagnosis = factor(diagnosis, 
+                  levels = c("B", "M"),
+                  labels = c(0, 1))
+  )
+```
+
+
+```{r  }
+get_logit_plot= function(xval){
+  ggplot(cancer2,aes(x=xval,y=as.numeric(diagnosis)-1))+
+    geom_point()+
+    geom_smooth( method="glm", method.args=list(family = "binomial"), se=FALSE)+
+    ylab("diagnosis")
+}
+```
+
+
+```{r  }
+get_error_rate=function(xval){
+  pred <- ifelse(predict(glm(diagnosis~xval, family = "binomial", data=cancer2),type="response")>0.5,1,0)
+  #table(cancer2$diagnosis,pred)
+  error_rate=mean(cancer2$diagnosis!=pred)
+  return(error_rate)
+}
+```
+
+
+```{r  }
+plotlist<-cancer2 %>% map(get_logit_plot) 
+#plotlist[3:12]
+```
+
+
+```{r }
+plotlist2<-c()
+j=1
+for (i in names(plotlist[3:12])){
+  p<-plotlist[[i]]+xlab(i)
+  plotlist2[[j]]<-p
+  j=j+1
+}
+```
+
+
+```{r, echo=FALSE, cache=TRUE}
+multiplot(plotlist = plotlist2, cols = 4)
+#knitr::include_graphics("docs/plot_logits.png")
+```
+
+
+```{r, warning=FALSE}
+err<-cancer2 %>% map(get_error_rate) 
+
+j=1
+Error=c()
+
+for (i in names(err[3:12])){
+  
+  Error[j]<-err[[i]]
+  j=j+1}
+
+Error
+```
+
+
+```{r, echo=FALSE}
+qplot(x=names(err[3:12]), y=Error, )+theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1))+xlab("Variables")+ylab("Error Rates")
+```
+
+
+
+```{r, warning=FALSE}
+logit_mod<-glm(diagnosis~area+ `concave points`+concavity+perimeter+radius, family = "binomial", data=cancer2)
+summary(logit_mod)
+```
+
+```{r}
+pred <- ifelse(predict(logit_mod,type="response")>0.5,1,0)
+#table(cancer2$diagnosis,pred)
+error_rate=mean(cancer2$diagnosis!=pred)
+error_rate
+```
+
+If the error rate is bigger than the significant value, we drop such predictor variables. For example, if we only use only 5 out of 10 variables. The error rate is about 8%.
+
+# Variable Selection
+
+```{r, warning=FALSE}
+fullmod=glm(diagnosis ~ .-id,family="binomial",data=cancer2)
+summary(fullmod)
+```
+
+```{r}
+pred <- ifelse(predict(fullmod,type="response")>0.5,1,0) #table(cancer2$diagnosis,pred) 
+error_rate=mean(cancer2$diagnosis!=pred) 
+error_rate
+```
+
+```{r, warning=FALSE}
+redmod<-fullmod
+drop1(redmod,test="F")
+```
+
+```{r, warning=FALSE}
+redmod<-update(redmod,. ~ . -compactness) 
+drop1(redmod,test="F")
+```
+
+
+```{r, warning=FALSE}
+redmod<-update(redmod,. ~ . -perimeter)
+drop1(redmod,test="F")
+```
+
+
+```{r}
+summary(redmod)
+```
+
+```{r}
+redpred <- ifelse(predict(redmod,type="response")>0.5,1,0)
+#table(cancer2$diagnosis,pred)
+error_rate_red=mean(cancer2$diagnosis!=redpred)
+error_rate_red
+```
+
+
+# Other Link 
+
+
+```{r, warning=FALSE}
+#probit 
+full_probit<-glm(diagnosis~.-id, 
+            family = binomial(link = probit), 
+            data=cancer2)
+
+#complimentary log log
+full_loglog<-glm(diagnosis~.-id, 
+            family = binomial(link =cloglog ), 
+            data=cancer2)
+```
+
+
+```{r}
+pred_fullprobit <- ifelse(predict(full_probit,type="response")>0.5,1,0)
+error_rate_fullprobit=mean(cancer2$diagnosis!=pred_fullprobit)
+error_rate_fullprobit
+```
+
+```{r}
+pred_fullloglog <- ifelse(predict(full_loglog,type="response")>0.5,1,0)
+error_rate_fullloglog=mean(cancer2$diagnosis!=pred_fullloglog)
+error_rate_fullloglog
+```
+
+
+```{r, warning=FALSE}
+#probit 
+probit<-glm(diagnosis~radius+texture+area+smoothness+`concave points`+concavity+symmetry+fractal_dimension, 
+            family = binomial(link = probit), 
+            data=cancer2)
+
+#complimentary log log
+loglog<-glm(diagnosis~radius+texture+area+smoothness+`concave points`+concavity+symmetry+fractal_dimension, 
+            family = binomial(link =cloglog ), 
+            data=cancer2)
+```
+
+
+```{r}
+pred_probit <- ifelse(predict(probit,type="response")>0.5,1,0)
+error_rate_probit=mean(cancer2$diagnosis!=pred_probit)
+error_rate_probit
+```
+
+```{r}
+pred_loglog <- ifelse(predict(loglog,type="response")>0.5,1,0)
+error_rate_loglog=mean(cancer2$diagnosis!=pred_loglog)
+error_rate_loglog
+```
