@@ -1,0 +1,269 @@
+---
+title: "More Info - Contributors to Teen Birth Rate"
+author: "Dara Zirlin, Ran Ji"
+date: "Last updated on `r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+# Step 0: Load necessary libraries and datasets
+# Load libraries that we use
+
+#data analysis
+library(tidyverse)
+library(broom)
+library(ggplot2)
+library(readxl)
+
+#mapping
+library(maptools)
+library(tmap) 
+library(sf)
+library(maps)
+library(dplyr)
+```
+
+### Question
+How is teen birth rate related to adult unemployment, adult education level, and median household income? We look at the relationship at the county level. Further, how do teen birth rates differ by region?
+
+### Datasets
+
+* Teen birth rates
+  + Link: https://catalog.data.gov/dataset/teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county
+  + Estimated teen birth rates for age group 15-19 (expressed per 1000 females aged 15-19) by county and year
+  + Used data for 2015
+* Education
+  + Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
+  + Percentage of adults in each of four categories
+    + Did not receive high school diploma
+    + Only received high school diploma
+    + Some college or associate's degree
+    + Received college degree or higher
+  + Used average value across 2013-2017
+* Unemployment
+  + Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
+  + Percent of labor force (people with a job or actively looking for one) without a job
+  + Used data for 2015
+
+```{r}
+# Step 1: Load datasets
+#We consider three datasets: Teen birth data by county, Education by county, Unemployment rate by county
+
+teen_birth <- read_csv("../Data/teen_birth.csv")
+Education <- read_csv("../Data/Education.csv")
+Unemployment <- read_excel("../Data/Unemployment.xls", skip = 7)
+state_regions <- read_csv("../Data/state_regions.csv")
+```
+
+```{r}
+# Step 2: Clean datasets for ease of use
+
+Education <- Education %>%
+  select(1, 44, 45, 46, 47) %>%
+  mutate(`FIPS Code` = as.integer(`FIPS Code`))
+
+teen_birth <- teen_birth %>%
+  filter(Year=="2015") %>%
+  select("Combined FIPS Code", "Birth Rate", "Year")
+
+unemployment2015 <- Unemployment %>%
+  rename(FIPS = FIPStxt) %>%
+  select(FIPS, State, Area_name, 39:42,51) %>%
+  rename(LaborForce = Civilian_labor_force_2015, 
+         Employed = Employed_2015, 
+         Unemployed = Unemployed_2015, 
+         UnemploymentRate = Unemployment_rate_2015) %>%
+  mutate(FIPS = as.integer(FIPS))
+```
+
+```{r}
+# Step 3: Join datasets into a master dataset
+# Join the datasets by FIPS, which is a standardized code identifying various regions within the US
+
+data <- teen_birth %>%
+  inner_join(Education,by = c("Combined FIPS Code"="FIPS Code")) %>%
+  inner_join(unemployment2015, by = c("Combined FIPS Code"="FIPS")) %>%
+  rename(Less_than_high_school=`Percent of adults with less than a high school diploma, 2013-17`,
+         high_school=`Percent of adults with a high school diploma only, 2013-17`,
+         some_college=`Percent of adults completing some college or associate's degree, 2013-17`,
+         college=`Percent of adults with a bachelor's degree or higher, 2013-17`) %>%
+  inner_join(state_regions, by=c("State"="State Code"))
+```
+
+### Graphics
+Below, we plot our independent variables against teen birth rates.
+
+```{r}
+# Step 4: Plotting birth rates against various education rates and unemployment rates
+
+data %>%
+  ggplot(aes(y = `Birth Rate`, x = Less_than_high_school)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x="Percent of adults with less than a high school diploma, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
+```
+
+There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
+
+```{r}
+data %>%
+  ggplot(aes(y = `Birth Rate`, x = high_school)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x ="Percent of adults with a high school diploma only, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
+```
+
+While teen birth rates and the percent of adults with only a high school diploma do appear to be positively correlated, the relationship appears less strong.
+
+```{r}
+data %>%
+  ggplot(aes(y = `Birth Rate`, x = some_college)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x="Percent of adults completing some college or associate's degree, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
+```
+
+There appears to be a weak negative relationship between teen birth rates and the percent of adults with some college or associate's degree.
+
+```{r}
+data %>%
+  ggplot(aes(y=`Birth Rate`, x=`college`),) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x = "Percent of adults with a bachelor's degree or higher, 2013-17") + 
+  geom_smooth(method="lm",se=FALSE)
+```
+
+There is a clear relationship between percent of adults with a bachelor's degree or higher and teen birth rates, though it does not appear to be linear.
+
+```{r}
+data %>%
+  ggplot(aes(y=`Birth Rate`, x=`UnemploymentRate`)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x = "Unemployment Rate") + 
+  geom_smooth(method="lm",se=FALSE)
+```
+
+There's a positive relationship between unemployment rate and teen birth rate.
+
+```{r}
+data %>%
+  ggplot(aes(y = `Birth Rate`, x = Median_Household_Income_2017)) +
+  geom_point(alpha=.3) + 
+  labs(y = "Teen Birth Rate", x = "Median Household Income in 2017") + geom_smooth(method="lm",se=FALSE)
+```
+
+There is a clear relationship between median household income and teen birth rates, though it does not appear to be linear.
+
+Below is a map of the US colored by teen birth rates at the county level.
+
+```{r}
+# Load county and state data from the maps package
+cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
+state <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
+
+# Append FIPS code to the counties
+cnty2 <- cnty %>%
+         left_join(county.fips, by=c("ID" = "polyname"))
+
+# Joined county map data with our master dataset
+cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
+
+#Print map
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE) + tm_shape(state) + tm_borders()
+```
+
+Below is a box plot of teen birth rates by sub-region.
+
+```{r}
+data <- data %>%
+  mutate(len=nchar(Region))
+
+data %>%
+  ggplot() + 
+  geom_boxplot(aes(y = `Birth Rate`, x = fct_reorder(Division,len), color = Region), alpha=.5) + 
+  labs(y = "Teen Birth Rate",x = "Sub-Region") + 
+  theme(axis.text.x=element_text(angle=45, hjust=1))
+```
+
+As we noted in the blog post, counties in the South on average, had higher teen birth rates. On average, the Northeast not only had the lowest average teen birth rates, but also the least variable across its counties.
+
+### Linear model of birth rate as a function of unemployment, education level, region, and income
+The education data divides the population into four groups: less than high school, high school, college, beyond college. Since the four categories add up to 100%, it is sufficient to only include three of the four rates in the linear model.
+
+```{r, echo = FALSE, eval = FALSE}
+model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college + Median_Household_Income_2017, data = data)
+
+summary(model)
+# plot(model)
+```
+
+```{r, echo = FALSE, eval = FALSE}
+# Linear model of log(birth rate) as a function of unemployment rate and education
+
+model = lm(log(`Birth Rate`) ~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data = data)
+
+summary(model)
+plot(model)
+```
+
+```{r, echo = FALSE, eval = FALSE}
+# Adding in quadratic terms to the model
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2)+Median_Household_Income_2017+I(Median_Household_Income_2017^2), data=data)
+
+summary(model)
+plot(model)
+```
+
+```{r, echo = FALSE, eval = FALSE}
+# Adding in squareroot terms to the model
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^(1/2)) + I(Less_than_high_school^(1/2)) + I(high_school^(1/2)) + I(college^(1/2))+I(Median_Household_Income_2017^(1/2))+Median_Household_Income_2017, data=data)
+
+summary(model)
+plot(model)
+```
+
+```{r,echo=FALSE,eval=FALSE}
+# Using log of the independent variables
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(log(UnemploymentRate)) + I(log(Less_than_high_school)) + I(log(high_school)) + I(log(college))+Median_Household_Income_2017+I(log(Median_Household_Income_2017)), data=data)
+
+summary(model)
+plot(model)
+```
+```{r,echo=FALSE,eval=FALSE}
+#Using 1 divided by  the independent variables
+
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(1/(UnemploymentRate)) + I(1/(Less_than_high_school)) + I(1/(high_school)) + I(1/(college))+Median_Household_Income_2017+I(1/(Median_Household_Income_2017)), data=data)
+
+summary(model)
+plot(model)
+```
+
+```{r,echo=FALSE,eval=FALSE}
+# Using education and employment to predict square root of birth rate
+
+model=lm(`Birth Rate`^(1/2) ~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data=data)
+
+summary(model)
+plot(model)
+```
+
+Below is the model we discussed in the blog post.
+
+```{r}
+model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college +Median_Household_Income_2017+ Region, data=data)
+
+summary(model)
+# plot(model)
+```
