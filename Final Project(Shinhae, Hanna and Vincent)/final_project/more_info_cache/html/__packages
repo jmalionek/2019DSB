@@ -1,0 +1,7 @@
+base
+tidyr
+dplyr
+DescTools
+purrr
+knitr
+ggplot2
