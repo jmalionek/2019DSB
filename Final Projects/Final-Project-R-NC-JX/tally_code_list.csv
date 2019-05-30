@@ -1,0 +1,123 @@
+tally_code,real_tally_code,tally_code_desc,created_by,create_dt,last_activity_by,last_activity_dt
+0,x,"Not Eligible to",SENATE,"1999-09-17 08:52:40",,NULL
+1,Excsd,Excused,SENATE,"1999-09-17 08:52:40",dconnolly,"2012-02-16 10:05:00"
+2,"Two  ","Absent Official Business",SENATE,"1999-09-17 08:52:40",,NULL
+3,Three,"Absent Official Business - Announced Nay",SENATE,"1999-09-17 08:52:40",,NULL
+4,"Four ","Absent Official Business - Announced Yea",SENATE,"1999-09-17 08:52:40",,NULL
+5,Five,"General Pair",camoruso,"2003-10-23 15:22:48",,NULL
+A,"Y    ","Voting Yea",SENATE,"1999-09-17 08:52:40",,NULL
+B,"N    ","Voting Nay",SENATE,"1999-09-17 08:52:40",,NULL
+C,"P    ",Present,SENATE,"1999-09-17 08:52:40",,NULL
+D,"5PY  ","Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D1,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D2,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D3,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D4,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D5,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D6,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D7,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D8,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+D9,"5PY  ","Present and Giving live pair - Yea",SENATE,"1999-09-17 08:52:40",,NULL
+E,"5PN  ","Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E1,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E2,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E3,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E4,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E5,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E6,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E7,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E8,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+E9,"5PN  ","Present and Giving live pair - Nay",SENATE,"1999-09-17 08:52:40",,NULL
+F,"1    ","Absent on official business",SENATE,"1999-09-17 08:52:40",,NULL
+G,"1AY  ","Absent on official business - Announced Yea",SENATE,"1999-09-17 08:52:40",,NULL
+H,"1AN  ","Absent on official business - Announced Nay",SENATE,"1999-09-17 08:52:40",,NULL
+I,"1PY  ","Absent on official business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I1,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I2,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I3,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I4,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I5,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I6,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I7,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I8,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+I9,"1PY  ","Absent on Official Business - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+J,"1PN  ","Absent on official business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J1,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J2,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J3,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J4,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J5,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J6,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J7,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J8,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+J9,"1PN  ","Absent on Official Business - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+K,"2    ","Necessarily absent",SENATE,"1999-09-17 08:52:40",,NULL
+L,"2AY  ","Necessarily absent - Announced Yea",SENATE,"1999-09-17 08:52:40",,NULL
+M,"2AN  ","Necessarily absent - Announced Nay",SENATE,"1999-09-17 08:52:40",,NULL
+N,"2PY  ","Necessarily absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N1,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N2,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N3,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N4,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N5,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N6,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N7,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N8,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+N9,"2PY  ","Necessarily Absent - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+O,"2PN  ","Necessarily absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O1,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O2,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O3,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O4,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O5,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O6,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O7,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O8,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+O9,"2PN  ","Necessarily Absent - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+P,"3    ","Absence due to illness",SENATE,"1999-09-17 08:52:40",,NULL
+Q,"3AY  ","Absence due to illness - Announced Yea",SENATE,"1999-09-17 08:52:40",,NULL
+R,"3AN  ","Absence due to illness - Announced Nay",SENATE,"1999-09-17 08:52:40",,NULL
+S,"3PY  ","Absence due to illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S1,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S2,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S3,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S4,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S5,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S6,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S7,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S8,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+S9,"3PY  ","Absence Due to Illness - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+T,"3PN  ","Absence due to illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T1,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T2,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T3,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T4,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T5,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T6,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T7,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T8,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+T9,"3PN  ","Absence Due to Illness - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+U,"4    ","Other absence",SENATE,"1999-09-17 08:52:40",,NULL
+V,"4AY  ","Other absence - Announced Yea",SENATE,"1999-09-17 08:52:40",,NULL
+W,"4AN  ","Other absence - Announced Nay",SENATE,"1999-09-17 08:52:40",,NULL
+X,"4PY  ","Other absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X1,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X2,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X3,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X4,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X5,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X6,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X7,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X8,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+X9,"4PY  ","Other Absence - Paired Yea",SENATE,"1999-09-17 08:52:40",,NULL
+Y,"4PN  ","Other absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y1,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y2,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y3,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y4,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y5,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y6,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y7,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y8,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Y9,"4PN  ","Other Absence - Paired Nay",SENATE,"1999-09-17 08:52:40",,NULL
+Z,"4    ","Not Voting",SENATE,"1999-09-17 08:52:40",,NULL

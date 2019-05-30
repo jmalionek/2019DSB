@@ -1,0 +1,71 @@
+result_code,italic,result_code_abbr,result_code_desc,created_by,create_dt,last_activity_by,last_activity_dt
+00,N,"Result Not Entered","Result not entered in Record",SENATE,"1999-09-17 08:52:35",,NULL
+01,N,Passed,"Bill Passed",SENATE,"1999-09-17 08:52:35",,NULL
+02,N,Rejected,"Bill Defeated",SENATE,"1999-09-17 08:52:35",,NULL
+03,Y,"Agreed to","Amendment Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+04,N,Rejected,"Amendment Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+05,N,Passed,"Joint Resolution Passed",SENATE,"1999-09-17 08:52:35",,NULL
+06,N,Defeated,"Joint Resolution Defeated",SENATE,"1999-09-17 08:52:35",,NULL
+07,N,"Veto Overriden","Veto Overridden",SENATE,"1999-09-17 08:52:35",,NULL
+08,N,"Veto Sustained","Veto Sustained",SENATE,"1999-09-17 08:52:35",,NULL
+09,N,"Agreed to","Motion Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+10,N,Rejected,"Motion Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+11,N,Sustained,"Decision of Chair Sustained",SENATE,"1999-09-17 08:52:35",,NULL
+12,N,"Not Sustained","Decision Of Chair Not Sustained",SENATE,"1999-09-17 08:52:35",,NULL
+13,N,Sustained,"Point of Order Sustained",SENATE,"1999-09-17 08:52:35",,NULL
+14,N,"Not Sustained","Point Of Order Not Sustained",SENATE,"1999-09-17 08:52:35",,NULL
+15,N,"Agreed to","Cloture Motion Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+16,N,Rejected,"Cloture Motion Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+17,N,"Agreed to","Resolution Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+18,N,Rejected,"Resolution Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+19,N,"Agreed to","Concurrent Resolution Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+20,N,Rejected,"Concurrent Resolution Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+21,N,"Agreed to","Conference Report Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+22,N,Rejected,"Conference Report Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+23,N,"Agreed to","Resolution Of Ratification Agreed To",SENATE,"1999-09-17 08:52:35",,NULL
+24,N,Rejected,"Resolution Of Ratification Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+25,N,Confirmed,"Nomination Confirmed",SENATE,"1999-09-17 08:52:35",,NULL
+26,N,Rejected,"Nomination Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+27,N,Tabled,"Motion to Table Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+28,N,"Tabling Motion Rejected","Motion to Table Failed",SENATE,"1999-09-17 08:52:35",,NULL
+29,N,"Held Germane","Amendment Germane",SENATE,"1999-09-17 08:52:35",,NULL
+30,N,"Held Nongermane","Amendment Not Germane",SENATE,"1999-09-17 08:52:35",,NULL
+31,N,"Agreed to","Motion to refer Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+32,N,Rejected,"Motion to refer Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+33,N,"Agreed to","Motion to Postpone Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+34,N,Rejected,"Motion to Postpone Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+35,N,"Agreed to","Motion to Proceed Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+36,N,Rejected,"Motion to Proceed Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+37,N,"Agreed to","Motion For Attendance Agreed To",SENATE,"1999-09-17 08:52:35",,NULL
+38,N,Rejected,"Motion For Attendance Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+39,N,"Agreed to","Motion to Discharge Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+40,N,Rejected,"Motion to Discharge Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+41,N,"Agreed to","Motion to Adjourn Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+42,N,Rejected,"Motion to Adjourn Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+43,N,Tabled,"Motion to Table Motion to Recommit Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+44,N,"Tabling Motion Rejected","Motion to Table Motion to Recommit Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+45,N,Tabled,"Motion to Table Motion to Reconsider Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+46,N,"Tabling Motion Rejected","Motion to Table Motion to Reconsider Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+47,N,"Agreed to","Reservation Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+48,N,Rejected,"Reservation Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+49,N,"Agreed to","Motion to Consider Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+50,N,Rejected,"Motion to Consider Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+51,N,"Agreed to","Motion to Reconsider Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+52,N,Rejected,"Motion to Reconsider Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+53,N,"Agreed to","Motion to Recommit Agreed to",SENATE,"1999-09-17 08:52:35",,NULL
+54,N,Rejected,"Motion to Recommit Rejected",SENATE,"1999-09-17 08:52:35",,NULL
+55,N,Guilty,Guilty,SENATE,"1999-09-17 08:52:35",,NULL
+56,N,"Not Guilty","Not Guilty",SENATE,"1999-09-17 08:52:35",,NULL
+57,N,Adopted,"Adoption of Substitute Amendment",SENATE,"1999-09-17 08:52:35",,NULL
+58,N,Rejected,"Rejection of Substitute Amendment",SENATE,"1999-09-17 08:52:35",,NULL
+59,Y,"Agreed to","Motion to table failed; subsequently agreed to by voice vote",SENATE,"1999-09-17 08:52:35",,NULL
+60,N,"Agreed to","Motion Agreed to (Byrd Rule) 3/5 Majority",SENATE,"1999-09-17 08:52:35",,NULL
+61,N,Rejected,"Motion Rejected (Byrd Rule) 3/5 Majority",SENATE,"1999-09-17 08:52:35",,NULL
+62,N,"Agreed to","Motion To Waive Budget Act Agreed To (3/5ths Vote)",SENATE,"1999-09-17 08:52:35",,NULL
+63,N,Rejected,"Motion To Waive Budget Act Rejected, (3/5ths Vote)",SENATE,"1999-09-17 08:52:35",,NULL
+64,N,Rejected,"Amendment Rejected by tie vote",SENATE,"1999-09-17 08:52:35",,NULL
+65,N,"Not Sustained","Point of order not sustained by tie vote",SENATE,"1999-09-17 08:52:35",,NULL
+66,N,Sustained,"Objection Sustained",DCONNOLLY,"2005-01-27 11:37:05",,NULL
+67,N,Rejected,"Objection Rejected",DCONNOLLY,"2005-01-27 11:37:05",,NULL
+68,N,"Agreed to","Motion to Concur Agreed to",dconnolly,"2016-04-26 00:00:00",NULL,NULL
+69,N,Rejected,"Motion to Concur Rejected",dconnolly,"2016-04-26 00:00:00",NULL,NULL

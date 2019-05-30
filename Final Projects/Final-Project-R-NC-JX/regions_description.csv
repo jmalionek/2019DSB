@@ -1,0 +1,7 @@
+id_regions_description,title,para,created_by,create_dt,last_activity_by,last_activity_dt
+1,West,"Western states",dconnolly,"2019-05-15 17:16:56",dconnolly,"2019-05-15 17:25:54"
+2,Midwest,"Midwestern states",dconnolly,"2019-05-15 17:27:23",NULL,NULL
+3,Northeast,"Northeastern states",dconnolly,"2019-05-15 17:28:12",NULL,NULL
+4,South,"Southern states",dconnolly,"2019-05-15 17:28:31",NULL,NULL
+5,"Test 2","This is a test region.",dconnolly,"2019-05-21 15:52:33",dconnolly,"2019-05-21 16:33:17"
+6,Test,"this is a test",dconnolly,"2019-05-21 16:36:25",dconnolly,"2019-05-21 16:37:04"
