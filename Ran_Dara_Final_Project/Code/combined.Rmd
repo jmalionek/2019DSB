@@ -132,7 +132,7 @@ data %>%
   geom_smooth(method="lm",se=FALSE)
 ```
 
-There appears to be a clear positive relationship between teen birth rates and the percent of adults with less than a high school diploma.
+There appears to be a weak negative relationship between teen birth rates and the percent of adults with some college or associate's degree.
 
 ```{r}
 data %>%
@@ -142,6 +142,8 @@ data %>%
   geom_smooth(method="lm",se=FALSE)
 ```
 
+There is a clear relationship between percent of adults with a bachelor's degree or higher and teen birth rates, though it does not appear to be linear.
+
 ```{r}
 data %>%
   ggplot(aes(y=`Birth Rate`, x=`UnemploymentRate`)) +
@@ -150,18 +152,55 @@ data %>%
   geom_smooth(method="lm",se=FALSE)
 ```
 
+There's a positive relationship between unemployment rate and teen birth rate.
+
 ```{r}
 data %>%
   ggplot(aes(y = `Birth Rate`, x = Median_Household_Income_2017)) +
   geom_point(alpha=.3) + 
-  labs(y = "Teen Birth Rate", x="Median Household Income in 2017") +   geom_smooth(method="lm",se=FALSE)
+  labs(y = "Teen Birth Rate", x = "Median Household Income in 2017") + geom_smooth(method="lm",se=FALSE)
 ```
 
-### Linear model of birth rate as a function of unemployment rate and education
-The education data divides the population into four groups: less than high school, high school, college, beyond college. Since the four categories add up to 100%, it is sufficient to only include three of the four rates in the linear model.
+There is a clear relationship between median household income and teen birth rates, though it does not appear to be linear.
+
+Below is a map of the US colored by teen birth rates at the county level.
 
 ```{r}
-model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college+Median_Household_Income_2017, data = data)
+# Load county and state data from the maps package
+cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
+state <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
+
+# Append FIPS code to the counties
+cnty2 <- cnty %>%
+         left_join(county.fips, by=c("ID" = "polyname"))
+
+# Joined county map data with our master dataset
+cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
+
+#Print map
+tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE) + tm_shape(state) + tm_borders()
+```
+
+Below is a box plot of teen birth rates by sub-region.
+
+```{r}
+data <- data %>%
+  mutate(len=nchar(Region))
+
+data %>%
+  ggplot() + 
+  geom_boxplot(aes(y = `Birth Rate`, x = fct_reorder(Division,len), color = Region), alpha=.5) + 
+  labs(y = "Teen Birth Rate",x = "Sub-Region") + 
+  theme(axis.text.x=element_text(angle=45, hjust=1))
+```
+
+As we noted in the blog post, counties in the South on average, had higher teen birth rates. On average, the Northeast not only had the lowest average teen birth rates, but also the least variable across its counties.
+
+### Linear model of birth rate as a function of unemployment, education level, region, and income
+The education data divides the population into four groups: less than high school, high school, college, beyond college. Since the four categories add up to 100%, it is sufficient to only include three of the four rates in the linear model.
+
+```{r, echo = FALSE, eval = FALSE}
+model = lm(`Birth Rate`~ UnemploymentRate + Less_than_high_school + high_school + college + Median_Household_Income_2017, data = data)
 
 summary(model)
 # plot(model)
@@ -176,7 +215,7 @@ summary(model)
 plot(model)
 ```
 
-```{r, echo=FALSE, eval=FALSE}
+```{r, echo = FALSE, eval = FALSE}
 # Adding in quadratic terms to the model
 
 model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college + I(UnemploymentRate^2) + I(Less_than_high_school^2) + I(high_school^2) + I(college^2)+Median_Household_Income_2017+I(Median_Household_Income_2017^2), data=data)
@@ -211,7 +250,6 @@ summary(model)
 plot(model)
 ```
 
-
 ```{r,echo=FALSE,eval=FALSE}
 # Using education and employment to predict square root of birth rate
 
@@ -221,35 +259,7 @@ summary(model)
 plot(model)
 ```
 
-### Graphics
-Below is a map of the US colored by teen birth rates at the county level.
-
-```{r}
-# Load county and state data from the maps package
-cnty <- st_as_sf(map("county", plot = FALSE, fill = TRUE))
-state <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
-
-# Append FIPS code to the counties
-cnty2 <- cnty %>%
-         left_join(county.fips, by=c("ID" = "polyname"))
-
-# Joined county map data with our master dataset
-cnty.data <- inner_join(cnty2, data , by=c("fips"="Combined FIPS Code") )
-
-#Print map
-tm_shape(cnty.data) + tm_fill(col = "Birth Rate", palette = "Greens") + tm_legend(outside = TRUE) + tm_shape(state) + tm_borders()
-```
-
-```{r}
-data <- data %>%
-  mutate(len=nchar(Region))
-
-data %>%
-  ggplot() + 
-  geom_boxplot(aes(y=`Birth Rate`,x=fct_reorder(Division,len),color=Region),alpha=.5) + 
-  labs(y = "Teen Birth Rate",x="Division") + 
-  theme(axis.text.x=element_text(angle=45,hjust=1))
-```
+Below is the model we discussed in the blog post.
 
 ```{r}
 model = lm(`Birth Rate` ~ UnemploymentRate + Less_than_high_school + high_school + college +Median_Household_Income_2017+ Region, data=data)
