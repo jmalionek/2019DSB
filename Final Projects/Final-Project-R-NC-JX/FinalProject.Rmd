@@ -1,0 +1,341 @@
+---
+title: "Senator_Voting_Data"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r libraries, echo=FALSE, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+
+
+```{r data, echo=FALSE, include=FALSE}
+senator_party <- read.csv(file="senator_party.csv")
+senator_votes_1 <- read.csv(file="senator_votes_113-1.csv")
+senator_votes_2 <- read.csv(file="senator_votes_113-2.csv")
+senators <- read.csv(file="senator.csv")
+result_code <- read.csv(file="result_code_list.csv")
+tally_code <- read.csv(file="tally_code_list.csv")
+
+regions_data <- read.csv(file="regions_data.csv")
+regions_description <- read.csv(file="regions_description.csv")
+
+regions_data <- subset(regions_data, id_regions_description != 5)
+```
+
+```{r combine table, echo=FALSE, include=FALSE}
+
+vote_table <- select(senator_votes_1,voteno,member_code,tally_code) %>%
+  filter(tally_code %in% c("A","B"))
+
+vote_table$tally_code = ifelse(vote_table$tally_code=="A",0,1)
+
+party_votes <- left_join(vote_table,select(senator_party,member_code,caucus_with), by = "member_code") 
+
+#party_votes
+
+party_vote_count <- party_votes %>%
+  select(voteno, caucus_with, tally_code) %>%
+  group_by(voteno, caucus_with) %>%
+  mutate( total_party_votes = sum(voteno)/voteno ) %>%
+  group_by(voteno, caucus_with, total_party_votes) %>%
+  summarise( total_party_support = sum(tally_code) )
+
+party_vote_count <- party_vote_count %>%
+  mutate( avg_party_support = total_party_support/total_party_votes)
+
+#party_vote_count
+  
+
+party_support_difference <- select(party_vote_count,voteno,caucus_with,avg_party_support) %>%
+  spread(key = caucus_with, value = avg_party_support) %>%
+  mutate( difference = D-R )
+
+#party_support_difference
+
+
+
+name_votes <- left_join(party_votes,select(senators,member_code,print_name,state_code), by = "member_code")
+
+name_votes <- left_join(name_votes,select(regions_data,state_code,id_regions_description), by = "state_code")
+
+name_votes <- left_join(name_votes,select(regions_description,id_regions_description,title), by = "id_regions_description")
+
+#name_votes
+
+
+group_votes <- select(name_votes,voteno,tally_code,caucus_with) %>%
+  group_by(caucus_with) %>%
+  summarise( total = sum(tally_code) )
+
+#group_votes
+
+
+```
+
+
+
+```{r plot party support, echo=FALSE}
+
+party.colors = c(D='blue', R='red')
+
+party_support_differenceD <- party_support_difference[order(party_support_difference$D),] %>%
+  rowid_to_column()
+
+party_support_differenceR <- party_support_difference[order(party_support_difference$R),] %>%
+  rowid_to_column()
+
+#party_support_differenceD
+
+party_support_differenceD %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=D, color='D')) + geom_point( aes( x=as.factor(rowid), y=R, color='R')) + xlab("Vote") + ylab("Party Support") + scale_color_manual(values=party.colors) + labs(color = "Party") + ggtitle("Average Support by Party, Increasing by Democratic Support") + theme(axis.text.x = element_blank())
+
+party_support_differenceR %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=D, color='D')) + geom_point( aes( x=as.factor(rowid), y=R, color='R')) + xlab("Vote") + ylab("Party Support") + scale_color_manual(values=party.colors) + labs(color = "Party") + ggtitle("Average Support by Party, Increasing by Republican Support") + theme(axis.text.x = element_blank())
+
+
+party_support_difference %>% ggplot( ) + geom_point( aes(x=voteno, y=difference), color="green") + ggtitle("Difference in Average Support by Party") + xlab("Vote") + ylab("Republican Support          Democratic Support")
+
+```
+
+```{r plot regions support, echo=FALSE}
+
+region.colors = c(Northeast='blue', South='red', Midwest='gold', West='green')
+
+region_votes <- select(name_votes,voteno,print_name,tally_code,title)
+
+region_vote_count <- region_votes %>%
+  group_by(voteno, title) %>%
+  mutate( total_region_votes = sum(voteno)/voteno ) %>%
+  group_by(voteno, title, total_region_votes) %>%
+  summarise( total_region_support = sum(tally_code) )
+
+region_vote_count <- region_vote_count %>%
+  mutate( avg_region_support = total_region_support/total_region_votes)
+
+#region_vote_count
+
+
+region_support_difference <- select(region_vote_count,voteno,title,avg_region_support) %>%
+  spread(key = title, value = avg_region_support)
+
+#region_support_difference
+
+
+region_support_differenceNE <- region_support_difference[order(region_support_difference$Northeast),] %>%
+  rowid_to_column()
+
+region_support_differenceS <- region_support_difference[order(region_support_difference$South),] %>%
+  rowid_to_column()
+
+region_support_differenceW <- region_support_difference[order(region_support_difference$West),] %>%
+  rowid_to_column()
+
+region_support_differenceMW <- region_support_difference[order(region_support_difference$Midwest),] %>%
+  rowid_to_column()
+
+
+
+region_support_difference %>% ggplot() + geom_point( aes( x=voteno, y=Northeast, color='Northeast')) + geom_point( aes(x=voteno, y=South, color='South')) + geom_point( aes(x=voteno, y=Midwest, color='Midwest')) + geom_point( aes(x=voteno, y=West, color='West')) + xlab("Vote") + ylab("Region Support") + ggtitle("Average Support by Region") + scale_color_manual(values=region.colors) + labs(color = "Region")
+
+
+region_support_differenceNE %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=Northeast, color='Northeast')) + geom_point( aes(x=as.factor(rowid), y=South, color='South')) + geom_point( aes(as.factor(rowid), y=Midwest, color='Midwest')) + geom_point( aes(as.factor(rowid), y=West, color='West')) + xlab("Vote") + ylab("Region Support") + theme(axis.text.x = element_blank()) + ggtitle("Average Support by Region, Increasing by Northeastern Support") + scale_color_manual(values=region.colors) + labs(color = "Region")
+
+region_support_differenceS %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=Northeast, color='Northeast')) + geom_point( aes(x=as.factor(rowid), y=South, color='South')) + geom_point( aes(as.factor(rowid), y=Midwest, color='Midwest')) + geom_point( aes(as.factor(rowid), y=West, color='West')) + xlab("Vote") + ylab("Region Support") + theme(axis.text.x = element_blank()) + ggtitle("Average Support by Region, Increasing by Southern Support") + scale_color_manual(values=region.colors) + labs(color = "Region")
+
+region_support_differenceMW %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=Northeast, color='Northeast')) + geom_point( aes(x=as.factor(rowid), y=South, color='South')) + geom_point( aes(as.factor(rowid), y=Midwest, color='Midwest')) + geom_point( aes(as.factor(rowid), y=West, color='West')) + xlab("Vote") + ylab("Region Support") + theme(axis.text.x = element_blank()) + ggtitle("Average Support by Region, Increasing by Midwestern Support") + scale_color_manual(values=region.colors) + labs(color = "Region")
+
+region_support_differenceW %>% ggplot() + geom_point( aes( x=as.factor(rowid), y=Northeast, color='Northeast')) + geom_point( aes(x=as.factor(rowid), y=South, color='South')) + geom_point( aes(as.factor(rowid), y=Midwest, color='Midwest')) + geom_point( aes(as.factor(rowid), y=West, color='West')) + xlab("Vote") + ylab("Region Support") + theme(axis.text.x = element_blank()) + ggtitle("Average Support by Region, Increasing by Western Support") + scale_color_manual(values=region.colors) + labs(color = "Region")
+
+
+
+```
+
+
+```{r consitency, echo=FALSE, include=FALSE}
+
+support_totals <- left_join(region_support_difference,select(party_support_difference,voteno,D,R), by = "voteno")
+
+#support_totals
+
+senator_consistency <- select(name_votes,member_code,print_name,caucus_with,state_code,title) %>%
+  group_by(member_code,print_name,caucus_with,state_code,title) %>% summarise()
+
+#senator_consistency
+
+
+senator_consistency %>% mutate(consist_D = -1, consist_R = -1, consist_NE = -1, consist_S = -1, consist_MW = -1, consist_W = -1 )
+
+
+
+for( name in senator_consistency$print_name ){
+  
+  name_index <- which(senator_consistency$print_name == name)
+  
+  local_senator_consistency <- filter(name_votes, print_name == name) %>%
+  left_join(support_totals, by = "voteno")
+  
+  
+  senator_consistency[name_index, "consist_D"] <- ( 1 - mean( abs( local_senator_consistency$D - local_senator_consistency$tally_code ) ) )
+  
+  senator_consistency[name_index, "consist_R"] <- ( 1 - mean( abs( local_senator_consistency$R - local_senator_consistency$tally_code ) ) )
+  
+  senator_consistency[name_index, "consist_NE"] <- ( 1 - mean( abs( local_senator_consistency$Northeast - local_senator_consistency$tally_code ) ) )
+  
+  senator_consistency[name_index, "consist_S"] <- ( 1 - mean( abs( local_senator_consistency$South - local_senator_consistency$tally_code ) ) )
+  
+  senator_consistency[name_index, "consist_MW"] <- ( 1 - mean( abs( local_senator_consistency$Midwest - local_senator_consistency$tally_code ) ) )
+  
+  senator_consistency[name_index, "consist_W"] <- ( 1 - mean( abs( local_senator_consistency$West - local_senator_consistency$tally_code ) ) )
+  
+  
+}
+
+#senator_consistency
+
+senator_consistency <- mutate(senator_consistency, name_state = paste(print_name," (",caucus_with,"-",state_code,")", sep="") )
+
+#senator_consistency
+
+
+ShelbyD <- which(senator_consistency$print_name == "Shelby" & senator_consistency$caucus_with == "D" )
+
+senator_consistency <- senator_consistency[-ShelbyD,]
+
+colnames(senator_consistency)[colnames(senator_consistency)=="caucus_with"] <- "party"
+
+ 
+
+#senator_consistency
+
+
+```
+
+
+```{r bar charts, cache=TRUE, echo=FALSE, fig.width=15, fig.asp=0.7}
+
+party.colors = c(D='blue', R='red')
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_D), y=consist_D, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with D") + xlab("Senator") + ylab("Consistency with Average D Votes") + ylim(0,1)
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_R), y=consist_R, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with R") + xlab("Senator") + ylab("Consistency with Average R Votes") + ylim(0,1)
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_NE), y=consist_NE, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with Northeast") + xlab("Senator") + ylab("Consistency with Average NE Votes") + ylim(0,1)
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_S), y=consist_S, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with South") + xlab("Senator") + ylab("Consistency with Average S Votes") + ylim(0,1)
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_MW), y=consist_MW, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with Midwest") + xlab("Senator") + ylab("Consistency with Average MW Votes") + ylim(0,1)
+
+senator_consistency %>% ggplot( mapping=aes( x=reorder(name_state, -consist_W), y=consist_W, fill=party) ) + geom_bar( stat="identity") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=1)) + scale_fill_manual(values=party.colors) + ggtitle("Alignment with West") + xlab("Senator") + ylab("Consistency with Average W Votes") + ylim(0,1)
+
+
+
+
+```
+#![AlignmentD](./FinalProject_files/figure-html/bar charts-1.png)
+
+```{r party supporty by region, echo=FALSE}
+
+party_region <- data.frame(matrix(, nrow=6, ncol=7))
+
+colnames(party_region)[colnames(party_region)=="X1"] <- "category"
+colnames(party_region)[colnames(party_region)=="X2"] <- "conD"
+colnames(party_region)[colnames(party_region)=="X3"] <- "conR"
+colnames(party_region)[colnames(party_region)=="X4"] <- "conNE"
+colnames(party_region)[colnames(party_region)=="X5"] <- "conS"
+colnames(party_region)[colnames(party_region)=="X6"] <- "conMW"
+colnames(party_region)[colnames(party_region)=="X7"] <- "conW"
+
+party_region[1, "category"] <- "D"
+party_region[2, "category"] <- "R"
+party_region[3, "category"] <- "Northeast"
+party_region[4, "category"] <- "South"
+party_region[5, "category"] <- "Midwest"
+party_region[6, "category"] <- "West"
+
+party_region[1, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$D ) ) )
+party_region[2, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$R ) ) )
+party_region[3, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$Northeast ) ) )
+party_region[4, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$South ) ) )
+party_region[5, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$Midwest ) ) )
+party_region[6, "conD"] <- ( 1 - mean( abs( support_totals$D - support_totals$West ) ) )
+
+party_region[1, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$D ) ) )
+party_region[2, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$R ) ) )
+party_region[3, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$Northeast ) ) )
+party_region[4, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$South ) ) )
+party_region[5, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$Midwest ) ) )
+party_region[6, "conR"] <- ( 1 - mean( abs( support_totals$R - support_totals$West ) ) )
+
+party_region[1, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$D ) ) )
+party_region[2, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$R ) ) )
+party_region[3, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$Northeast ) ) )
+party_region[4, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$South ) ) )
+party_region[5, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$Midwest ) ) )
+party_region[6, "conNE"] <- ( 1 - mean( abs( support_totals$Northeast - support_totals$West ) ) )
+
+party_region[1, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$D ) ) )
+party_region[2, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$R ) ) )
+party_region[3, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$Northeast ) ) )
+party_region[4, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$South ) ) )
+party_region[5, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$Midwest ) ) )
+party_region[6, "conS"] <- ( 1 - mean( abs( support_totals$South - support_totals$West ) ) )
+
+party_region[1, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$D ) ) )
+party_region[2, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$R ) ) )
+party_region[3, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$Northeast ) ) )
+party_region[4, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$South ) ) )
+party_region[5, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$Midwest ) ) )
+party_region[6, "conMW"] <- ( 1 - mean( abs( support_totals$Midwest - support_totals$West ) ) )
+
+party_region[1, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$D ) ) )
+party_region[2, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$R ) ) )
+party_region[3, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$Northeast ) ) )
+party_region[4, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$South ) ) )
+party_region[5, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$Midwest ) ) )
+party_region[6, "conW"] <- ( 1 - mean( abs( support_totals$West - support_totals$West ) ) )
+
+
+#party_region
+
+#senator_consistency <- senator_consistency[-ShelbyD,]
+
+region_no_party <- party_region[-1,]
+region_no_party <- region_no_party[-1,]
+
+#region_no_party
+
+
+
+stacked_region <- gather(select(region_no_party,category,conD,conR), key="con_party", value="consistency", 2:3)
+
+#stacked_region
+
+
+stacked.colors=c(conD="blue",conR="red")
+
+#region_no_party %>% ggplot() + geom_bar(mapping=aes( x=category, y=conD ), fill="blue", stat="identity", alpha=0.5, position="dodge") + geom_bar(mapping=aes( x=category, y=conR ), fill="red", stat="identity", alpha=0.5, position="dodge") + ggtitle("Senate Voting Consistency by Party and Region") + xlab("Region") + ylab("Average Voting Alignment") + ylim(0,1)
+
+
+colnames(stacked_region)[colnames(stacked_region)=="con_party"] <- "party_consistency"
+
+stacked_region %>%
+  ggplot( mapping = aes( x=category, y=consistency, fill=party_consistency )) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.75)) + xlab("Region") + ylab("Averge Voting Alignment") + ggtitle("Senate Regional Voting Consistency by Party, 2013") + scale_fill_manual(values=stacked.colors) + ylim(0,1)
+
+
+
+```
+
+

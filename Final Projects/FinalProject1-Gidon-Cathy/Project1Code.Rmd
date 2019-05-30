@@ -1,0 +1,135 @@
+---
+title: "Cause of Death Data"
+output: 
+  html_document:
+    code_folding: hide
+---
+
+
+The source data details the top 10 Causes of death in each U.S State from 1999-2016. After observing this data, we plan to answer the following questions with data visualizations:
+
+* For each cause of death, how has the percentages of death in each state changed over time?
+
+* For each state, what are the proportions of death for each cause? 
+
+* For each cause of death, how has the variance on the percentage of death in the U.S changed over time?
+
+* For heart disease (leading cause of death), how has its percentage of death changed over time in the U.S and what is the best fitting model for it?
+
+
+In order to answer these questions, we proceed with a facet plot, stacked barchart, line graph, and a scatter plot with a best fitting model. 
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages('tidyverse')
+```
+
+```{r, include=FALSE}
+library('dplyr')
+library('tidyverse')
+library('ggplot2')
+library('sjPlot')
+library('sjmisc')
+library('sjlabelled')
+library('snakecase')
+cod <- read.csv("NCHS_-_Leading_Causes_of_Death__United_States.csv")
+names(cod)[3]<-paste("Cause")
+names(cod)[6] <-paste("Age_Adjusted_Death")
+```
+
+The facet plot categorizes the data based on cause. Each smaller graph is percentage of death over the years. Each line represents a state in the U.S. Notice how heart disease is the highest cause, but is slowly decreasing. On the other hand, Cancer is slowly increasing. We see that both heart disease and cancer data have a larger variance than all other data. The other causes of death have each state clustered closely together. 
+
+```{r}
+cod %>%
+  select(-c(2:2)) %>%                           #Remove long-form cause name
+  group_by(Year, State)%>%                      
+  filter(Cause != "All causes") %>%             #Remove data on total deaths that year
+  mutate(Total_Dead = sum(Deaths))%>%
+  mutate(Percent = 100*Deaths/Total_Dead)%>%    #Calculate the percentage that died to that cause of death
+  ungroup()%>%
+  select(-c(Total_Dead))%>%
+  filter(State != "United States") %>%          #Throw out data on the total deaths across the country
+  arrange(desc(Percent))%>%
+  ggplot(mapping = aes(x=Year, y = Percent, color = State)) + geom_line(alpha = 0.2)+facet_wrap(~Cause)
+```
+
+The most informative aspect of the stacked bar chart is detailing which cause contributes to a larger percentage of deaths in each state. We clearly see that heart disease and cancer contribute to more than half of deaths in most states. 
+
+```{r}
+cod %>% 
+  
+  #Renaming columns below
+  mutate(New_Cause = ifelse(Cause == "Heart disease", "1Heart disease", 
+                          ifelse(Cause == "Cancer", "2Cancer", 
+                          ifelse(Cause == "Stroke", "3Stroke", 
+                          ifelse(Cause == "CLRD", "4CLRD",
+                          ifelse(Cause == "Unintentional injuries", "5Unintentional injuries", 
+                          ifelse(Cause == "Alzheimer's disease", "5Alzheimer's disease", 
+                          ifelse(Cause == "Diabetes", "6Diabetes", 
+                          ifelse(Cause == "Influenza and pneumonia", "7Influenza and pneumonia", 
+                          ifelse(Cause == "Kidney disease", "8Kidney disease",
+                          ifelse(Cause == "Suicide", "9Suicide", "All causes"))))))))))) %>%
+
+  
+  select(-c(2:3)) %>%                           #Remove long-form cause name
+  group_by(Year, State)%>%
+  filter(New_Cause != "All causes") %>%         #Remove data on total deaths that year
+  mutate(Total_Dead = sum(Deaths))%>%
+  mutate(Percent = 100*Deaths/Total_Dead)%>%    #Calculate the percentage that died to that cause of death
+  ungroup()%>%
+  filter(State != "United States") %>%          #Throw out data on the total deaths across the country
+  arrange(desc(Percent))%>%
+  filter(Year == 2003)%>%                       #Considers data only from 2003
+  ggplot(mapping = aes(x = reorder(State, -Total_Dead), y = Percent, fill = New_Cause))+ geom_bar(stat = "identity", position = "stack")+ theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 1))
+```
+
+The line chart below shows how the variance of the percentage killed by the top ten causes of death changes ove time.  The clear outlier of the variance is heart disease, with the minimum variance still almost twice as high as the next cause of death.  Also signifigant about variance of heart disease is that it is decreasing over time, indicating that the states with higher incidence of heart disease are making gains to close the gap.
+
+
+```{r}
+cod %>%
+  select(-c(2:2)) %>%                           #Remove long-form cause name
+  group_by(Year, State)%>%
+  filter(Cause != "All causes") %>%             #Remove data on total deaths that year
+  mutate(Total_Dead = sum(Deaths))%>%
+  mutate(Percent = 100*Deaths/Total_Dead)%>%    #Calculate the percentage that died to that cause of death
+  ungroup()%>%
+  select(-c(Total_Dead))%>%
+  filter(State != "United States") %>%          #Throw out data on the total deaths across the country
+  arrange(desc(Percent))%>%
+  group_by(Year, Cause) %>% 
+  summarize(Variance = var(Percent)) %>%        #Calculate the variance from each cause of death
+  ggplot(mapping = aes(x=Year, y = Variance, color = Cause)) + geom_line() 
+```
+
+
+Because heart disease is the biggest cause of death, we filtered the data to just consider heart disease data in the U.S. We have a scatter plot of age adjusted death rate over the years. We see that heart disease is steadily decreasing, with a quadratic best line of fit. 
+
+
+
+```{r, warning =FALSE}
+cod2 <-cod %>%
+  select(-c(2:2)) %>%                           #Remove long-form cause name
+  group_by(Year, State)%>%
+  filter(Cause != "All causes") %>%             #Remove data on total deaths that year
+  mutate(Total_Dead = sum(Deaths))%>%
+  mutate(Percent = 100*Deaths/Total_Dead)%>%    #Calculate the percentage that died to that cause of death
+  ungroup()%>%
+  select(-c(Total_Dead))%>%                     
+  filter(Cause == "Heart disease") %>%          #Only consider deaths due to heart disease
+  filter(State == "United States")              #Only consider nationwide deaths
+  
+  cod2 %>% ggplot(mapping = aes(x=Year, y = Age_Adjusted_Death)) + geom_point() + geom_smooth(method=lm,formula=y~x+I(x^2)+I(x^3),se=FALSE)
+  
+#Making Table for best fit
+  
+cod3 <- filter(cod2, Cause == "Heart disease")
+cod3 <- filter(cod3, State == "United States")
+table <- lm(Age_Adjusted_Death ~ Year +I(Year^2), data = cod3)
+tab_model(table) 
+
+```
+
+

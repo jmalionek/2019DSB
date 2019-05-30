@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Hanna Kim, Shinhae Park, and Vincent Villalobos" />
+
+
+<title>Final Project-An Analysis of Breast Cancer Data</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Regreesion on Breast Cancer Data</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Blogpost</a>
+</li>
+<li>
+  <a href="more_info.html">More info</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Final Project-An Analysis of Breast Cancer Data</h1>
+<h4 class="author">Hanna Kim, Shinhae Park, and Vincent Villalobos</h4>
+<h4 class="date">Last updated on 2019-05-30</h4>
+
+</div>
+
+
+<p>This is a data analysis of the Breast Cancer Wisconsin (Diagnostic) Data Set <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. This data set describes characteristics of the cell nuclei present in a digitized image.</p>
+<p>We restricted our analysis to every column, except standard error.</p>
+<p>Here is the attribute Information:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
+<ol style="list-style-type: decimal">
+<li>ID number</li>
+<li>Diagnosis (M = malignant, B = benign)</li>
+</ol>
+<p>Ten real-valued features are computed for each cell nucleus:</p>
+<ol style="list-style-type: lower-alpha">
+<li>radius (mean of distances from center to points on the perimeter)</li>
+<li>texture (standard deviation of gray-scale values)</li>
+<li>perimeter</li>
+<li>area</li>
+<li>smoothness (local variation in radius lengths)</li>
+<li>compactness (perimeter^2 / area - 1.0)</li>
+<li>concavity (severity of concave portions of the contour)</li>
+<li>concave points (number of concave portions of the contour)</li>
+<li>symmetry</li>
+<li>fractal dimension (“coastline approximation” - 1)</li>
+</ol>
+<div id="regression-analysis" class="section level1">
+<h1>Regression Analysis</h1>
+<p>The number of people in each group who had diagnois as ‘benign’ or ‘malignent’ Since response has binary values, ‘Malignent’(equaling 1) and ‘Benign’(equaling 0). We need to use logistic regression to see the data analysis. First, we ran logistic regression model separately on each of 10 variables. Next, error rates which gauge the accuracy of our model, can be derived by logistic regression. If fitted value is bigger than 0.5, we predict all of data as 1. Likewise, if fitted value is smaller or equal than 0.5, we predict that the data as 0.</p>
+<p>If the predictions and the data do not match, we consider it as an error. The mean of all cases where two values do not match are called are error rate.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" /><!-- --></p>
+<p>These are the logistic regressions on all of each variables. The blue line is the continuously predicted model of the data. The dots are the data points. As a Remark, the graph using fractal_dimension looks very different from other ones. We can see later also that it has the highest error rate. But if we use other ways to analyze the data, the conclusion has a twist.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">logit_mod&lt;-<span class="kw">glm</span>(diagnosis<span class="op">~</span>area<span class="op">+</span><span class="st"> `</span><span class="dt">concave points</span><span class="st">`</span><span class="op">+</span>concavity<span class="op">+</span>perimeter<span class="op">+</span>radius, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="dt">data=</span>cancer2)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">summary</span>(logit_mod)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = diagnosis ~ area + `concave points` + concavity + 
+##     perimeter + radius, family = &quot;binomial&quot;, data = cancer2)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.41723  -0.24089  -0.12233   0.01557   2.65887  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)       5.73493    7.49853   0.765   0.4444    
+## area              0.03341    0.01294   2.583   0.0098 ** 
+## `concave points` 83.52433   16.93856   4.931 8.18e-07 ***
+## concavity         1.56923    6.25950   0.251   0.8020    
+## perimeter        -0.01387    0.25822  -0.054   0.9572    
+## radius           -2.12784    2.20132  -0.967   0.3337    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 751.44  on 568  degrees of freedom
+## Residual deviance: 200.34  on 563  degrees of freedom
+## AIC: 212.34
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">pred &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">predict</span>(logit_mod,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#table(cancer2$diagnosis,pred)</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">error_rate=<span class="kw">mean</span>(cancer2<span class="op">$</span>diagnosis<span class="op">!=</span>pred)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">error_rate</a></code></pre></div>
+<pre><code>## [1] 0.07908612</code></pre>
+<p>If the error rate is bigger than the significant value, we drop such predictor variables. For example, if we only use only 5 out of 10 variables. The error rate is about 8%.</p>
+</div>
+<div id="variable-selection" class="section level1">
+<h1>Variable Selection</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">fullmod=<span class="kw">glm</span>(diagnosis <span class="op">~</span><span class="st"> </span>.<span class="op">-</span>id,<span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>,<span class="dt">data=</span>cancer2)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">summary</span>(fullmod)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = diagnosis ~ . - id, family = &quot;binomial&quot;, data = cancer2)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.95590  -0.14839  -0.03943   0.00429   2.91690  
+## 
+## Coefficients:
+##                    Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)        -7.35952   12.85259  -0.573   0.5669    
+## radius             -2.04930    3.71588  -0.551   0.5813    
+## texture             0.38473    0.06454   5.961  2.5e-09 ***
+## perimeter          -0.07151    0.50516  -0.142   0.8874    
+## area                0.03980    0.01674   2.377   0.0174 *  
+## smoothness         76.43227   31.95492   2.392   0.0168 *  
+## compactness        -1.46242   20.34249  -0.072   0.9427    
+## concavity           8.46870    8.12003   1.043   0.2970    
+## `concave points`   66.82176   28.52910   2.342   0.0192 *  
+## symmetry           16.27824   10.63059   1.531   0.1257    
+## fractal_dimension -68.33703   85.55666  -0.799   0.4244    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 751.44  on 568  degrees of freedom
+## Residual deviance: 146.13  on 558  degrees of freedom
+## AIC: 168.13
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">pred &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">predict</span>(fullmod,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>) <span class="co">#table(cancer2$diagnosis,pred) </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">error_rate=<span class="kw">mean</span>(cancer2<span class="op">$</span>diagnosis<span class="op">!=</span>pred) </a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">error_rate</a></code></pre></div>
+<pre><code>## [1] 0.05096661</code></pre>
+<p>However, we saw that logistic regression with all variables has lower error rate. Therefore, we performed backward elimination of variables to select features.</p>
+<p>We choose a model by sequentially deleting one variable at a time according to a set of rules until a stopping criterion is met.</p>
+<p>Step 1: Begin with the full model in all available variables.</p>
+<p>Step 2: Remove the variable that has the lowest statistical significance (smallest F-statistic or largest p-value). Continue until the stopping rule is satisfied.</p>
+<p>Stopping rule: All F values are greater than 3 (or every p-value is less than 0.05).</p>
+<p>By the method of Backward Elimination, we dropped two variables <code>perimeter</code> and <code>compactness</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">summary</span>(redmod)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = diagnosis ~ radius + texture + area + smoothness + 
+##     concavity + `concave points` + symmetry + fractal_dimension, 
+##     family = &quot;binomial&quot;, data = cancer2)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.96847  -0.15195  -0.04024   0.00409   2.93549  
+## 
+## Coefficients:
+##                    Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)        -5.27847   10.31074  -0.512  0.60869    
+## radius             -2.68473    1.32326  -2.029  0.04247 *  
+## texture             0.38262    0.06413   5.966 2.42e-09 ***
+## area                0.04157    0.01554   2.675  0.00747 ** 
+## smoothness         78.22119   30.57445   2.558  0.01052 *  
+## concavity           8.25689    8.04476   1.026  0.30472    
+## `concave points`   64.07659   26.75842   2.395  0.01664 *  
+## symmetry           16.02120   10.47671   1.529  0.12621    
+## fractal_dimension -82.21451   58.85970  -1.397  0.16248    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 751.44  on 568  degrees of freedom
+## Residual deviance: 146.22  on 560  degrees of freedom
+## AIC: 164.22
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">redpred &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">predict</span>(redmod,<span class="dt">type=</span><span class="st">&quot;response&quot;</span>)<span class="op">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#table(cancer2$diagnosis,pred)</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">error_rate_red=<span class="kw">mean</span>(cancer2<span class="op">$</span>diagnosis<span class="op">!=</span>redpred)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">error_rate_red</a></code></pre></div>
+<pre><code>## [1] 0.05272408</code></pre>
+<!-- The error rate reduced by (around) 2.7% by adding `texture`, `smoothness`, `symmetry`, `fractal_dimension` and removing `perimeter`. -->
+<p>However, we observed that reduced model showed poor performance in prediction and goodness-of-fit than the full model.</p>
+</div>
+<div id="other-link" class="section level1">
+<h1>Other Link</h1>
+<p>We used other link functions to find the best model to predict the correct diagnosis of the breast cancer.</p>
+<p>We first used all features as predictors.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Full model with Link</th>
+<th align="left">logit</th>
+<th align="left">probit</th>
+<th align="left">cloglog</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Error Rates</td>
+<td align="left">0.0509666</td>
+<td align="left">0.0544815</td>
+<td align="left">0.0492091</td>
+</tr>
+<tr class="even">
+<td align="left">Deviance</td>
+<td align="left">146.1304184</td>
+<td align="left">145.4039643</td>
+<td align="left">142.9590068</td>
+</tr>
+<tr class="odd">
+<td align="left">PseudoR2</td>
+<td align="left">0.8055328</td>
+<td align="left">0.8064996</td>
+<td align="left">0.8097533</td>
+</tr>
+</tbody>
+</table>
+<p>Now, we used predictors chosen from the backward elimination.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Reduced model with Link</th>
+<th align="left">logit</th>
+<th align="left">probit</th>
+<th align="left">cloglog</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Error Rates</td>
+<td align="left">0.0527241</td>
+<td align="left">0.0527241</td>
+<td align="left">0.0544815</td>
+</tr>
+<tr class="even">
+<td align="left">Deviance</td>
+<td align="left">146.2174161</td>
+<td align="left">145.6682547</td>
+<td align="left">143.3191619</td>
+</tr>
+<tr class="odd">
+<td align="left">PseudoR2</td>
+<td align="left">0.805417</td>
+<td align="left">0.8061479</td>
+<td align="left">0.809274</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>We selected variables radius, texture, area, smoothness, <code>concave points</code>, concavity, symmetry, fractal_dimension to predict if the breast cancer is malignant or benign.<br />
+By the results of error rates for each link, logit or probit gave the more accurate prediction.<br />
+To see the goodness-of-fit for generalized linear models, we further compared deviance residual and psuedo R sqaured. Using link cloglog on the variable ‘diagnosis’ had the smallest deviance residual. The largest pseudo R squared was obtained when we used loglog as link. Therefore, if we focus on the prediction, either logit or probit are the best options. But, we will use cloglog to see the variablity of the data (almost 81% of the whole data can be exaplained by the model loglog).</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://www.kaggle.com/uciml/breast-cancer-wisconsin-data" class="uri">https://www.kaggle.com/uciml/breast-cancer-wisconsin-data</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29" class="uri">https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

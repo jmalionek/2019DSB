@@ -1,0 +1,396 @@
+id_senator,member_code,print_name,start_congress,start_cong_session,end_congress,end_cong_session,state_code,term_began,name_prefix,name_suffix,middle_name,state,first_name,last_name,congrec_name,senate_rank,date_sworn,termination_date,notes,death_date,created_by,create_dt,last_activity_by,last_activity_dt,rank_in_party
+1055,S002,Abourezk,0,0,0,0,SD,,Mr.,,,"South Dakota",James,Abourezk,,0,"1973-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1056,S003,"James Allen",0,0,0,0,AL,,Mr.,,B.,Alabama,James,Allen,,0,"1969-01-03 00:00:00","1978-06-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1057,S004,Baker,0,0,0,0,TN,,Mr.,"Jr.  ",H.,Tennessee,Howard,Baker,"Mr. BAKER",0,"1967-01-03 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1058,S005,Bartlett,0,0,0,0,OK,,Mr.,,F.,Oklahoma,Dewey,Bartlett,,0,"1973-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1059,S006,Bayh,0,0,0,0,IN,,Mr.,,,Indiana,Birch,Bayh,,0,"1963-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1060,S007,Beall,0,0,0,0,MD,,Mr.,,Glenn,Maryland,J,Beall,,0,"1971-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1061,S008,Bellmon,0,0,0,0,OK,,Mr.,,,Oklahoma,Henry,Bellmon,,0,"1969-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1062,S009,Bentsen,0,0,0,0,TX,,Mr.,,,Texas,Lloyd,Bentsen,"Mr. BENTSEN",0,"1971-01-03 00:00:00","1993-01-20 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1063,S010,Biden,93,1,111,1,DE,73,Mr.,Jr.,R.,Delaware,Joseph,Biden,"Mr. JOSEPH BIDEN",7,"1973-01-03 00:00:00","2009-01-15 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1064,S011,Brock,0,0,0,0,TN,,Mr.,,,Tennessee,Bill,Brock,,0,"1971-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1065,S012,Brooke,0,0,0,0,MA,,Mr.,,W,Massachusetts,Edward,Brooke,,0,"1967-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1066,S013,Buckley,0,0,0,0,NY,,Mr.,,,"New York",James,Buckley,,0,"1971-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1067,S014,Bumpers,0,0,0,0,AR,75,Mr.,,,Arkansas,Dale,Bumpers,"Mr. BUMPERS",12,"1975-01-03 00:00:00","1998-12-31 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1068,S015,"Burdick, Q.",0,0,0,0,ND,,Mr.,,N.,"North Dakota",Quentin,Burdick,"Mr. BURDICK",0,"1960-08-08 00:00:00","1992-09-08 00:00:00",,"1992-09-08 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1069,S016,"Byrd, Jr. (VA)",0,0,0,0,VA,,Mr.,Jr.,F.,Virginia,Harry,Byrd-Harry,"Mr. BYRD, HARRY",0,"1965-11-12 00:00:00","1983-01-02 00:00:00","Senator Harry Byrd was re-elected as an independent in 1970.  He continued to caucus with the Democrats.","2013-07-30 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2013-10-10 15:06:45",0
+1070,S017,Byrd,93,1,111,2,WV,59,Mr.,,C.,"West Virginia",Robert,Byrd,"Mr. BYRD",1,"1959-01-03 00:00:00","2010-06-27 00:00:00","Elected to the 86th Congress, 1st Session.  Votebase allows values only back to 93-1.  Total votes cast: 18,689.  Last vote eligible to cast: 200 (111-2). Last vote actually cast: 193 (111-2). ","2010-06-27 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2015-06-08 17:38:22",0
+1071,S018,Cannon,0,0,0,0,NV,,Mr.,,W.,Nevada,Howard,Cannon,,0,"1959-01-02 00:00:00","1983-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1072,S019,Case,0,0,0,0,NJ,,Mr.,,P.,"New Jersey",Clifford,Case,,0,"1955-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1073,S020,Chiles,0,0,0,0,FL,,Mr.,,,Florida,Lawton,Chiles,"Mr. CHILES",0,"1971-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1074,S021,Church,0,0,0,0,ID,,Mr.,,,Idaho,Frank,Church,,0,"1957-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1075,S022,Clark,0,0,0,0,IA,,Mr.,,,Iowa,Dick,Clark,,0,"1973-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1076,S023,Cranston,0,0,0,0,CA,,Mr.,,,California,Alan,Cranston,"Mr. CRANSTON",0,"1969-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1077,S024,Culver,0,0,0,0,IA,,Mr.,,C.,Iowa,John,Culver,,0,"1975-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1078,S025,Curtis,0,0,0,0,NE,,Mr.,,T.,Nebraska,Carl,Curtis,,0,"1955-01-01 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1079,S026,Dole,0,0,0,0,KS,69,Mr.,,,Kansas,Bob,Dole,"Mr. DOLE",0,"1969-01-03 00:00:00","1996-06-11 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1080,S027,Domenici,93,1,110,2,NM,73,Mr.,,V.,"New Mexico",Pete,Domenici,"Mr. DOMENICI",8,"1973-01-03 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1081,S028,Durkin,0,0,0,0,NH,,Mr.,,A.,"New Hampshire",John,Durkin,,0,"1975-09-18 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1082,S029,Eagleton,0,0,0,0,MO,,Mr.,,F.,Missouri,Thomas,Eagleton,"Mr. EAGLETON",0,"1968-12-28 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1083,S030,Eastland,0,0,0,0,MS,,Mr.,,O.,Mississippi,James,Eastland,,0,"1943-01-03 00:00:00","1978-12-26 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1084,S031,Fannin,0,0,0,0,AZ,,Mr.,,,Arizona,Paul,Fannin,,0,"1965-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1085,S032,Fong,0,0,0,0,HI,,Mr.,,,Hawaii,Hiram,Fong,,0,"1959-08-21 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1086,S033,Ford,0,0,0,0,KY,75,Mr.,,H.,Kentucky,Wendell,Ford,"Mr. FORD",11,"1974-12-28 00:00:00","1999-01-05 00:00:00",,"2015-01-22 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-26 11:20:34",0
+1087,S034,Garn,0,0,0,0,UT,,Mr.,,,Utah,Jake,Garn,"Mr. GARN",0,"1974-12-21 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1088,S035,Glenn,0,0,0,0,OH,75,Mr.,,,Ohio,John,Glenn,"Mr. GLENN",10,"1974-12-24 00:00:00","1999-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1089,S036,Goldwater,0,0,0,0,AZ,,Mr.,,,Arizona,Barry,Goldwater,"Mr. GOLDWATER",0,"1969-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1090,S037,Gravel,0,0,0,0,AK,,Mr.,,,Arkansas,Mike,Gravel,,0,"1969-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1091,S038,Griffin,0,0,0,0,MI,,Mr.,,P.,Michigan,Robert,Griffin,,0,"1966-05-11 00:00:00","1979-01-02 00:00:00","Served 5 terms in the House; appointed by Gov. Romney to a vacant seat in 1966.","2015-04-16 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2015-06-09 11:01:20",0
+1092,S039,Hansen,0,0,0,0,WY,,Mr.,,,Wyoming,Clifford,Hansen,,0,"1967-01-03 00:00:00","1978-12-31 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1093,S040,"Hart , G.",0,0,0,0,CO,,Mr.,,,Colorado,Gary,Hart,"Mr. HART",0,"1975-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1094,S041,"Hart, P.",0,0,0,0,MI,,Mr.,,A.,Michigan,Philip,Hart,,0,"1959-01-03 00:00:00","1976-12-26 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1095,S042,Hartke,0,0,0,0,IN,,Mr.,,,Indiana,Vance,Hartke,,0,"1959-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1096,S043,Haskell,0,0,0,0,CO,,Mr.,,K.,Colorado,Floyd,Haskell,,0,"1973-01-03 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1097,S044,"Hatfield, M.",0,0,0,0,OR,67,Mr.,,O.,Oregon,Mark,Hatfield,"Mr. HATFIELD",0,"1967-01-10 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1098,S045,Hathaway,0,0,0,0,ME,,Mr.,,D.,Maine,William,Hathaway,,0,"1973-01-03 00:00:00","1979-01-02 00:00:00",,"2013-06-24 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2013-06-27 10:25:17",0
+1099,S046,Helms,0,0,0,0,NC,73,Mr.,,,"North Carolina",Jesse,Helms,"Mr. HELMS",9,"1973-01-03 00:00:00","2003-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1100,S047,Hollings,0,0,0,0,SC,63,Mr.,,F.,"South Carolina",Ernest,Hollings,"Mr. HOLLINGS",4,"1966-11-09 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1101,S048,Hruska,0,0,0,0,NE,,Mr.,,,Nebraska,Roman,Hruska,,0,"1954-11-08 00:00:00","1976-12-27 00:00:00","Tribute, Sens. Hagel, Hollings, McCain, Thurmond, CR-S4157, 4/26/99.","1999-04-25 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2011-10-13 16:21:46",0
+1102,S049,Huddleston,0,0,0,0,KY,,Mr.,,D.,Kentucky,Walter,Huddleston,"Mr. HUDDLESTON",0,"1973-01-03 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1103,S050,"Humphrey, H.",0,0,0,0,MN,,Mr.,,H.,Minnesota,Hubert,Humphrey,,0,"1971-01-03 00:00:00","1978-01-13 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1104,S051,Inouye,93,1,112,2,HI,63,Mr.,,K.,Hawaii,Daniel,Inouye,"Mr. INOUYE",3,"1963-01-03 00:00:00","2012-12-17 00:00:00","Elected to the 88th Congress, 1st Session.  Votebase allows values only back to 93-1","2012-12-17 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2012-12-18 17:50:21",0
+1105,S052,Jackson,0,0,0,0,WA,,Mr.,,M.,Washington,Henry,Jackson,"Mr. JACKSON",0,"1953-01-03 00:00:00","1983-09-01 00:00:00",,"1983-09-01 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1106,S053,Javits,0,0,0,0,NY,,Mr.,,K.,"New York",Jacob,Javits,,0,"1957-01-09 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1107,S054,Johnston,0,0,0,0,LA,67,Mr.,,Bennett,Louisiana,J.,Johnston,"Mr. JOHNSTON",0,"1972-11-14 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1108,S055,Kennedy,93,1,111,1,MA,59,Mr.,,M.,Massachusetts,Edward,Kennedy,"Mr. KENNEDY",2,"1962-11-07 00:00:00","2009-08-25 00:00:00","Elected to the 88th Congress 1st Session.  Votebase allows values only back to 93-1.","2009-08-25 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1109,S056,Laxalt,0,0,0,0,NV,,Mr.,,,Nevada,Paul,Laxalt,"Mr. LAXALT",0,"1974-12-18 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1110,S057,Leahy,94,1,0,0,VT,75,Mr.,,J.,Vermont,Patrick,Leahy,"Mr. LEAHY",13,"1975-01-03 00:00:00",NULL,"4/12/11: Error corrected on vote 259 (97-1).  General pair was recorded as live pair, increasing number of votes cast.  Correcting this reduced the number of votes cast by 1.",NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1111,S058,Long,0,0,0,0,LA,,Mr.,,B.,Louisiana,Russell,Long,"Mr. LONG",0,"1948-12-31 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1112,S059,Magnuson,0,0,0,0,WA,,Mr.,,G.,Washington,Warren,Magnuson,,0,"1944-12-14 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1113,S060,Mansfield,0,0,0,0,MT,,Mr.,,J.,Montana,Michael,Mansfield,,0,"1953-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1114,S061,Mathias,0,0,0,0,MD,,Mr.,"Jr.  ",McC.,Maryland,Charles,Mathias,"Mr. MATHIAS",0,"1969-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1115,S062,McClellan,0,0,0,0,AR,,Mr.,,L.,Arkansas,John,McClellan,,0,"1943-01-03 00:00:00","1977-11-28 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1116,S063,McClure,0,0,0,0,ID,,Mr.,,A.,Idaho,James,McClure,"Mr. MCCLURE",0,"1973-01-03 00:00:00","1991-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1117,S064,McGee,0,0,0,0,WY,,Mr.,,W.,Wyoming,Gale,McGee,,0,"1959-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1118,S065,McGovern,0,0,0,0,SD,,Mr.,,,"South Dakota",George,McGovern,,0,"1963-01-03 00:00:00","1981-01-03 00:00:00",,"2012-10-21 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2012-10-24 10:09:06",0
+1119,S066,McIntyre,0,0,0,0,NH,,Mr.,,J.,"New Hampshire",Thomas,McIntyre,,0,"1962-11-07 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1120,S067,Metcalf,0,0,0,0,MT,,Mr.,,,Montana,Lee,Metcalf,,0,"1961-01-03 00:00:00","1978-01-12 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1121,S068,Mondale,0,0,0,0,MN,,Mr.,,F.,Minnesota,Walter,Mondale,,0,"1964-12-30 00:00:00","1976-12-29 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1122,S069,Montoya,0,0,0,0,NM,,Mr.,,M.,"New Mexico",Joseph,Montoya,,0,"1964-11-04 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1123,S070,Morgan,0,0,0,0,NC,,Mr.,,,"North Carolina",Robert,Morgan,,0,"1975-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1124,S071,Moss,0,0,0,0,UT,,Mr.,,E.,Utah,Frank,Moss,,0,"1959-01-02 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1125,S072,Muskie,0,0,0,0,ME,,Mr.,,S.,Maine,Edmund,Muskie,,0,"1959-01-03 00:00:00","1980-05-07 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1126,S073,Nelson,0,0,0,0,WI,,Mr.,,,Wisconsin,Gaylord,Nelson,,0,"1963-01-08 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1127,S074,Nunn,0,0,0,0,GA,67,Mr.,,,Georgia,Sam,Nunn,"Mr. NUNN",0,"1972-11-08 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1128,S075,Packwood,0,0,0,0,OR,69,Mr.,,,Oregon,Bob,Packwood,"Mr. PACKWOOD",0,"1969-01-03 00:00:00","1995-10-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1129,S076,Pastore,0,0,0,0,RI,,Mr.,,O.,"Rhode Island",John,Pastore,,0,"1950-12-19 00:00:00","1976-12-18 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1130,S077,Pearson,0,0,0,0,KS,,Mr.,,B.,Kansas,James,Pearson,,0,"1962-01-13 00:00:00","1978-12-22 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1131,S078,Pell,0,0,0,0,RI,61,Mr.,,,"Rhode Island",Claiborne,Pell,"Mr. PELL",0,"1961-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1132,S079,Percy,0,0,0,0,IL,,Mr.,,H.,Illinois,Charles,Percy,"Mr. PERCY",0,"1967-01-03 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1133,S080,Proxmire,0,0,0,0,WI,,Mr.,,,Wisconsin,William,Proxmire,"Mr. PROXMIRE",0,"1957-08-28 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1134,S081,Randolph,0,0,0,0,WV,,Mr.,,,"West Virginia",Jennings,Randolph,"Mr. RANDOLPH",0,"1958-11-05 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1135,S082,Ribicoff,0,0,0,0,CT,,Mr.,,,Connecticut,Abraham,Ribicoff,,0,"1963-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1136,S083,Roth,0,0,0,0,DE,71,Mr.,Jr.,V.,Delaware,William,Roth,"Mr. ROTH",6,"1971-01-01 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1137,S084,Schweiker,0,0,0,0,PA,,Mr.,,S.,Pennsylvania,Richard,Schweiker,,0,"1969-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1138,S085,"Scott, H.",0,0,0,0,PA,,Mr.,,,Pennsylvania,Hugh,Scott,,0,"1959-01-03 00:00:00","1977-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1139,S086,"Scott, W.",0,0,0,0,VA,,Mr.,,L.,Virginia,William,Scott,,0,"1973-01-03 00:00:00","1979-01-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1140,S087,Sparkman,0,0,0,0,AL,,Mr.,,J.,Alabama,John,Sparkman,,0,"1946-11-06 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1141,S088,Stafford,0,0,0,0,VT,,Mr.,,T.,Vermont,Robert,Stafford,"Mr. STAFFORD",0,"1971-09-16 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1142,S089,Stennis,0,0,0,0,MS,,Mr.,,C.,Mississippi,John,Stennis,"Mr. STENNIS",0,"1947-11-05 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1143,S090,Stevens,93,1,110,2,AK,69,Mr.,,,Alaska,Ted,Stevens,"Mr. STEVENS",5,"1968-12-24 00:00:00","2009-01-02 00:00:00","Elected to the 91st Congress, 1st Session.  Votebase allows numbers only back to 93-1.",NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1144,S091,Stevenson,0,0,0,0,IL,,Mr.,,E.,Illinois,Adlai,Stevenson,,0,"1970-11-17 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1145,S092,Stone,0,0,0,0,FL,,Mr.,,,Florida,"Richard (Dick)",Stone,,0,"1975-01-01 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1146,S093,Symington,0,0,0,0,MO,,Mr.,,,Missouri,Stuart,Symington,,0,"1953-01-03 00:00:00","1976-12-27 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1147,S094,Taft,0,0,0,0,OH,,Mr.,,,Ohio,Robert,Taft,,0,"1971-01-03 00:00:00","1976-12-29 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1148,S095,Talmadge,0,0,0,0,GA,,Mr.,,E.,Georgia,Herman,Talmadge,,0,"1957-01-03 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1149,S096,Thurmond,0,0,0,0,SC,57,Mr.,,,"South Carolina",Strom,Thurmond,"Mr. THURMOND",0,"1954-11-07 00:00:00","2003-01-02 00:00:00","Originally appointed as a Democrat to the seat on 11/54. Resigned on 4/56 and elected to fill the vacancy created by his resignation on 11/56.  Switched from the Democratic to Rep. parties on 9/16/64.",NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1150,S097,Tower,0,0,0,0,TX,,Mr.,,,Texas,John,Tower,"Mr. TOWER",0,"1961-06-15 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1151,S098,Tunney,0,0,0,0,CA,,Mr.,,V.,California,John,Tunney,,0,"1971-01-02 00:00:00","1977-01-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1152,S099,Weicker,0,0,0,0,CT,,Mr.,"Jr.  ",P.,Connecticut,Lowell,Weicker,"Mr. WEICKER",0,"1971-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1153,S100,Williams,0,0,0,0,NJ,,Mr.,,A.,"New Jersey",Harrison,Williams,,0,"1959-01-03 00:00:00","1982-03-11 00:00:00","Resigned March 11, 1982 (Abscam).","2001-11-17 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2012-02-07 16:48:49",0
+1154,S101,Young,0,0,0,0,ND,,Mr.,,R.,"North Dakota",Milton,Young,,0,"1945-03-22 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1155,S102,DeConcini,0,0,0,0,AZ,,Mr.,,,Arizona,Dennis,DeConcini,"Mr. DECONCINI",0,"1977-01-03 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1156,S103,Hayakawa,0,0,0,0,CA,,Mr.,,"I., (Sam)",California,S.,Hayakawa,,0,"1977-01-02 00:00:00","1983-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1157,S104,Matsunaga,0,0,0,0,HI,,Mr.,,M.,Hawaii,Spark,Matsunaga,"Mr. MATSUNAGA",0,"1977-01-03 00:00:00","1990-04-15 00:00:00",,"1990-04-15 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1158,S105,Lugar,95,1,112,2,IN,77,Mr.,,G.,Indiana,Richard,Lugar,"Mr. LUGAR",16,"1977-01-03 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 16:58:47",0
+1159,S106,Sarbanes,0,0,109,2,MD,77,Mr.,,S.,Maryland,Paul,Sarbanes,"Mr. SARBANES",18,"1977-01-03 00:00:00","2007-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1160,S107,Riegle,0,0,0,0,MI,,Mr.,"Jr.  ",W.,Michigan,Donald,Riegle,"Mr. RIEGLE",0,"1976-12-30 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1161,S108,Danforth,0,0,0,0,MO,,Mr.,,C.,Missouri,John,Danforth,"Mr. DANFORTH",0,"1976-12-27 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1162,S109,Melcher,0,0,0,0,MT,,Mr.,,,Montana,John,Melcher,"Mr. MELCHER",0,"1977-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1163,S110,Anderson,0,0,0,0,MN,,Mr.,,R.,Minnesota,Wendell,Anderson,"Mr. ANDERSON",0,"1976-12-30 00:00:00","1978-12-29 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1164,S111,Zorinsky,94,2,100,1,NE,,Mr.,,,Nebraska,Edward,Zorinsky,"Mr. ZORINSKY",0,"1976-12-28 00:00:00","1987-03-06 00:00:00",,"1987-03-06 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1165,S112,Schmitt,0,0,0,0,NM,,Mr.,,,"New Mexico",Harrison,Schmitt,,0,"1977-01-03 00:00:00","1983-01-02 00:00:00","Harrison Jack Schmitt",NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1166,S113,Moynihan,0,0,0,0,NY,77,Mr.,,Patrick,"New York",Daniel,Moynihan,"Mr. MOYNIHAN",17,"1977-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1167,S114,Metzenbaum,0,0,0,0,OH,,Mr.,,M.,Ohio,Howard,Metzenbaum,"Mr. METZENBAUM",0,"1976-12-29 00:00:00","1995-01-03 00:00:00",,"2008-03-12 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1168,S115,Heinz,0,0,0,0,PA,,Mr.,,,Pennsylvania,John,Heinz,"Mr. HEINZ",0,"1977-01-03 00:00:00","1991-04-04 00:00:00",,"1991-04-04 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1169,S116,"Chafee, J.",94,2,106,1,RI,77,Mr.,,H.,"Rhode Island",John,Chafee,"Mr. CHAFEE",14,"1976-12-29 00:00:00","1999-10-24 00:00:00",,"1999-10-24 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1170,S117,Sasser,0,0,0,0,TN,,Mr.,,,Tennessee,Jim,Sasser,"Mr. SASSER",0,"1977-01-03 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1171,S118,Hatch,95,1,0,0,UT,77,Mr.,,G.,Utah,Orrin,Hatch,"Mr. HATCH",15,"1977-01-03 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1172,S119,Wallop,0,0,0,0,WY,,Mr.,,,Wyoming,Malcolm,Wallop,"Mr. WALLOP",0,"1977-01-03 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1173,S120,Hodges,0,0,0,0,AR,,Mr.,,,Arkansas,Kaneaster,Hodges,,0,"1977-12-12 00:00:00","1979-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1174,S121,"Hatfield, P.",0,0,0,0,MT,,Mr.,,G.,Montana,Paul,Hatfield,,0,"1978-01-22 00:00:00","1978-12-14 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1175,S122,"Humphrey, M.",0,0,0,0,MN,,Mrs.,,F.,Minnesota,Muriel,Humphrey,,0,"1978-01-25 00:00:00","1978-11-07 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1176,S123,"Maryon Allen",0,0,0,0,AL,,Mrs.,,Pittman,Alabama,Maryon,Allen,"Mrs. MARYON ALLEN",0,"1978-06-08 00:00:00","1978-11-07 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1177,S124,Stewart,0,0,0,0,AL,,Mr.,,W.,Alabama,Donald,Stewart,,0,"1978-11-08 00:00:00","1981-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1178,S125,Pryor,0,0,0,0,AR,,Mr.,,H.,Arkansas,David,Pryor,"Mr. PRYOR",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1179,S126,Tsongas,0,0,0,0,MA,,Mr.,,E.,Massachusetts,Paul,Tsongas,"Mr. TSONGAS",0,"1979-01-03 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1180,S127,Baucus,95,2,113,2,MT,,Mr.,,,Montana,Max,Baucus,"Mr. BAUCUS",16,"1978-12-15 00:00:00","2014-02-06 23:59:00","Eligible to cast through vote No. 25 (113-2). Resigned to become Ambassador to China.",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2014-02-11 10:44:07",0
+1181,S128,Boren,0,0,0,0,OK,,Mr.,,L.,Oklahoma,David,Boren,"Mr. BOREN",0,"1979-01-03 00:00:00","1994-11-15 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1182,S129,Exon,0,0,0,0,NE,,Mr.,,James,Nebraska,J.,Exon,"Mr. EXON",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1183,S130,Heflin,0,0,0,0,AL,,Mr.,,,Alabama,Howell,Heflin,"Mr. HEFLIN",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1184,S131,Levin,96,1,113,2,MI,,Mr.,,,Michigan,Carl,Levin,"Mr. LEVIN",22,"1979-01-03 00:00:00","2014-12-16 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-08 15:47:40",0
+1185,S132,Bradley,0,0,0,0,NJ,,Mr.,,,"New Jersey",Bill,Bradley,"Mr. BRADLEY",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1186,S133,Durenberger,0,0,0,0,MN,,Mr.,,,Minnesota,Dave,Durenberger,"Mr. DURENBERGER",0,"1978-11-08 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1187,S134,Armstrong,0,0,0,0,CO,,Mr.,,L.,Colorado,William,Armstrong,"Mr. ARMSTRONG",0,"1979-01-03 00:00:00","1991-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1188,S135,Boschwitz,0,0,0,0,MN,,Mr.,,,Minnesota,Rudy,Boschwitz,"Mr. BOSCHWITZ",0,"1978-12-30 00:00:00","1991-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1189,S136,Cochran,96,1,0,0,MS,,Mr.,,,Mississippi,Thad,Cochran,"Mr. COCHRAN",20,"1978-12-27 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1190,S137,Cohen,0,0,0,0,ME,,Mr.,,S.,Maine,William,Cohen,"Mr. COHEN",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1191,S138,"Humphrey, G.",0,0,0,0,NH,,Mr.,,J.,"New Hampshire",Gordon,Humphrey,"Mr. HUMPHREY",0,"1979-01-03 00:00:00","1991-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1192,S139,Jepsen,0,0,0,0,IA,,Mr.,,W.,Iowa,Roger,Jepsen,"Mr. JEPSEN",0,"1979-01-03 00:00:00","1985-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1193,S140,Kassebaum,0,0,0,0,KS,,Mrs.,,Landon,Kansas,Nancy,Kassebaum,"Mrs. KASSEBAUM",0,"1978-12-23 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1194,S141,Pressler,0,0,0,0,SD,,Mr.,,,"South Dakota",Larry,Pressler,"Mr. PRESSLER",0,"1979-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1195,S142,Simpson,0,0,0,0,WY,,Mr.,,K.,Wyoming,Alan,Simpson,"Mr. SIMPSON",0,"1979-01-01 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1196,S143,Warner,96,1,110,2,VA,,Mr.,,W.,Virginia,John,Warner,"Mr. WARNER",21,"1979-01-02 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1197,S144,Mitchell,0,0,0,0,ME,,Mr.,,J.,Maine,George,Mitchell,"Mr. MITCHELL",0,"1980-05-17 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1198,S145,Abdnor,97,1,99,2,SD,,Mr.,,,"South Dakota",James,Abdnor,"Mr. ABDNOR",0,"1981-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-06-08 17:54:30",0
+1199,S146,Andrews,0,0,0,0,ND,,Mr.,,,"North Dakota",Mark,Andrews,"Mr. ANDREWS",0,"1981-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1200,S147,D'Amato,0,0,0,0,NY,81,Mr.,,,"New York",Alfonse,D'Amato,"Mr. D'AMATO",23,"1981-01-03 00:00:00","1999-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1201,S148,Denton,0,0,0,0,AL,,Mr.,,,Alabama,Jeremiah,Denton,"Mr. DENTON",0,"1981-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1202,S149,Dixon,0,0,0,0,IL,,Mr.,,J.,Illinois,Alan,Dixon,"Mr. DIXON",0,"1981-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1203,S150,Dodd,97,1,111,2,CT,81,Mr.,,J.,Connecticut,Christopher,Dodd,"Mr. DODD",24,"1981-01-03 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1204,S151,East,0,0,0,0,NC,,Mr.,,P.,"North Carolina",John,East,"Mr. EAST",0,"1981-01-03 00:00:00","1986-06-29 00:00:00",,"1986-06-29 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1205,S152,Gorton,0,0,0,0,WA,,Mr.,,,Washington,Slade,Gorton,"Mr. GORTON",49,"1981-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1206,S153,Grassley,97,1,0,0,IA,81,Mr.,,,Iowa,Chuck,Grassley,"Mr. GRASSLEY",25,"1981-01-03 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1207,S154,Hawkins,0,0,0,0,FL,,Mrs.,,,Florida,Paula,Hawkins,"Mrs. HAWKINS",0,"1981-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1208,S155,Kasten,0,0,0,0,WI,,Mr.,"Jr.  ",W.,Wisconsin,Robert,Kasten,"Mr. KASTEN",0,"1981-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1209,S156,Mattingly,0,0,0,0,GA,,Mr.,,,Georgia,Mack,Mattingly,"Mr. MATTINGLY",0,"1981-01-03 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1210,S157,Murkowski,0,0,0,0,AK,81,Mr.,,H.,Alaska,Frank,Murkowski,"Mr. MURKOWSKI",26,"1981-01-03 00:00:00","2002-12-19 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1211,S158,Nickles,0,0,0,0,OK,81,Mr.,,,Oklahoma,Don,Nickles,"Mr. NICKLES",27,"1981-01-03 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1212,S159,Quayle,0,0,0,0,IN,,Mr.,,,Indiana,Dan,Quayle,"Mr. QUAYLE",0,"1981-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1213,S160,Rudman,0,0,0,0,NH,,Mr.,,,"New Hampshire",Warren,Rudman,"Mr. RUDMAN",0,"1981-01-03 00:00:00","1993-01-05 00:00:00",,"2012-11-19 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2012-12-07 11:19:19",0
+1214,S161,Specter,97,1,111,2,PA,81,Mr.,,,Pennsylvania,Arlen,Specter,"Mr. SPECTER",28,"1981-01-03 00:00:00","2011-01-03 00:00:00",,"2012-10-14 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2012-10-26 09:51:44",0
+1215,S162,Symms,0,0,0,0,ID,,Mr.,,D.,Idaho,Steve,Symms,"Mr. SYMMS",0,"1981-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1216,S163,Brady,0,0,0,0,NJ,,Mr.,,F.,"New Jersey",Nicholas,Brady,,0,"1982-04-19 00:00:00","1983-01-02 00:00:00","Appointed by Gov. Thomas Kean.
+Preceded by Harrison A. Williams, who resigned (Abscam scandal).  Did not seek a full term.
+Succeeded by Frank Lautenberg.",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-06-03 17:42:02",0
+1217,S164,Trible,0,0,0,0,VA,,Mr.,,S.,Virginia,Paul,Trible,"Mr. TRIBLE",0,"1983-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1218,S165,Wilson,0,0,0,0,CA,,Mr.,,,California,Pete,Wilson,"Mr. WILSON",0,"1983-01-03 00:00:00","1991-01-07 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1219,S166,Lautenberg,98,1,113,1,NJ,,Mr.,,R.,"New Jersey",Frank,Lautenberg,"Mr. LAUTENBERG",29,"1983-01-03 00:00:00","2013-06-03 00:00:00","Serving non-consecutive terms.  Retired in 2000.  Relected in 2002 following Sen. Torricelli's withdrawal to term beginning in 2003, 108-1. Died 4:02 a.m. 6/3/13
+Sen. Nicholas Brady retired 12/27/82;","2013-06-03 04:02:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2013-06-03 16:37:16",0
+1220,S167,Bingaman,98,1,112,2,NM,,Mr.,,,"New Mexico",Jeff,Bingaman,"Mr. BINGAMAN",30,"1983-01-03 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 17:01:05",0
+1221,S168,Hecht,0,0,0,0,NV,,Mr.,,,Nevada,Chic,Hecht,"Mr. HECHT",0,"1983-01-03 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1222,S169,Evans,0,0,0,0,WA,,Mr.,,J.,Washington,Daniel,Evans,"Mr. EVANS",0,"1983-09-12 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1223,S170,Gore,0,0,0,0,TN,,Mr.,"Jr.  ",,Tennessee,Albert,Gore,"Mr. GORE",0,"1985-01-03 00:00:00","1993-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1224,S171,Gramm,0,0,0,0,TX,,Mr.,,,Texas,Phil,Gramm,"Mr. GRAMM",32,"1985-01-03 00:00:00","2002-11-30 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1225,S172,Harkin,99,1,113,2,IA,,Mr.,,,Iowa,Tom,Harkin,"Mr. HARKIN",33,"1985-01-03 00:00:00","2014-12-16 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-08 15:43:43",0
+1226,S173,Kerry,99,1,113,1,MA,,Mr.,,F.,Massachusetts,John,Kerry,"Mr. KERRY",31,"1985-01-02 00:00:00","2013-02-01 00:00:00","Resigned effective 4:00pm on 2/1/13
+Eligible to cast 11 votes in 2013",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-02-01 16:31:39",0
+1227,S174,McConnell,99,1,0,0,KY,,Mr.,,,Kentucky,Mitch,McConnell,"Mr. MCCONNELL",34,"1985-01-03 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1228,S175,Simon,0,0,0,0,IL,,Mr.,,,Illinois,Paul,Simon,"Mr. SIMON",0,"1985-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1229,S176,Rockefeller,99,1,113,2,WV,,Mr.,IV,D.,"West Virginia",John,Rockefeller,"Mr. ROCKEFELLER",36,"1985-01-15 00:00:00","2014-12-16 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-08 16:09:48",0
+1230,S177,Broyhill,0,0,0,0,NC,,Mr.,,T.,"North Carolina",James,Broyhill,"Mr. BROYHILL",0,"1986-07-14 00:00:00","1987-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1231,S178,Sanford,0,0,0,0,NC,,Mr.,,,"North Carolina",Terry,Sanford,"Mr. SANFORD",0,"1986-11-05 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1232,S179,Breaux,100,1,0,0,LA,87,Mr.,,B.,Louisiana,John,Breaux,"Mr. BREAUX",38,"1987-01-03 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1233,S180,Adams,0,0,0,0,WA,,Mr.,,,Washington,Brock,Adams,"Mr. ADAMS",0,"1987-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1234,S181,Wirth,0,0,0,0,CO,,Mr.,,E.,Colorado,Timothy,Wirth,"Mr. WIRTH",0,"1987-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1235,S182,Mikulski,100,1,114,2,MD,87,Ms.,,A.,Maryland,Barbara,Mikulski,"Ms. MIKULSKI",0,"1987-01-03 00:00:00","2017-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2017-01-05 14:53:41",0
+1236,S183,Fowler,0,0,0,0,GA,,Mr.,"Jr.  ",,Georgia,Wyche,Fowler,"Mr. FOWLER",0,"1987-01-03 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1237,S184,Shelby,100,1,0,0,AL,87,Mr.,,C.,Alabama,Richard,Shelby,"Mr. SHELBY",45,"1987-01-03 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1238,S185,Daschle,0,0,0,0,SD,87,Mr.,,A.,"South Dakota",Thomas,Daschle,"Mr. DASCHLE",40,"1987-01-03 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1239,S186,Aiken,0,0,0,0,VT,,Mr.,,,Vermont,George,Aiken,"Mr. AIKEN",0,"1941-01-10 00:00:00","1981-01-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1240,S187,Bennett,0,0,0,0,UT,,Mr.,,F.,Utah,Wallace,Bennett,,0,"1969-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1241,S188,Bible,0,0,0,0,NV,,Mr.,,,Nevada,Alan,Bible,,0,"1969-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1242,S189,Cook,0,0,0,0,KY,,Mr.,,W.,Kentucky,Marlow,Cook,,0,"1969-01-03 00:00:00","1974-12-27 00:00:00","Resigned early so that Sen. Ford would have higher seniority when he assumed office.","2016-02-04 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2016-02-05 10:28:53",0
+1243,S190,Cotton,0,0,0,0,NH,,Mr.,,,"New Hampshire",Norris,Cotton,,0,"1954-11-08 00:00:00","1981-01-01 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1244,S191,Dominick,0,0,0,0,CO,,Mr.,,H.,Colorado,Peter,Dominick,,0,"1963-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1245,S192,Ervin,0,0,0,0,NC,,Mr.,,,"North Carolina",Sam,Ervin,,0,"1954-06-05 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1246,S193,Fulbright,0,0,0,0,AR,,Mr.,,William,Arkansas,J.,Fulbright,,0,"1945-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1247,S194,Gurney,0,0,0,0,FL,,Mr.,,,Florida,Edward,Gurney,,0,"1969-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1248,S195,Hughes,0,0,0,0,IA,,Mr.,,,Iowa,Harold,Hughes,,0,"1969-01-03 00:00:00","1975-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1249,S196,Saxbe,0,0,0,0,OH,,Mr.,,,Ohio,William,Saxbe,,0,"1969-01-03 00:00:00","1974-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1250,S197,McCain,100,1,0,0,AZ,87,Mr.,,,Arizona,John,McCain,"Mr. MCCAIN",42,"1987-01-03 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1251,S198,Reid,100,1,114,2,NV,87,Mr.,,,Nevada,Harry,Reid,"Mr. REID",44,"1987-01-03 00:00:00","2017-01-03 00:00:00","Democratic Leader",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2017-01-05 14:52:35",0
+1252,S199,"Graham (FL)",0,0,0,0,FL,,Mr.,,,Florida,Bob,Graham,"Mr. GRAHAM",41,"1987-01-03 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1253,S200,Bond,100,1,111,2,MO,87,Mr.,,S.,Missouri,Christopher,Bond,"Mr. BOND",37,"1987-01-03 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1254,S201,Conrad,100,1,112,2,ND,,Mr.,,,"North Dakota",Kent,Conrad,"Mr. CONRAD",39,"1987-01-03 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 17:01:44",0
+1255,S202,Karnes,0,0,0,0,NE,,Mr.,,K.,Nebraska,David,Karnes,"Mr. KARNES",0,"1987-03-13 00:00:00","1989-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1256,S203,Lott,0,0,110,1,MS,,Mr.,,,Mississippi,Trent,Lott,"Mr. LOTT",54,"1989-01-03 00:00:00","2007-12-18 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1257,S204,Jeffords,0,0,109,2,VT,,Mr.,,M.,Vermont,James,Jeffords,"Mr. JEFFORDS",50,"1989-01-03 00:00:00","2007-01-03 00:00:00","Senator Jeffords became an Independent, caucusing with the Democrats, at the close of business of June 5, 2001.","2014-08-18 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2014-09-05 12:30:01",0
+1258,S205,Mack,0,0,0,0,FL,,Mr.,,,Florida,Connie,Mack,"Mr. MACK",55,"1989-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1259,S206,Bryan,101,1,0,0,NV,,Mr.,,H.,Nevada,Richard,Bryan,"Mr. BRYAN",46,"1989-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1260,S207,Robb,0,0,0,0,VA,,Mr.,,S.,Virginia,Charles,Robb,"Mr. ROBB",56,"1989-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1261,S208,Kerrey,0,0,0,0,NE,,Mr.,,Robert,Nebraska,J.,Kerrey,"Mr. KERREY",51,"1989-01-03 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1262,S209,Kohl,101,1,112,2,WI,,Mr.,,,Wisconsin,Herb,Kohl,"Mr. KOHL",52,"1989-01-03 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 17:04:21",0
+1263,S210,Lieberman,101,1,112,2,CT,,Mr.,,I.,Connecticut,Joseph,Lieberman,"Mr. LIEBERMAN",53,"1989-01-03 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 16:57:10",0
+1264,S211,Burns,101,1,109,2,MT,,Mr.,,R.,Montana,Conrad,Burns,"Mr. BURNS",47,"1989-01-03 00:00:00","2007-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1265,S212,Coats,101,1,114,2,IN,,Mr.,,,Indiana,Dan,Coats,"Mr. COATS",0,"1989-01-03 00:00:00","2017-01-03 00:00:00","Serving non-consecutive terms.  Served initially from 1989 to 1998 (101-105). Reelected in 2010, replacing Evan Bayh who retired at the end of 111. Serving in 112.",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2017-01-05 14:51:34",0
+1266,S213,Akaka,101,2,112,2,HI,89,Mr.,,K.,Hawaii,Daniel,Akaka,"Mr. AKAKA",9999,"1990-05-16 00:00:00","2013-01-02 00:00:00","test 123 456 7",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 16:57:54",0
+1267,S214,Brown,0,0,0,0,CO,91,Mr.,,,Colorado,Hank,Brown,"Mr. BROWN",0,"1991-01-03 00:00:00","1997-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1268,S215,Craig,102,1,110,2,ID,91,Mr.,,E.,Idaho,Larry,Craig,"Mr. CRAIG",59,"1991-01-03 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1269,S216,"Smith (NH)",0,0,0,0,NH,91,Mr.,,,"New Hampshire",Bob,Smith,"Mr. SMITH",58,"1991-01-03 00:00:00","2003-01-02 00:00:00","On 7/13/99, changed his party affiliation from Republican to Independent. On 11/1/99, returned to the Republican party.  While an independent, he continued to caucus with the Republicans.",NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1270,S217,Wellstone,0,0,0,0,MN,91,Mr.,,D.,Minnesota,Paul,Wellstone,"Mr. WELLSTONE",60,"1991-01-03 00:00:00","2002-10-25 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1271,S218,Seymour,0,0,0,0,CA,,Mr.,,,California,John,Seymour,"Mr. SEYMOUR",0,"1991-01-10 00:00:00","1992-11-10 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1272,S219,Wofford,0,0,0,0,PA,,Mr.,,,Pennsylvania,Harris,Wofford,"Mr. WOFFORD",0,"1991-05-09 00:00:00","1995-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1273,S220,"Burdick, J.",0,0,0,0,ND,,Mrs.,,Birch,"North Dakota",Jocelyn,Burdick,"Mrs. BURDICK",0,"1992-09-16 00:00:00","1993-01-05 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1274,S221,Feinstein,103,1,0,0,CA,,Mrs.,,,California,Dianne,Feinstein,"Mrs. FEINSTEIN",61,"1992-11-10 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1275,S222,Dorgan,103,1,111,2,ND,,Mr.,,L.,"North Dakota",Byron,Dorgan,"Mr. DORGAN",62,"1992-12-15 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1276,S223,Boxer,103,1,114,2,CA,,Mrs.,,,California,Barbara,Boxer,"Mrs. BOXER",64,"1993-01-05 00:00:00","2017-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2017-01-05 14:50:07",0
+1277,S224,Gregg,103,1,111,2,NH,,Mr.,,,"New Hampshire",Judd,Gregg,"Mr. GREGG",69,"1993-01-05 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1278,S225,Campbell,103,1,108,2,CO,,Mr.,,Nighthorse,Colorado,Ben,Campbell,"Mr. CAMPBELL",65,"1993-01-05 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1279,S226,Moseley-Braun,0,0,0,0,IL,,Ms.,,,Illinois,Carol,Moseley-Braun,"Ms. MOSELEY-BRAUN",71,"1993-01-05 00:00:00","1999-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1280,S227,Faircloth,0,0,0,0,NC,,Mr.,,,"North Carolina",Lauch,Faircloth,"Mr. FAIRCLOTH",67,"1993-01-05 00:00:00","1999-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1281,S228,Coverdell,0,0,0,0,GA,,Mr.,,,Georgia,Paul,Coverdell,"Mr. COVERDELL",66,"1993-01-05 00:00:00","2000-07-19 00:00:00",,"2000-07-19 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1282,S229,Murray,103,1,0,0,WA,,Mrs.,,,Washington,Patty,Murray,"Mrs. MURRAY",72,"1993-01-05 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1283,S230,Feingold,103,1,111,2,WI,,Mr.,,D.,Wisconsin,Russell,Feingold,"Mr. FEINGOLD",68,"1993-01-05 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1284,S231,"Bennett (UT)",103,1,111,2,UT,,Mr.,,F.,Utah,Robert,Bennett,"Mr. BENNETT",58,"1993-01-05 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1285,S232,Kempthorne,0,0,0,0,ID,,Mr.,,,Idaho,Dirk,Kempthorne,"Mr. KEMPTHORNE",70,"1993-01-05 00:00:00","1999-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1286,S233,Mathews,0,0,0,0,TN,,Mr.,,,Tennessee,Harlan,Mathews,"Mr. MATHEWS",0,"1993-01-05 00:00:00","1994-12-09 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1287,S234,Krueger,0,0,0,0,TX,,Mr.,,,Texas,Bob,Krueger,"Mr. KRUEGER",0,"1993-01-21 00:00:00","1993-06-14 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1288,S235,Hutchison,103,1,112,2,TX,,Mrs.,,Bailey,Texas,Kay,Hutchison,"Mrs. HUTCHISON",73,"1993-06-14 00:00:00","2013-01-02 00:00:00","Preceded by Bob Krueger",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 17:02:20",0
+1289,S236,Inhofe,103,2,0,0,OK,,Mr.,,M.,Oklahoma,James,Inhofe,"Mr. INHOFE",74,"1994-11-17 00:00:00",NULL,"Cast two votes in 103-2.  Sworn in following Sen. Boren's retirement.",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2016-03-01 12:54:24",0
+1290,S237,Thompson,0,0,0,0,TN,,Mr.,,,Tennessee,Fred,Thompson,"Mr. THOMPSON",75,"1994-12-09 00:00:00","2003-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1291,S238,Abraham,104,1,0,0,MI,,Mr.,,,Michigan,Spencer,Abraham,"Mr. ABRAHAM",68,"1995-01-04 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1292,S239,Ashcroft,104,1,0,0,MO,,Mr.,,,Missouri,John,Ashcroft,"Mr. ASHCROFT",69,"1995-01-04 00:00:00","2001-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1293,S240,DeWine,0,0,109,2,OH,,Mr.,,,Ohio,Mike,DeWine,"Mr. DEWINE",78,"1995-01-04 00:00:00","2007-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1294,S241,Frist,0,0,109,2,TN,,Mr.,,,Tennessee,Bill,Frist,"Mr. FRIST",79,"1995-01-04 00:00:00","2007-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1295,S242,Grams,0,0,0,0,MN,,Mr.,,,Minnesota,Rod,Grams,"Mr. GRAMS",80,"1995-01-04 00:00:00","2001-01-02 00:00:00",,"2013-10-08 00:00:00",SENATE,"1999-09-17 08:52:39",dconnolly,"2013-10-10 15:04:25",0
+1296,S243,Kyl,104,1,112,2,AZ,,Mr.,,,Arizona,Jon,Kyl,"Mr. KYL",81,"1995-01-04 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 16:56:00",0
+1297,S244,Santorum,0,0,109,2,PA,,Mr.,,,Pennsylvania,Rick,Santorum,"Mr. SANTORUM",82,"1995-01-04 00:00:00","2007-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1298,S245,Snowe,104,1,112,2,ME,,Ms.,,,Maine,Olympia,Snowe,"Ms. SNOWE",83,"1995-01-04 00:00:00","2013-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2013-01-07 16:59:56",0
+1299,S246,Thomas,0,0,110,1,WY,,Mr.,,,Wyoming,Craig,Thomas,"Mr. CRAIG  THOMAS",84,"1995-01-04 00:00:00","2007-06-04 00:00:00",,"2007-06-04 00:00:00",SENATE,"1999-09-17 08:52:39",,NULL,0
+1300,S247,Wyden,104,2,0,0,OR,,Mr.,,,Oregon,Ron,Wyden,,86,"1996-02-06 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1301,S248,Frahm,0,0,0,0,KS,,Mrs.,,,Kansas,Sheila,Frahm,,0,"1996-06-11 00:00:00","1996-11-22 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1302,S249,Brownback,104,2,111,2,KS,,Mr.,,,Kansas,Sam,Brownback,,86,"1996-11-22 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1303,S250,Allard,105,1,110,2,CO,,Mr.,,,Colorado,Wayne,Allard,"Mr. ALLARD",79,"1997-01-07 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1304,S251,Cleland,0,0,0,0,GA,,Mr.,,,Georgia,Max,Cleland,,88,"1997-01-07 00:00:00","2003-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1305,S252,Collins,105,1,0,0,ME,,Ms.,,M.,Maine,Susan,Collins,,89,"1997-01-07 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1306,S253,Durbin,105,1,0,0,IL,,Mr.,,,Illinois,Richard,Durbin,,90,"1997-01-07 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1307,S254,Enzi,105,1,0,0,WY,,Mr.,,B.,Wyoming,Michael,Enzi,,91,"1997-01-07 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1308,S255,Hagel,105,1,110,2,NE,,Mr.,,,Nebraska,Chuck,Hagel,,92,"1997-01-07 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1309,S256,Hutchinson,0,0,0,0,AR,,Mr.,,,Arkansas,Tim,Hutchinson,,93,"1997-01-07 00:00:00","2003-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1310,S257,"Johnson (SD)",105,1,113,2,SD,,Mr.,,,"South Dakota",Tim,Johnson,,94,"1997-01-07 00:00:00","2014-12-16 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-08 15:46:07",0
+1311,S258,Landrieu,105,1,113,2,LA,,Ms.,,L.,Louisiana,Mary,Landrieu,,95,"1997-01-07 00:00:00","2014-12-16 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2015-01-08 15:46:56",0
+1312,S259,Reed,105,1,0,0,RI,,Mr.,,,"Rhode Island",Jack,Reed,,96,"1997-01-07 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1313,S260,Roberts,105,1,0,0,KS,,Mr.,,,Kansas,Pat,Roberts,,97,"1997-01-07 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1314,S261,Sessions,105,1,115,1,AL,,Mr.,,,Alabama,Jeff,Sessions,,98,"1997-01-07 00:00:00","2017-02-08 23:55:00","Last eligible vote: vote No. 60
+Became President Trump's Attorney General.",NULL,SENATE,"1999-09-17 08:52:39",dconnolly,"2017-02-09 16:49:04",0
+1315,S262,"Smith (OR)",105,1,110,2,OR,,Mr.,,H.,Oregon,Gordon,Smith,,99,"1997-01-07 00:00:00","2009-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1316,S263,Torricelli,0,0,0,0,NJ,,Mr.,,,"New Jersey",Robert,Torricelli,,100,"1997-01-07 00:00:00","2003-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1317,S264,Bayh,106,1,111,2,IN,,Mr.,,,Indiana,Evan,Bayh,"Mr. BAYH",98,"1999-01-06 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1318,S265,Bunning,106,1,111,2,KY,,Mr.,,,Kentucky,Jim,Bunning,,94,"1999-01-06 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1319,S266,Crapo,106,1,0,0,ID,,Mr.,,D.,Idaho,Michael,Crapo,,95,"1999-01-06 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1320,S267,Edwards,0,0,0,0,NC,,Mr.,,,"North Carolina",John,Edwards,,100,"1999-01-06 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1321,S268,Fitzgerald,0,0,0,0,IL,,Mr.,,,Illinois,Peter,Fitzgerald,,99,"1999-01-06 00:00:00","2005-01-02 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1322,S269,Lincoln,106,1,111,2,AR,,Mrs.,,,Arkansas,Blanche,Lincoln,,96,"1999-01-06 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1323,S270,Schumer,106,1,0,0,NY,,Mr.,,E.,"New York",Charles,Schumer,,93,"1999-01-06 00:00:00",NULL,,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1324,S271,Voinovich,106,1,111,2,OH,,Mr.,,V.,Ohio,George,Voinovich,,97,"1999-01-06 00:00:00","2011-01-03 00:00:00",,NULL,SENATE,"1999-09-17 08:52:39",,NULL,0
+1325,S272,"Chafee, L.",106,1,109,2,RI,,Mr.,,D.,"Rhode Island",Lincoln,Chafee,,100,"1999-11-04 00:00:00","2007-01-03 00:00:00",,NULL,CAMORUSO,"1999-11-04 08:53:57",,NULL,0
+1326,S273,Miller,106,2,108,2,GA,,Mr.,,,Georgia,Zell,Miller,,0,"2000-07-27 00:00:00","2005-01-02 00:00:00","Appointed to complete the term of Sen. Paul Coverdell who died on July 18, 2000.",NULL,CAMORUSO,"2000-07-28 08:01:24",,NULL,0
+1327,S274,Allen,0,0,109,2,VA,,Mr.,,,Virginia,George,Allen,"Mr. Allen",0,"2001-01-03 00:00:00","2007-01-03 00:00:00",,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1328,S275,Cantwell,107,1,0,0,WA,,Ms.,,,Washington,Maria,Cantwell,,0,"2001-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1329,S276,Carnahan,0,0,0,0,MO,,Mrs.,,,Missouri,Jean,Carnahan,,0,"2001-01-03 00:00:00","2002-11-22 00:00:00",,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1330,S277,Carper,107,1,0,0,DE,,Mr.,,R.,Delaware,Thomas,Carper,,0,"2001-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1331,S278,Clinton,107,1,111,1,NY,,Mrs.,,Rodham,"New York",Hillary,Clinton,,0,"2001-01-03 00:00:00","2009-01-21 00:00:00","Senator Clinton became Secretary of State under President Obama.",NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1332,S279,Corzine,107,1,109,1,NJ,,Mr.,,S.,"New Jersey",Jon,Corzine,,0,"2001-01-03 00:00:00","2005-01-31 00:00:00",,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1333,S280,Dayton,0,0,109,2,MN,,Mr.,,,Minnesota,Mark,Dayton,,0,"2001-01-03 00:00:00","2007-01-03 00:00:00",,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1334,S281,Ensign,107,1,112,1,NV,,Mr.,,,Nevada,John,Ensign,,0,"2001-01-03 00:00:00","2011-05-03 23:59:00","Resignation became effective as of close of business on 5/3/2011. Last eligible vote: No. 63.",NULL,CAMORUSO,"2001-01-05 14:27:10",dconnolly,"2012-01-12 10:17:13",0
+1335,S282,"Nelson (FL)",107,1,0,0,FL,,Mr.,,,Florida,Bill,Nelson,,0,"2001-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1336,S283,"Nelson (NE)",107,1,112,2,NE,,Mr.,,,Nebraska,Ben,Nelson,,0,"2001-01-03 00:00:00","2013-01-02 00:00:00",,NULL,CAMORUSO,"2001-01-05 14:27:10",dconnolly,"2013-01-07 17:00:34",0
+1337,S284,Stabenow,107,1,0,0,MI,,Ms.,,,Michigan,Debbie,Stabenow,,0,"2001-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2001-01-05 14:27:10",,NULL,0
+1338,S285,"Dean M. Barkley",107,2,107,2,MN,,Mr.,,M.,Minnesota,Dean,Barkley,,0,"2002-11-12 00:00:00","2003-01-02 00:00:00","Sen. Barkley was an independent who did not caucus with the Democrats or the Republicans.  Appointed to complete the term of Sen. Wellstone.",NULL,CAMORUSO,"2002-11-13 09:01:59",dconnolly,"2012-02-01 11:34:55",0
+1339,S286,Talent,0,0,109,2,MO,,Mr.,,,Missouri,Jim,Talent,,0,"2002-11-23 00:00:00","2007-01-03 00:00:00",,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1340,S287,Cornyn,108,1,0,0,TX,,Mr.,,,Texas,John,Cornyn,,0,"2002-12-01 00:00:00",NULL,,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1341,S288,Murkowski,108,1,0,0,AK,,Ms.,,,Alaska,Lisa,Murkowski,,0,"2002-12-20 00:00:00",NULL,,NULL,CAMORUSO,"2003-01-08 08:20:38",dconnolly,"2016-02-29 15:40:23",0
+1342,S289,Alexander,108,1,0,0,TN,,Mr.,,,Tennessee,Lamar,Alexander,,0,"2003-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1343,S290,Chambliss,108,1,113,2,GA,,Mr.,,,Georgia,Saxby,Chambliss,,0,"2003-01-03 00:00:00","2014-12-16 00:00:00",,NULL,CAMORUSO,"2003-01-08 08:20:38",dconnolly,"2015-01-08 15:41:48",0
+1344,S291,Coleman,108,1,110,2,MN,,Mr.,,,Minnesota,Norm,Coleman,,0,"2003-01-03 00:00:00","2009-01-02 00:00:00","Senator Coleman was defeated by Al Franken in.  The seat was vacant for several months into 2009 as issues surrounding the counting of ballots and the finalizing of the election results were resolved.",NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1345,S292,Dole,108,1,110,2,NC,,Mrs.,,H.,"North Carolina",Elizabeth,Dole,,0,"2003-01-03 00:00:00","2009-01-02 00:00:00",,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1346,S293,"Graham (SC)",108,1,0,0,SC,,Mr.,,O.,"South Carolina",Lindsey,Graham,,0,"2003-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1347,S295,Pryor,108,1,113,2,AR,,Mr.,,Lunsford,Arkansas,Mark,Pryor,,0,"2003-01-03 00:00:00","2014-12-16 00:00:00",,NULL,CAMORUSO,"2003-01-08 08:20:38",dconnolly,"2015-01-08 15:48:19",0
+1348,S296,Sununu,108,1,110,2,NH,,Mr.,,E.,"New Hampshire",John,Sununu,,0,"2003-01-03 00:00:00","2009-01-02 00:00:00",,NULL,CAMORUSO,"2003-01-08 08:20:38",,NULL,0
+1349,S297,Salazar,109,1,111,1,CO,,Mr.,,,Colorado,Ken,Salazar,,0,"2005-01-03 00:00:00","2009-01-20 00:00:00",,NULL,CAMORUSO,"2005-01-07 09:45:01",,NULL,0
+1350,S298,Obama,109,1,110,2,IL,05,Mr.,,,Illinois,Barack,Obama,,0,"2005-01-03 00:00:00","2008-11-16 00:00:00",,NULL,CAMORUSO,"2005-01-07 09:45:01",,NULL,0
+1351,S299,Vitter,109,1,114,2,LA,,Mr.,,,Louisiana,David,Vitter,,0,"2005-01-03 00:00:00","2017-01-03 00:00:00",,NULL,CAMORUSO,"2005-01-07 09:45:01",dconnolly,"2017-01-05 14:52:05",0
+1352,S300,Burr,109,1,0,0,NC,,Mr.,,,"North Carolina",Richard,Burr,,0,"2005-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2004-11-10 13:46:01",,NULL,0
+1353,S301,Coburn,109,1,113,2,OK,,Mr.,,,Oklahoma,Tom,Coburn,,0,"2005-01-03 00:00:00","2014-12-16 00:00:00",,NULL,CAMORUSO,"2005-01-07 09:45:01",dconnolly,"2015-01-08 18:00:33",0
+1354,S302,DeMint,109,1,112,2,SC,,Mr.,,W.,"South Carolina",James,DeMint,,0,"2005-01-03 00:00:00","2013-01-01 00:00:00",,NULL,CAMORUSO,"2005-01-07 09:45:01",dconnolly,"2013-01-07 16:54:44",0
+1355,S303,Thune,109,1,0,0,SD,,Mr.,,,"South Dakota",John,Thune,,0,"2005-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2005-01-07 09:45:01",,NULL,0
+1356,S304,Martinez,109,1,111,1,FL,,Mr.,,,Florida,Mel,Martinez,,0,"2005-01-03 00:00:00","2009-09-09 00:00:00","Resigned his seat; succeeded by Sen. George LeMieux.  Last vote eligible to cast: vote No. 272 (not 273, the last vote that occurred on 9/9/09).",NULL,CAMORUSO,"2005-01-07 09:45:01",,NULL,0
+1357,S305,Isakson,109,1,0,0,GA,,Mr.,,,Georgia,Johnny,Isakson,,0,"2005-01-03 00:00:00",NULL,,NULL,CAMORUSO,"2005-01-07 09:45:01",,NULL,0
+1358,S306,Menendez,109,2,0,0,NJ,,Mr.,,,"New Jersey",Robert,Menendez,,0,"2006-01-18 00:00:00",NULL,,NULL,DCONNOLLY,"2006-01-25 12:51:41",,NULL,0
+1359,S307,"Brown (OH)",110,1,0,0,OH,,Mr.,,,Ohio,Sherrod,Brown,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 12:36:16",,NULL,0
+1360,S308,Cardin,110,1,0,0,MD,,Mr.,,L.,Maryland,Benjamin,Cardin,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 14:57:27",,NULL,0
+1361,S309,Casey,110,1,0,0,PA,,Mr.,Jr.,,Pennsylvania,Bob,Casey,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:01:39",,NULL,0
+1362,S310,Corker,110,1,0,0,TN,,Mr.,,,Tennessee,Bob,Corker,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:02:31",,NULL,0
+1363,S311,Klobuchar,110,1,0,0,MN,,Ms.,,,Minnesota,Amy,Klobuchar,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:03:27",,NULL,0
+1364,S312,McCaskill,110,1,0,0,MO,,Mrs.,,,Missouri,Claire,McCaskill,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:04:29",,NULL,0
+1365,S313,Sanders,110,1,0,0,VT,,Mr.,,,Vermont,Bernard,Sanders,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:05:32",,NULL,0
+1366,S314,Tester,110,1,0,0,MT,,Mr.,,,Montana,Jon,Tester,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:06:41",,NULL,0
+1367,S315,Webb,110,1,112,2,VA,,Mr.,Jr.,,Virginia,James,Webb,,0,"2007-01-04 00:00:00","2013-01-02 00:00:00",,NULL,DCONNOLLY,"2007-01-10 15:07:50",dconnolly,"2013-01-07 17:02:58",0
+1368,S316,Whitehouse,110,1,0,0,RI,,Mr.,,,"Rhode Island",Sheldon,Whitehouse,,0,"2007-01-04 00:00:00",NULL,,NULL,DCONNOLLY,"2007-01-10 15:08:49",,NULL,0
+1369,S317,Barrasso,110,1,0,0,WY,,Mr.,,,Wyoming,John,Barrasso,,0,"2007-06-25 00:00:00",NULL,"Appointed to complete the term of Sen. Craig Thomas",NULL,DCONNOLLY,"2007-06-26 16:24:30",,NULL,0
+1370,S318,Wicker,110,2,0,0,MS,,Mr,,F.,Mississippi,Roger,Wicker,,0,"2007-12-31 00:00:00",NULL,"Appointed to complete the unexpired term of Senator Trent Lott (R-MS).",NULL,DCONNOLLY,"2008-01-23 14:03:59",,NULL,0
+1371,S319,Begich,111,1,113,2,AK,,Mr.,,,Alaska,Mark,Begich,,0,"2009-01-06 00:00:00","2014-12-16 00:00:00",,NULL,DCONNOLLY,"2009-01-09 12:31:01",dconnolly,"2015-01-08 15:40:58",0
+1372,S320,Hagan,111,1,113,2,NC,,Ms.,,,"North Carolina",Kay,Hagan,,0,"2009-01-06 00:00:00","2014-12-16 00:00:00",,NULL,DCONNOLLY,"2009-01-09 14:28:53",dconnolly,"2015-01-08 15:42:48",0
+1373,S321,Johanns,111,1,113,2,NE,,Mr.,,,Nebraska,Mike,Johanns,,0,"2009-01-06 00:00:00","2014-12-16 00:00:00",,NULL,DCONNOLLY,"2009-01-09 14:29:50",dconnolly,"2015-01-08 15:44:55",0
+1374,S322,Merkley,111,1,0,0,OR,,Mr.,,,Oregon,Jeff,Merkley,,0,"2009-01-06 00:00:00",NULL,,NULL,DCONNOLLY,"2009-01-09 14:30:25",,NULL,0
+1375,S323,Risch,111,1,0,0,ID,,Mr.,,,Idaho,James,Risch,,0,"2009-01-06 00:00:00",NULL,,NULL,DCONNOLLY,"2009-01-09 14:31:06",,NULL,0
+1376,S324,Shaheen,111,1,0,0,NH,,Ms.,,,"New Hampshire",Jeanne,Shaheen,,0,"2009-01-06 00:00:00",NULL,,NULL,DCONNOLLY,"2009-01-09 14:31:36",,NULL,0
+1377,S325,"Udall (CO)",111,1,113,2,CO,,Mr.,,,Colorado,Mark,Udall,,0,"2009-01-06 00:00:00","2014-12-16 00:00:00",,NULL,DCONNOLLY,"2009-01-09 14:32:21",dconnolly,"2015-01-08 16:10:42",0
+1378,S326,"Udall (NM)",111,1,0,0,NM,,Mr.,,,"New Mexico",Tom,Udall,,0,"2009-01-06 00:00:00",NULL,,NULL,DCONNOLLY,"2009-01-09 14:32:42",,NULL,0
+1379,S327,"Warner, M",111,1,0,0,VA,,Mr.,,,Virginia,Mark,Warner,,0,"2009-01-06 00:00:00",NULL,,NULL,DCONNOLLY,"2009-01-09 14:33:33",,NULL,0
+1380,S328,Burris,111,1,111,2,IL,,,,,Illinois,Roland,Burris,"Mr. BURRIS",0,"2009-01-15 16:00:00","2010-11-28 12:00:00","Appointed to complete the term of Sen. Barack Obama. Last vote cast: 251 (111-2).",NULL,DCONNOLLY,"2009-01-16 14:40:39",,NULL,0
+1381,S329,Kaufman,111,1,111,2,DE,,,,,Delaware,Ted,Kaufman,,0,"2009-01-16 00:00:00","2010-11-15 15:59:00","Appointed to complete the term of Sen. Joe Biden. Last vote cast: 248 (111-2).",NULL,DCONNOLLY,"2009-01-21 15:37:11",,NULL,0
+1382,S330,"Bennet (CO)",111,1,0,0,CO,,Mr.,,,Colorado,Michael,Bennet,,0,"2009-01-22 00:00:00",NULL,"Appointed to the seat vacated by Sen. Ken Salazar.",NULL,DCONNOLLY,"2009-01-23 09:56:12",,NULL,0
+1383,S331,Gillibrand,111,1,0,0,NY,,,,,"New York",Kirsten,Gillibrand,,0,"2009-01-27 00:00:00",NULL,"Appointed to complete the term of Senator Hillary Clinton.",NULL,DCONNOLLY,"2009-01-28 13:17:04",,NULL,0
+1384,S332,Franken,111,1,0,0,MN,,Mr.,,,Minnesota,Al,Franken,,0,"2009-07-07 00:00:00",NULL,"Succeeded Sen. Norm Coleman after a long, dragged out contesting of the Nov. 2008 election results.  First vote he was eligible to cast was vote No. 218 (111-1).",NULL,DCONNOLLY,"2009-07-08 12:31:45",,NULL,0
+1385,S333,LeMieux,111,1,111,2,FL,,Mr.,,,Florida,George,LeMieux,,0,"2009-09-10 00:00:00","2011-01-03 00:00:00","Appointed to complete the term of Sen. Mel. Martinez, who resigned his seat.",NULL,DCONNOLLY,"2009-09-15 15:50:47",,NULL,0
+1386,S334,"Kirk (MA)",111,1,111,2,MA,,Mr.,,,Massachusetts,Paul,Kirk,,0,"2009-09-25 00:00:00","2010-02-04 17:00:00","Appointed to complete the term of Sen. Kennedy.  First vote cast: 299 (111-1). Last vote: 20 (111-2) Succeeded by Scott Brown (R).",NULL,DCONNOLLY,"2009-09-30 09:50:21",dconnolly,"2012-02-03 11:45:05",0
+1387,S335,"Brown (MA)",111,2,112,2,MA,,Mr.,,,Massachusetts,Scott,Brown,,0,"2010-02-04 17:00:00","2013-01-02 00:00:00","Elected to the uncompleted term of Sen. Kennedy.  Note:  Sen. Brown was not eligible to cast the votes that occurred on 2/4/10.  The first vote he was eligible to cast was vote No. 21.",NULL,DCONNOLLY,"2010-02-19 11:48:07",dconnolly,"2013-01-07 16:59:21",0
+1388,S336,Goodwin,111,2,111,2,WV,,Mr.,,P.,"West Virginia",Carte,Goodwin,,0,"2010-07-20 14:20:00","2010-11-15 15:59:00","Appointed to complete the unexpired term of Senator Robert C. Byrd. Last eligible vote: 248.",NULL,DCONNOLLY,"2010-07-20 17:20:52",,NULL,0
+1389,S337,Coons,111,2,0,0,DE,10,Mr.,,A.,Delaware,Christopher,Coons,"Mr. COONS",0,"2010-11-15 16:00:00",NULL,"Elected to complete the term of Sen. Joe Biden.",NULL,DCONNOLLY,"2010-11-17 12:10:14",,NULL,0
+1390,S338,Manchin,111,2,0,0,WV,10,Mr.,,,"West Virginia",Joe,Manchin,"Mr. MANCHIN",0,"2010-11-15 16:00:00",NULL,"Elected to complete the term of Sen. Byrd.",NULL,DCONNOLLY,"2010-11-17 12:14:15",,NULL,0
+1391,S339,Kirk,111,2,114,2,IL,10,,,,Illinois,Mark,Kirk,"Mr. KIRK",0,"2010-11-29 12:00:00","2017-01-03 00:00:00","Elected to the seat that had been held by Barack Obama. Replaced Sen. Burris.",NULL,DCONNOLLY,"2010-11-30 11:46:39",dconnolly,"2017-01-05 14:50:50",0
+1392,S340,Ayotte,112,1,114,2,NH,,Ms.,,,"New Hampshire",Kelly,Ayotte,,0,"2011-01-03 00:00:00","2017-01-03 00:00:00",,NULL,DCONNOLLY,"2011-01-27 14:03:13",dconnolly,"2017-01-05 14:54:14",0
+1393,S341,Blumenthal,112,1,0,0,CT,,Mr.,,,Connecticut,Richard,Blumenthal,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 13:51:24",,NULL,0
+1394,S342,Blunt,112,1,0,0,MO,,Mr.,,,Missouri,Roy,Blunt,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:01:29",,NULL,0
+1395,S343,Boozman,112,1,0,0,AR,,Mr.,,,Arkansas,John,Boozman,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 13:49:58",,NULL,0
+1396,S344,Hoeven,112,1,0,0,ND,,Mr.,,,"North Dakota",John,Hoeven,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:06:20",,NULL,0
+1397,S345,"Johnson (WI)",112,1,0,0,WI,,Mr.,,,Wisconsin,Ron,Johnson,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:10:54",,NULL,0
+1398,S346,Lee,112,1,0,0,UT,,Mr.,,,Utah,Mike,Lee,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:09:17",,NULL,0
+1399,S347,Moran,112,1,0,0,KS,,Mr.,,,Kansas,Jerry,Moran,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 13:56:37",,NULL,0
+1400,S348,Paul,112,1,0,0,KY,,Mr.,,,Kentucky,Rand,Paul,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:00:02",,NULL,0
+1401,S349,Portman,112,1,0,0,OH,,Mr.,,,Ohio,Rob,Portman,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 15:11:56",,NULL,0
+1402,S350,Rubio,112,1,0,0,FL,,Mr.,,,Florida,Marco,Rubio,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 13:53:38",,NULL,0
+1403,S351,Toomey,112,1,0,0,PA,,Mr.,,,Pennsylvania,Patrick,Toomey,,0,"2011-01-03 00:00:00",NULL,,NULL,DCONNOLLY,"2011-01-27 14:07:52",,NULL,0
+1404,S352,Heller,112,1,NULL,NULL,NV,,Mr.,,,Nevada,Dean,Heller,,0,"2011-05-09 12:00:00",NULL,"Appointed to complete the term of Sen. Ensign. First vote: No. 67.",NULL,DCONNOLLY,"2011-05-10 12:16:58",dconnolly,"2012-01-26 14:50:09",0
+1919,S353,Schatz,112,2,NULL,NULL,HI,,Mr.,,,Hawaii,Brian,Schatz,,NULL,"2012-12-27 14:30:00",NULL,"Appointed to complete the term of Sen. Inouye.  First vote: no. 232",NULL,dconnolly,"2012-12-27 16:29:00",dconnolly,"2012-12-27 16:31:03",NULL
+1920,S354,Baldwin,113,1,NULL,NULL,WI,NULL,Ms.,,,Wisconsin,Tammy,Baldwin,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:18:34",NULL,NULL,NULL
+1921,S355,Cruz,113,1,NULL,NULL,TX,NULL,Mr.,,,Texas,Ted,Cruz,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:22:50",NULL,NULL,NULL
+1922,S356,Donnelly,113,1,NULL,NULL,IN,NULL,Mr.,,,Indiana,Joe,Donnelly,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:24:18",NULL,NULL,NULL
+1923,S357,Fischer,113,1,NULL,NULL,NE,NULL,Mrs.,,,Nebraska,Deb,Fischer,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:30:38",NULL,NULL,NULL
+1924,S358,Flake,113,1,NULL,NULL,AZ,NULL,Mr.,,,Arizona,Jeff,Flake,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:32:07",NULL,NULL,NULL
+1925,S359,Heinrich,113,1,NULL,NULL,NM,NULL,Mr.,,T.,"New Mexico",Martin,Heinrich,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:33:21",NULL,NULL,NULL
+1926,S360,Heitkamp,113,1,NULL,NULL,ND,NULL,Ms.,,,"North Dakota",Heidi,Heitkamp,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:34:54",NULL,NULL,NULL
+1927,S361,Hirono,113,1,NULL,NULL,HI,NULL,Ms.,,K.,Hawaii,Mazie,Hirono,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:36:36",NULL,NULL,NULL
+1928,S362,Kaine,113,1,NULL,NULL,VA,NULL,Mr.,,,Virginia,Tim,Kaine,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:37:52",NULL,NULL,NULL
+1929,S363,King,113,1,NULL,NULL,ME,NULL,Mr.,,,Maine,Angus,King,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:39:12",NULL,NULL,NULL
+1930,S364,Murphy,113,1,NULL,NULL,CT,NULL,Mr.,,S.,Connecticut,Christopher,Murphy,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:40:30",NULL,NULL,NULL
+1931,S365,Scott,113,1,NULL,NULL,SC,,Mr.,,,"South Carolina",Tim,Scott,,NULL,"2013-01-02 00:00:00",NULL,"Appointed to complete Sen. Jim DeMint's term. Sworn in a day early to secure a higher seniority.",NULL,dconnolly,"2013-01-07 16:41:51",dconnolly,"2013-05-07 11:04:41",NULL
+1932,S366,Warren,113,1,NULL,NULL,MA,NULL,Ms.,,,Massachusetts,Elizabeth,Warren,NULL,NULL,"2013-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2013-01-07 16:43:15",NULL,NULL,NULL
+1933,S367,Cowan,113,1,113,1,MA,,Mr.,,M.,Massachusetts,William,Cowan,,NULL,"2013-02-07 00:00:00","2013-07-15 23:59:00","Appointed to complete Sen. Kerry's term.  Will serve until a replacement is elected in a special election on June 25, 2013.",NULL,dconnolly,"2013-02-07 16:43:33",dconnolly,"2013-07-16 10:09:05",NULL
+1934,S368,Chiesa,113,1,113,1,NJ,,Mr.,,,"New Jersey",Jeff,Chiesa,,NULL,"2013-06-10 16:30:00","2013-10-30 00:00:00","Appointed by Gov. Christie following the death of Sen. Lautenberg to serve until the special election scheduled for 10/16/13.",NULL,dconnolly,"2013-06-10 14:51:13",dconnolly,"2013-10-31 10:48:05",NULL
+1935,S369,Markey,113,1,NULL,NULL,MA,,,,,Massachusetts,Ed,Markey,,NULL,"2013-07-16 10:00:00",NULL,"Elected to complete Sen. Kerry's term (following Sen. Cowan's temporary appointment).",NULL,dconnolly,"2013-07-16 10:11:28",dconnolly,"2013-07-16 10:13:38",NULL
+1940,S370,Booker,113,1,NULL,NULL,NJ,NULL,,,,"New Jersey",Cory,Booker,NULL,NULL,"2013-10-31 12:00:00",NULL,NULL,NULL,dconnolly,"2013-10-31 10:50:49",NULL,NULL,NULL
+1952,S371,Walsh,113,2,113,2,MT,,Mr.,,,Montana,John,Walsh,,NULL,"2014-02-11 12:15:00","2014-12-16 00:00:00","The first vote Sen. Walsh was eligible to cast: 27 in 2014.",NULL,dconnolly,"2014-02-11 10:47:51",dconnolly,"2015-01-08 16:12:42",NULL
+3011,S383,Sullivan,114,1,NULL,NULL,AK,NULL,,,,Alaska,Dan,Sullivan,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:14:33",NULL,NULL,NULL
+3012,S379,Perdue,114,1,NULL,NULL,GA,NULL,,,,Georgia,David,Perdue,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:16:18",NULL,NULL,NULL
+3013,S384,Tillis,114,1,NULL,NULL,NC,NULL,,,,"North Carolina",Thom,Tillis,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:52:11",NULL,NULL,NULL
+3014,S376,Ernst,114,1,NULL,NULL,IA,NULL,,,,Iowa,Joni,Ernst,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:53:12",NULL,NULL,NULL
+3015,S382,Sasse,114,1,NULL,NULL,NE,NULL,,,,Nebraska,Ben,Sasse,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:54:14",NULL,NULL,NULL
+3016,S381,Rounds,114,1,NULL,NULL,SD,NULL,,,,"South Dakota",Mike,Rounds,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:55:12",NULL,NULL,NULL
+3017,S373,Cassidy,114,1,NULL,NULL,LA,NULL,,,,Louisiana,Bill,Cassidy,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:56:21",NULL,NULL,NULL
+3018,S380,Peters,114,1,NULL,NULL,MI,NULL,,,C.,Michigan,Gary,Peters,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:57:19",NULL,NULL,NULL
+3019,S374,Cotton,114,1,NULL,NULL,AR,NULL,,,,Arkansas,Tom,Cotton,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 16:59:34",NULL,NULL,NULL
+3020,S372,Capito,114,1,NULL,NULL,WV,NULL,,,Moore,"West Virginia",Shelly,Capito,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 17:00:43",NULL,NULL,NULL
+3021,S377,Gardner,114,1,NULL,NULL,CO,NULL,,,,Colorado,Cory,Gardner,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 17:02:07",NULL,NULL,NULL
+3022,S375,Daines,114,1,NULL,NULL,MT,NULL,,,,Montana,Steve,Daines,NULL,NULL,"2015-01-06 00:00:00",NULL,NULL,NULL,dconnolly,"2015-01-08 17:03:36",NULL,NULL,NULL
+3023,S378,Lankford,114,1,NULL,NULL,OK,,,,,Oklahoma,James,Lankford,,NULL,"2015-01-06 00:00:00",NULL,"Elected to complete an unexpired term",NULL,dconnolly,"2015-01-08 18:02:33",dconnolly,"2016-02-29 15:38:47",NULL
+3024,S387,Harris,115,1,NULL,NULL,CA,NULL,,,D.,California,Kamala,Harris,NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:09:26",NULL,NULL,NULL
+3025,S386,Duckworth,115,1,NULL,NULL,IL,NULL,,,,Illinois,Tammy,Duckworth,NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:10:56",NULL,NULL,NULL
+3026,S391,Young,115,1,NULL,NULL,IN,NULL,,,,Indiana,Todd,Young,NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:11:55",NULL,NULL,NULL
+3027,S389,Kennedy,115,1,NULL,NULL,LA,NULL,,,Neely,Louisiana,John,Kennedy,NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:12:57",NULL,NULL,NULL
+3028,S385,"Cortez Masto",115,1,NULL,NULL,NV,NULL,,,,Nevada,Catherine,"Cortez Masto",NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:14:15",NULL,NULL,NULL
+3029,S390,"Van Hollen",115,1,NULL,NULL,MD,NULL,,,,Maryland,Chris,"Van Hollen",NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:15:17",NULL,NULL,NULL
+3030,S388,Hassan,115,1,NULL,NULL,NH,NULL,,,,"New Hampshire",Maggie,Hassan,NULL,NULL,"2017-01-03 00:00:00",NULL,NULL,NULL,dconnolly,"2017-01-04 15:16:18",NULL,NULL,NULL
+3031,S392,Strange,115,1,NULL,NULL,AL,NULL,Mr.,,,Alabama,Luther,Strange,NULL,NULL,"2017-02-09 16:49:57",NULL,NULL,NULL,dconnolly,"2017-02-09 16:51:10",NULL,NULL,NULL
