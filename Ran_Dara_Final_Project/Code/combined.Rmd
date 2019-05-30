@@ -36,24 +36,23 @@ library(dplyr)
 How is teen birth rate related to adult unemployment, adult education level, and median household income? We look at the relationship at the county level. Further, how do teen birth rates differ by region?
 
 ### Datasets
-*Teen birth rates
-+ Link: https://catalog.data.gov/dataset/teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county
-+ Estimated teen birth rates for age group 15-19 (expressed per 1000 females aged 15-19) by county and year
-+ Used data for 2015
 
-*Education
-+ Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
-+ Percentage of adults in each of four categories
-++ Did not receive high school diploma
-++ Only received high school diploma
-++ Some college or associate's degree
-++ Received college degree or higher
-+ Used average value across 2013-2017
-
-*Unemployment
-+ Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
-+ Percent of labor force (people with a job or actively looking for one) without a job
-+ Used data for 2015
+* Teen birth rates
+  + Link: https://catalog.data.gov/dataset/teen-birth-rates-for-age-group-15-19-in-the-united-states-by-county
+  + Estimated teen birth rates for age group 15-19 (expressed per 1000 females aged 15-19) by county and year
+  + Used data for 2015
+* Education
+  + Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
+  + Percentage of adults in each of four categories
+    + Did not receive high school diploma
+    + Only received high school diploma
+    + Some college or associate's degree
+    + Received college degree or higher
+  + Used average value across 2013-2017
+* Unemployment
+  + Link: https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/
+  + Percent of labor force (people with a job or actively looking for one) without a job
+  + Used data for 2015
 
 ```{r}
 # Step 1: Load datasets
