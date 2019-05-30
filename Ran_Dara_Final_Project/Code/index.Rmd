@@ -103,10 +103,11 @@ summary(model)
 # plot(model)
 ```
 
-Fitting on all$^1$ aforementioned independent variables, we found that all variables were statistically significant. The model had an $r$-quared value of 0.6246, meaning that a good portion of the variation in the data is explained by our model. Keeping all our variables constant, we obtain the following results:
-*As unemployment rate rises, so does teen birth rate
-*The percentage of adult population with less than a high school diploma is positively correlated with teen birth rates
-*Median household income is negatively correlated with teen birth rate
-*Additionally, counties in the South had the highest teen birth rate
+Fitting on all [^1] aforementioned independent variables, we found that all variables were statistically significant. The model had an $r$-quared value of 0.6246, meaning that a good portion of the variation in the data is explained by our model. Keeping all our variables constant, we obtain the following results:
 
-$^1$ 
+* As unemployment rate rises, so does teen birth rate
+* The percentage of adult population with less than a high school diploma is positively correlated with teen birth rates
+* Median household income is negatively correlated with teen birth rate
+* Additionally, counties in the South had the highest teen birth rate
+
+[^1]: Since the four education categories add to $100%$, we only used three of the variables.
